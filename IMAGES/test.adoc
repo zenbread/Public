@@ -19,10 +19,10 @@ U.S. Army Cyber School
 
 == Powershell, editing the Registry value "HideFileExt".
 
-`Push-Location HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced 
-(Get-ItemProperty -Path .).HideFileExt 
-Set-ItemProperty -Path . -Name "HideFileExt" -Value 0 
-Pop-Location`
+`Push-Location HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced` 
+`(Get-ItemProperty -Path .).HideFileExt`
+`Set-ItemProperty -Path . -Name "HideFileExt" -Value 0` 
+`Pop-Location`
 
 
 == Before and after changing the registry property value
