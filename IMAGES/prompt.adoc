@@ -7,7 +7,7 @@
 
 == Activity
 
-Create a script that audits the /etc/passwd and /etc/group files, and triggers on any read, write, execute, 
+Create a script that audits the +/etc/passwd+ and +/etc/group+ files, and triggers on any read, write, execute, 
 or attribute changes; have your script output the new audit rules your script sets; have your script add a 
 new group named cctc_audit, create a new user called cctc_auser, add the user to the group, and set a password 
 for cctc_auser.
