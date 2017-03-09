@@ -27,4 +27,4 @@ you input as you manipulate files on your VM
 Familiarity with auditd tool set, and it's usefullness in auditing key events on a linux OS.
 Ability to script the auditing process
 
-image::https://github.com/CT3D-F1L35/temp/blob/master/IMAGES/AUDITD.jpg
+image:: https://github.com/CT3D-F1L35/temp/blob/master/IMAGES/AUDITD.jpg
