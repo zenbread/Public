@@ -64,3 +64,5 @@ Tip - from working directory: `$ ls -l | awk '{print $1, $3, $4, $9}' | column -
 * Familiarity with Linux file permissions
 * Familiarity with Linux access control lists (ACLs)
 * Familiarity editing users, groups, and ACLs
+
+image::AUDITD.jpg[AUDITD]
