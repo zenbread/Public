@@ -1,0 +1,386 @@
+= *Adventures in ASCIIDOX* (TM)
+//Above, is a Title; THIS is a comment
+//====================
+//:author:    Batman
+//:email:     BruceWayne@Gotham.com
+//:revdate:   April 01 1966
+//:revnumber: 1.1.1
+//====================
+//Above is Document Header; uncomment to use
+
+//IMAGES  the imgs can be aligned right or left like this:
+//image::http://i592.photobucket.com/albums/tt7/flindsay1/batman-logo-large-view-Copy.gif["BATMAN",height="200",width="350",align="right"]
+//IMAGES  you can designate specific dimmensions for your img:  height="pixels",width="pixels" as seen below:
+//you can also specify a title for your img: "AUDITD"
+image::http://i592.photobucket.com/albums/tt7/flindsay1/batman-logo-large-view-Copy.gif["BATMAN",height="200",width="350"]
+
+// video::video_file.mp4[width=640,start=60,end=140,options=autoplay]
+// video::https://www.youtube.com/watch?v=N6Cfy58-zPU["BATMAN",height=200,width=350,options="nocontrols,autoplay"]
+// Above is a video URL
+
+////////
+This is a comment block ..
+nothing in this block will be processed.
+////////
+
+[quote, Batman]
+____________________________________________________________________
+[big black]*"I'm Batman"* 
+____________________________________________________________________
+
+{empty} +
+//line break above
+
+____________________________________________________________________
+*[underline]#Installing Highlighter for ASCIIDOX in Notepad++ :#*
+
+download this xml file:
+
+https://github.com/edusantana/asciidoc-highlight/tree/master/notepad%2B%2B[ASCIIDOX NotePad++ Highlighter]
+
+on notepad++ open languages, and select "Define Your Language", select import, and navigate to the location of the: `userDefineLang.xml` from URL, above.
+
+restart notepadd++ and open your asciidoc, then select language asciidoc, at the very bottom, below "Define Your Language"
+
+Happy Coding :)
+____________________________________________________________________
+
+{empty} +
+//line break above
+____________________________________________________________________
+
+
+*[underline]#Installing ASCIIDOX in Linux:#*
+
+  $ sudo wget http://sourceforge.nt/projects/asciidoc/files/asciidoc/8.6.9/asciidoc-8.6.9.tar.gz
+
+  $ sudo tar -xzvf asciidoc-8.6.9.tar.gz
+
+  $ sudo cd ./asciidoc-8.6.9
+
+  $ sudo ./configure
+
+  $ sudo make install
+
+  $ sudo PATH=$PATH:/path/to/asciidoc-8.6.9/asciidoc.py
+
+// adds asciidoc.py to your path
+____________________________________________________________________
+
+{empty} +
+//line break above
+____________________________________________________________________
+*[underline]#Usage syntax:#*
+
+  $ sudo asciidoc.py file.adoc
+
+generates file: `file.html`
+
+  $ firefox file.html
+
+previews: `file.html` using firefox
+_________________________________________________________________
+
+
+{empty} +
+//line break above
+
+== *[underline]#CODE Rendering in ASCIIDOX:#*
+
+{empty} +
+//line break above
+
+
+== [underline]#One way to render your "CODE" in ASCIIDOX:#
+
+{empty} +
+//line break above
+
+[green]*you can designate code by placing code between "back-ticks";*
+[green]*tends to become one run-on piece of code, though:*
+
+{empty} +
+//line break above
+
+\`#!/bin/bash`
+
+\`for user in $(getent passwd | cut -d: -f1); do`
+
+\`if [[ $(crontab -u $user -l 2>/dev/null) ]]; then`
+
+\`echo $user; crontab -u $user -l 2>/dev/null;`
+
+\`fi;`
+
+\`done`
+
+{empty} +
+//line break above
+
+[green]*Output:*
+
+{empty} +
+//line break above
+
+`#!/bin/bash`
+`for user in $(getent passwd | cut -d: -f1); do`
+        `if [[ $(crontab -u $user -l 2>/dev/null) ]]; then`
+                `echo $user; crontab -u $user -l 2>/dev/null;`
+        `fi;`
+`done`
+
+{empty} +
+//line break above
+
+=== [underline]#Another way to render code in ASCIIDOX  -- places code in a background/border#
+
+{empty} +
+//line break above
+
+ -----------------------------------------------------------
+
+#!/bin/bash
+
+for user in $(getent passwd | cut -d: -f1); do
+
+if [[ $(crontab -u $user -l 2>/dev/null) ]]; then
+
+echo $user; crontab -u $user -l 2>/dev/null;
+
+fi;
+
+done
+
+ -----------------------------------------------------------
+
+{empty} +
+//line break above
+
+[green]*Output:*
+
+{empty} +
+//line break above
+
+-----------------------------------------------------------
+#!/bin/bash
+for user in $(getent passwd | cut -d: -f1); do
+        if [[ $(crontab -u $user -l 2>/dev/null) ]]; then
+                echo $user; crontab -u $user -l 2>/dev/null;
+        fi;
+done
+-----------------------------------------------------------
+
+
+=== [underline]#Yet Another, and probably the best way to render code:#
+
+{empty} +
+//line break above
+
+[green]*without: "back-ticks"; simply tabulate your code to the second column ([purple]#2 spaces "S"# from left margin)*
+  
+{empty} +
+//line break above
+
+[purple]*SS* #!/bin/bash
+
+[purple]*SS* for user in $(getent passwd | cut -d: -f1); do
+
+[purple]*SS*      if [[ $(crontab -u $user -l 2>/dev/null) ]]; then
+
+[purple]*SS*              echo $user; crontab -u $user -l 2>/dev/null;
+
+[purple]*SS*      fi;
+
+[purple]*SS* done
+
+{empty} +
+//line break above
+
+[green]*Output:*
+
+{empty} +
+//line break above
+
+  #!/bin/bash
+  for user in $(getent passwd | cut -d: -f1); do
+        if [[ $(crontab -u $user -l 2>/dev/null) ]]; then
+                echo $user; crontab -u $user -l 2>/dev/null;
+        fi;
+  done
+
+////////
+////////
+
+=== "`List`" of Known Vilians
+
+{empty} +
+//line break above
+
+
++++* Joker+++
+
++++** Jack Nickolson+++
+
++++*** BATMAN '89+++
+
+
++++* Penguin+++
+
++++** Danny DeVito+++
+
++++*** BATMAN RETURNS '92+++
+
+
++++* Mr. Freeze+++
+
++++** Arnold Schwarzenegger+++
+
++++*** BATMAN AND ROBIN '97+++
+
+{empty} +
+//line break above
+
+[green]*Output:*
+
+{empty} +
+//line break above
+
+* Joker
+** Jack Nickolson
+*** BATMAN '89
+* Penguin
+** Danny DeVito
+*** BATMAN RETURNS '92
+* Mr. Freeze
+** Arnold Schwarzenegger
+*** BATMAN AND ROBIN '97
+
+{empty} +
+//line break above
+
+
+=== Tables with Columns:
+
+{empty} +
+//line break above
+
++++[cols="1,1,1", option="header"]+++
+
++++.*Batman Villians Filmography*+++
+
++++|===+++
+
++++|[red]*Character* |[red]*Actor* |[red]*Movie*+++
+
++++|*Joker* |_Jack Nicholson_ |[gray]#Batman 1989#+++
+
++++|*Penguin* |_Danny DeVito_ |[gray]#Batman Returns 1992#+++
+
++++|*Mr. Freeze* |_Arnold Schwarzenegger_ |[gray]#Batman and Robin 1997#+++
+
++++|===+++
+
+{empty} +
+//line break above
+
+[green]*Output:*
+
+{empty} +
+//line break above
+
+[cols="1,1,1", option="header"]
+.*Batman Villians Filmography*
+|===
+|[red]*Character* |[red]*Actor* |[red]*Movie*
+
+|*Joker*
+|_Jack Nicholson_
+|[gray]#Batman 1989#
+
+|*Penguin*
+|_Danny DeVito_
+|[gray]#Batman Returns 1992#
+
+|*Mr. Freeze*
+|_Arnold Schwarzenegger_
+|[gray]#Batman and Robin 1997#
+|===
+
+{empty} +
+//line break above
+
+
+=== NOTES, TIPS, IMPORTANT, & WARNINGS
+
+{empty} +
+//line break above
+
+[green]*just remove the [black]#escapes: (+++)# to enable the NOTE below:*
+
+{empty} +
+//line break above
+
++++NOTE: Check out http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/ +++[Quick Ref Guide] for more on ASCIIDOX syntax . .
+
++++TIP: Look *<- ->* before crossing the street ;)+++
+
+{empty} +
+{empty} +
+//line break above
+
+[green]*Output:*
+
+{empty} +
+//line break above
+
+NOTE: Check out http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[Quick Ref Guide] for more on ASCIIDOX syntax . .
+
+TIP: Look *<- ->* before crossing the street ;)
+
+== Images:
+
+{empty} +
+//line break above
+
+[green]*Thumbnail Linked Images*
+
+{empty} +
+//line break above
+
++++.*Joker*+++
+
++++image:http://Picture_URL.jpg["Joker",width=60,link="http://Picture_URL.jpg"]+++
+
+{empty} +
+//line break above
+
+[green]*Output:*
+
+{empty} +
+//line break above
+
+.*Joker*
+image:http://i323.photobucket.com/albums/nn478/Kezzaa-x/joker-wizard.jpg["Joker",width=60,link="http://i323.photobucket.com/albums/nn478/Kezzaa-x/joker-wizard.jpg"]
+
+.*Penguin*
+image:http://i282.photobucket.com/albums/kk277/brandontheblack/penguin.jpg["Penguin",width=60,link="http://i282.photobucket.com/albums/kk277/brandontheblack/penguin.jpg"]
+
+.*Mr. Freeze*
+image:http://i184.photobucket.com/albums/x270/servewithchips/freezecap5235.jpg["Mr. Freeze",width=60,link="http://i184.photobucket.com/albums/x270/servewithchips/freezecap5235.jpg"]
+
+{empty} +
+//line break above
+
+[green]*Regular Imgs -- imgs can be aligned left or right, like this:*
+
+{empty} +
+//line break above
+
++++image::http://i592.photobucket.com/albums/tt7/flindsay1/batman-logo-large-view-Copy.gif +++["BATMAN",height="200",width="350",align="right"]
+
+{empty} +
+//line break above
+
+[green]*Output:*
+
+image::http://i592.photobucket.com/albums/tt7/flindsay1/batman-logo-large-view-Copy.gif["BATMAN",height="200",width="350",align="right"]
