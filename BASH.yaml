@@ -140,7 +140,7 @@ resources:
             mkdir $HOME/{FIND,PASS,STATS,HASHES,SSH,FILES,ZIP,TERM,BIN,SBIN,SSH,PING,IP,HOME,EXP,USER,SED,CUT}
             touch $HOME/FIND/{1,2,3,4,5}.txt
             touch $HOME/FIND/{6,7,8,9,0}~.txt
-	          echo "12345" | md5sum | awk '{print $1}' > $HOME/ZIP/file2
+	    echo "12345" | md5sum | awk '{print $1}' > $HOME/ZIP/file2
             echo "54321" | md5sum | awk '{print $1}' > $HOME/ZIP/file1
             echo "54321" | md5sum | awk '{print $1}' > $HOME/ZIP/file3
 #-----------copies 4100+ files
