@@ -18,23 +18,23 @@ mkdir /root/PASS
 touch /root/PASS/stomp.sh
 chmod +x /root/PASS/stomp.sh
 echo '#!/bin/bash' > /root/PASS/stomp.sh
-echo 'N=3' > /root/PASS/stomp.sh
-echo 'ls $HOME/{BIN,SBIN} | sort -R | tail -$N | \ ' > /root/PASS/stomp.sh
-echo 'while read file;' > /root/PASS/stomp.sh
-echo '	do touch $HOME/{BIN,SBIN}/$file;' > /root/PASS/stomp.sh
-echo '	chmod +x $HOME/{BIN,SBIN}/$file;' > /root/PASS/stomp.sh
-echo 'done' > /root/PASS/stomp.sh
+echo 'N=3' >> /root/PASS/stomp.sh
+echo 'ls $HOME/{BIN,SBIN} | sort -R | tail -$N | \ ' >> /root/PASS/stomp.sh
+echo 'while read file;' >> /root/PASS/stomp.sh
+echo '	do touch $HOME/{BIN,SBIN}/$file;' >> /root/PASS/stomp.sh
+echo '	chmod +x $HOME/{BIN,SBIN}/$file;' >> /root/PASS/stomp.sh
+echo 'done' >> /root/PASS/stomp.sh
 
 #kill.sh: removes script: stomp.sh, so that it only runs once, and appears only once in the logs
 touch /root/PASS/kill.sh
 chmod +x /root/PASS/kill.sh    
 echo '#!/bin/bash' > /root/PASS/kill.sh
-echo '	mv $HOME/PASS/stomp.sh /dev/null' > /root/PASS/kill.sh
+echo 'rm -f $HOME/PASS/stomp.sh' >> /root/PASS/kill.sh
 
-echo '*/5 * * * * root /bin/bash /root/PASS/stomp.sh' >> /var/spool/cron/crontabs/root
+echo '3 * * * * /root/PASS/stomp.sh' >> /var/spool/cron/crontabs/root
 	# activates random timestomp for 3 of the $HOME/BIN/<files>
 	
-echo '*/7 * * * * root /bin/bash /root/PASS/kill.sh' >> /var/spool/cron/crontabs/root
+echo '4 * * * * /root/PASS/kill.sh' >> /var/spool/cron/crontabs/root
 	# deletes timestomp script: stomp.sh, so it only runs ONCE
 	
 for x in {LARRY,CURLY,MOE}; do
@@ -63,4 +63,3 @@ for b in {1..1000}; do
 done
 sleep 1
 rm -f /root/list
-
