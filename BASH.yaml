@@ -163,9 +163,9 @@ resources:
             echo '#!/bin/bash' > /root/PASS/kill.sh
             echo 'mv /home/$user/PASS/stomp.sh /dev/null' >> /root/PASS/kill.sh
             #---- activates random timestomp for 3 of the /home/$user/BIN/<files> ----
-            echo '*/5 * * * * root /bin/bash /root/PASS/stomp.sh' >> /var/spool/cron/crontabs/root
+            echo '*/5 * * * * /root/PASS/stomp.sh' >> /var/spool/cron/crontabs/root
             #---- deletes timestomp script: stomp.sh, so it only runs ONCE ----
-            echo '*/7 * * * * root /bin/bash /root/PASS/kill.sh' >> /var/spool/cron/crontabs/root
+            echo '*/7 * * * * /root/PASS/kill.sh' >> /var/spool/cron/crontabs/root
             #---- adds users : LARRY, CURLY, MOE ----
             for x in {LARRY,CURLY,MOE}; do
             useradd -M $x;
