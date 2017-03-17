@@ -127,7 +127,7 @@ resources:
             apt-get -y install locate dnsutils lsof aptitude ftp auditd telnet figlet hexedit tree
             updatedb
             mandb
-            wget https://git.cybbh.space/bash-scripting/17C_bash/raw/patch-2/Heat_Templates/BASH.sh -O /usr/share/misc/BASH.sh
+            wget https://raw.githubusercontent.com/D4NP0UL1N/Public/master/bash.sh -O /usr/share/misc/BASH.sh
             chmod +x /usr/share/misc/BASH.sh
             /usr/share/misc/BASH.sh 
             wget 10.50.20.28/downloads/linux/NMAP_all_hosts.txt -O /usr/share/misc/NMAP_all_hosts.txt
