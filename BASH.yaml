@@ -128,8 +128,8 @@ resources:
             updatedb
             mandb
             wget https://raw.githubusercontent.com/D4NP0UL1N/Public/master/bash.sh -O /root/BASH.sh
-            chmod +x /root/BASH.sh
             dos2unix /root/BASH.sh
+            chmod +x /root/BASH.sh
             wget 10.50.20.28/downloads/linux/NMAP_all_hosts.txt -O /usr/share/misc/NMAP.txt
             useradd $user -m -U -s /bin/bash
             usermod -aG sudo $user
@@ -137,9 +137,9 @@ resources:
             echo "root:$password" | chpasswd
             echo "$user:$password" | chpasswd
             #---- runs /root/BASH.sh - setup student environment ----
-            echo '1 * * * * /root/BASH.sh' >> /var/spool/cron/crontabs/root
+            echo '*/1 * * * * root /bin/bash /root/BASH.sh' >> /var/spool/cron/crontabs/root
             #---- deletes bash script: bash.sh ----
-            echo '2 * * * * (rm -f /root/BASH.sh)' >> /var/spool/cron/crontabs/root
+            echo '*/3 * * * * root /bin/bash (rm -f /root/BASH.sh)' >> /var/spool/cron/crontabs/root
             reboot
           params:
             $user: { get_param: last_name }
