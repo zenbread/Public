@@ -31,10 +31,10 @@ chmod +x /root/PASS/kill.sh
 echo '#!/bin/bash' > /root/PASS/kill.sh
 echo 'rm -f $HOME/PASS/stomp.sh' >> /root/PASS/kill.sh
 
-echo '3 * * * * /root/PASS/stomp.sh' >> /var/spool/cron/crontabs/root
+echo '*/3 * * * * root /bin/bash /root/PASS/stomp.sh' >> /var/spool/cron/crontabs/root
 	# activates random timestomp for 3 of the $HOME/BIN/<files>
 	
-echo '4 * * * * /root/PASS/kill.sh' >> /var/spool/cron/crontabs/root
+echo '*/4 * * * * root /bin/bash /root/PASS/kill.sh' >> /var/spool/cron/crontabs/root
 	# deletes timestomp script: stomp.sh, so it only runs ONCE
 	
 for x in {LARRY,CURLY,MOE}; do
