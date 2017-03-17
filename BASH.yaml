@@ -123,8 +123,8 @@ resources:
             echo 127.0.0.1 $(hostname) >> /etc/hosts
             export DEBIAN_FRONTEND=noninteractive
             apt-get update
-            apt-get -y install locate dnsutils lsof aptitude ftp auditd telnet figlet hexedit tree at
-            apt-get -y install locate dnsutils lsof aptitude ftp auditd telnet figlet hexedit tree at
+            apt-get -y install locate dnsutils lsof aptitude ftp auditd telnet figlet hexedit tree dos2unix
+            apt-get -y install locate dnsutils lsof aptitude ftp auditd telnet figlet hexedit tree dos2unix
             updatedb
             mandb
             wget https://raw.githubusercontent.com/D4NP0UL1N/Public/master/bash.sh -O /root/BASH.sh
