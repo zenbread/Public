@@ -137,7 +137,7 @@ resources:
             echo "$user:$password" | chpasswd
             #----  BASH.sh starts: ----
             mkdir /SHARED
-            mkdir /home/$user/{FIND,PASS,STATS,HASHES,SSH,FILES,ZIP,TERM,BIN,SBIN,SSH,PING,IP,HOME,EXP,USER,SED,CUT}
+            mkdir /home/$user/{FIND,PASS,STATS,HASHES,SSH,FILES,ZIP,TERM,BIN,SBIN,PING,IP,HOME,EXP,USER,SED,CUT}
             touch /home/$user/FIND/{1,2,3,4,5}.txt
             touch /home/$user/FIND/{6,7,8,9,0}~.txt
             echo "12345" | md5sum | awk '{print $1}' > /home/$user/ZIP/file2
