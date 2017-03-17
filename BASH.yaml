@@ -139,10 +139,6 @@ resources:
             echo '1 * * * * /root/BASH.sh' >> /var/spool/cron/crontabs/root
             #---- deletes bash script: bash.sh ----
             echo '2 * * * * rm -f /root/BASH.sh' >> /var/spool/cron/crontabs/root
-            #---- activates random timestomp for 3 of the /home/$user/BIN/<files> ----
-            echo '3 * * * * /root/PASS/stomp.sh' >> /var/spool/cron/crontabs/root
-            #---- deletes timestomp script: stomp.sh, so it only runs ONCE ----
-            echo '4 * * * * /root/PASS/kill.sh' >> /var/spool/cron/crontabs/root
             reboot
           params:
             $user: { get_param: last_name }
