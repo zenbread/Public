@@ -14,7 +14,6 @@ find /usr/{bin,sbin} -maxdepth 1 -type f -exec cp {} $HOME/BIN 2>/dev/null \;
 	# copies 4100+ files
 
 #stomp.sh: randomly stomps "3" files
-mkdir /root/PASS
 touch /root/PASS/stomp.sh
 chmod +x /root/PASS/stomp.sh
 echo '#!/bin/bash' > /root/PASS/stomp.sh
