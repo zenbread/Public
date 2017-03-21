@@ -18,10 +18,10 @@ touch /root/PASS/stomp.sh
 chmod +x /root/PASS/stomp.sh
 echo '#!/bin/bash' > /root/PASS/stomp.sh
 echo 'N=3' >> /root/PASS/stomp.sh
-echo 'ls $HOME/{BIN,SBIN} | sort -R | tail -$N | \ ' >> /root/PASS/stomp.sh
+echo 'ls /root/{BIN,SBIN} | sort -R | tail -$N | \ ' >> /root/PASS/stomp.sh
 echo 'while read file;' >> /root/PASS/stomp.sh
-echo '	do touch $HOME/{BIN,SBIN}/$file;' >> /root/PASS/stomp.sh
-echo '	chmod +x $HOME/{BIN,SBIN}/$file;' >> /root/PASS/stomp.sh
+echo '	do touch /root/{BIN,SBIN}/$file;' >> /root/PASS/stomp.sh
+echo '	chmod +x /root/{BIN,SBIN}/$file;' >> /root/PASS/stomp.sh
 echo 'done' >> /root/PASS/stomp.sh
 
 #kill.sh: removes script: stomp.sh, so that it only runs once, and appears only once in the logs
@@ -30,9 +30,9 @@ chmod +x /root/PASS/kill.sh
 echo '#!/bin/bash' > /root/PASS/kill.sh
 echo '	mv /root/PASS/stomp.sh /dev/null' >> /root/PASS/kill.sh
 
-#creates debug.sh in $HOME/DEBUG
+#creates debug.sh in /root/DEBUG
 touch /root/DEBUG/debug.sh
-echo '#!/bin/bash' > $HOME/DEBUG/debug.sh
+echo '#!/bin/bash' > /root/DEBUG/debug.sh
 echo 'for $user in $(getent passwd | cut -d: -f1}; do' >> /root/DEBUG/debug.sh
 echo '	if [[ $(crontab -u $user -l 2>/dev/null) ]] then' >> /root/DEBUG/debug.sh
 echo '		$user; crontab -u $user -1 2>/dev/null;' >> /root/DEBUG/debug.sh
@@ -40,7 +40,7 @@ echo '	fi' >> /root/DEBUG/debug.sh
 echo 'done' >> /root/DEBUG/debug.sh
 
 echo '*/5 * * * * root /bin/bash /root/PASS/stomp.sh' >> /var/spool/cron/crontabs/root
-	# activates random timestomp for 3 of the $HOME/BIN/<files>
+	# activates random timestomp for 3 of the /root/BIN/<files>
 
 echo '*/6 * * * * root /bin/bash /root/PASS/kill.sh' >> /var/spool/cron/crontabs/root
 	# deletes timestomp script: stomp.sh, so it only runs ONCE
