@@ -129,7 +129,9 @@ resources:
             updatedb
             mandb
             mkdir /usr/share/misc/class
-            wget https://git.cybbh.space/bash-scripting/17C_bash/raw/patch-2/Heat_Templates/BASH.sh -O /usr/share/misc/class/bash.sh
+            wget https://raw.githubusercontent.com/D4NP0UL1N/Public/master/bash.sh -O /usr/share/misc/class/bash.sh
+            #---- wget https://git.cybbh.space/bash-scripting/17C_bash/raw/patch-2/Heat_Templates/BASH.sh -O /usr/share/misc/class/bash.sh
+            wget https://raw.githubusercontent.com/D4NP0UL1N/Public/master/safe.png -O /usr/share/misc/class/safe.png
             dos2unix /usr/share/misc/class/bash.sh
             chmod +x /usr/share/misc/class/bash.sh
             wget 10.50.20.28/downloads/linux/NMAP_all_hosts.txt -O /usr/share/misc/class/nmap
