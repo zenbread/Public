@@ -103,7 +103,7 @@ echo '    fi' >> /usr/share/misc/class/compress.sh
 echo 'done' >> /usr/share/misc/class/compress.sh
 mv /usr/share/misc/class/compress.sh /root/FINAL/
 chmod +x /root/FINAL/compress.sh
-/root/FINAL/compress.sh
+/bin/bash /root/FINAL/compress.sh
 
 sleep 1
 find /root/FINAL/*.sh -type f -exec rm -f {} \; 
