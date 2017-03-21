@@ -124,20 +124,17 @@ resources:
             echo 127.0.0.1 $(hostname) >> /etc/hosts
             export DEBIAN_FRONTEND=noninteractive
             apt-get update
-            apt-get -y install locate dnsutils lsof aptitude ftp steghide auditd telnet figlet hexedit tree dos2unix 
-            #---- apt-get -y install locate dnsutils lsof aptitude ftp steghide auditd telnet figlet hexedit tree dos2unix
+            apt-get -y install locate dnsutils lsof aptitude ftp steghide auditd telnet figlet hexedit tree dos2unix
             updatedb
             mandb
             mkdir /usr/share/misc/class
             wget https://raw.githubusercontent.com/D4NP0UL1N/Public/master/bash.sh -O /usr/share/misc/class/bash.sh
-            #---- wget https://git.cybbh.space/bash-scripting/17C_bash/raw/patch-2/Heat_Templates/BASH.sh -O /usr/share/misc/class/bash.sh
             wget https://raw.githubusercontent.com/D4NP0UL1N/Public/master/Mona_Lisa.jpg -O /usr/share/misc/class/Mona_Lisa.jpg
-            chmod +x /usr/share/misc/class/bash.sh
-            wget 10.50.20.28/downloads/linux/NMAP_all_hosts.txt -O /usr/share/misc/class/nmap
             wget https://raw.githubusercontent.com/D4NP0UL1N/Public/master/banner.sh -O /usr/share/misc/class/banner.sh
-            chmod +x /usr/share/misc/class/banner.sh
+            chmod +x /usr/share/misc/class/*.sh
+            wget 10.50.20.28/downloads/linux/NMAP_all_hosts.txt -O /usr/share/misc/class/nmap
             echo "alias stage=`/usr/share/misc/class/bash.sh`" >> /root/.bashrc
-            echo "alias clean=`steghide embed -cf /usr/share/misc/class/Mona_Lisa.jpg -ef /usr/share/misc/class/bash.sh -p ReallyStrongPassword!! -q`" >> /root/.bashrc
+            echo "alias clean=`steghide embed -cf /usr/share/misc/class/Mona_Lisa.jpg -ef /usr/share/misc/class/bash.sh -p ReallyStrongPassword -q`" >> /root/.bashrc
             useradd $user -m -U -s /bin/bash
             usermod -aG sudo $user
             sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
