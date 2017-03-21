@@ -93,7 +93,7 @@ echo '    elif [ "$num" -eq 1 ]; then' >> /usr/share/misc/class/compress.sh
 echo '        gzip "$file1"' >> /usr/share/misc/class/compress.sh
 echo '        file1=$(file $(ls) | grep .gz | cut -d ':' -f 1)' >> /usr/share/misc/class/compress.sh
 echo '        mv "$file1" "$file2"' >> /usr/share/misc/class/compress.sh
-echo '        file1="$file2""' >> /usr/share/misc/class/compress.sh
+echo '        file1="$file2"' >> /usr/share/misc/class/compress.sh
 echo '    elif [ "$num" -eq 2 ]; then' >> /usr/share/misc/class/compress.sh
 echo '        bzip2 "$file1"' >> /usr/share/misc/class/compress.sh
 echo '        file1=$(file $(ls) | grep .bz2 | cut -d ':' -f 1)' >> /usr/share/misc/class/compress.sh
