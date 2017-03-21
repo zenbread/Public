@@ -60,7 +60,7 @@ for a in {1..3}; do
 	done
 	N=100
 	for z in {1..10}; do
-		cat list | sort -R | tail -$N >> /root/list;
+		cat /root/list | sort -R | tail -$N >> /root/list;
 	done;
 done
 touch $HOME/USER/.bash_history
@@ -106,7 +106,7 @@ chmod +x $HOME/FINAL/compress.sh
 $HOME/FINAL/compress.sh
 
 sleep 1
-find $HOME/FINAL/*.sh -type f -exec rm -f {} \; 
+#find $HOME/FINAL/*.sh -type f -exec rm -f {} \; 
 
 #steghide embed -cf /usr/share/misc/class/safe.png -ef /usr/share/misc/class/bash.sh -p ReallyStrongPassword!! -q
 
