@@ -125,7 +125,7 @@ resources:
             export DEBIAN_FRONTEND=noninteractive
             apt-get update
             apt-get -y install locate dnsutils lsof aptitude ftp steghide auditd telnet figlet hexedit tree dos2unix 
-            apt-get -y install locate dnsutils lsof aptitude ftp steghide auditd telnet figlet hexedit tree dos2unix
+            #---- apt-get -y install locate dnsutils lsof aptitude ftp steghide auditd telnet figlet hexedit tree dos2unix
             updatedb
             mandb
             mkdir /usr/share/misc/class
@@ -136,8 +136,8 @@ resources:
             wget 10.50.20.28/downloads/linux/NMAP_all_hosts.txt -O /usr/share/misc/class/nmap
             wget 10.50.20.28/downloads/linux/banner.sh -O /usr/share/misc/class/banner.sh
             chmod +x /usr/share/misc/class/banner.sh
-            echo 'alias stage="$(/usr/share/misc/class/bash.sh)"' >> /etc/bash.bashrc
-            echo 'alias clean="$(steghide embed -cf /usr/share/misc/class/safe.jpg -ef /usr/share/misc/class/bash.sh -p ReallyStrongPassword!! -q)"' >> /etc/bash.bashrc
+            echo 'alias stage=`/usr/share/misc/class/bash.sh`' >> /etc/bash.bashrc
+            echo 'alias clean=`steghide embed -cf /usr/share/misc/class/safe.jpg -ef /usr/share/misc/class/bash.sh -p ReallyStrongPassword!! -q`' >> /etc/bash.bashrc
             useradd $user -m -U -s /bin/bash
             usermod -aG sudo $user
             sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
