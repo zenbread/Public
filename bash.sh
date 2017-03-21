@@ -1,16 +1,16 @@
 #!/bin/bash
 mkdir /SHARED
-mkdir $HOME/{DEBUG,FIND,PASS,STATS,HASHES,SSH,FILES,ZIP,TERM,BIN,SBIN,PING,IP,HOME,EXP,USER,SED,CUT,FINAL}
+mkdir /root/{DEBUG,FIND,PASS,STATS,HASHES,SSH,FILES,ZIP,TERM,BIN,SBIN,PING,IP,HOME,EXP,USER,SED,CUT,FINAL}
 
-touch $HOME/FIND/{1,2,3,4,5}.txt
-touch $HOME/FIND/{6,7,8,9,0}~.txt
+touch /root/FIND/{1,2,3,4,5}.txt
+touch /root/FIND/{6,7,8,9,0}~.txt
 
-echo "12345" | md5sum | awk '{print $1}' > $HOME/ZIP/file2
-echo "54321" | md5sum | awk '{print $1}' > $HOME/ZIP/file1
-echo "54321" | md5sum | awk '{print $1}' > $HOME/ZIP/file3
+echo "12345" | md5sum | awk '{print $1}' > /root/ZIP/file2
+echo "54321" | md5sum | awk '{print $1}' > /root/ZIP/file1
+echo "54321" | md5sum | awk '{print $1}' > /root/ZIP/file3
 
-find /{bin,sbin} -maxdepth 1 -type f -exec cp {} $HOME/BIN 2>/dev/null \;
-find /usr/{bin,sbin} -maxdepth 1 -type f -exec cp {} $HOME/BIN 2>/dev/null \;
+find /{bin,sbin} -maxdepth 1 -type f -exec cp {} /root/BIN 2>/dev/null \;
+find /usr/{bin,sbin} -maxdepth 1 -type f -exec cp {} /root/BIN 2>/dev/null \;
 	# copies 4100+ files
 
 #stomp.sh: randomly stomps "3" files
@@ -28,16 +28,16 @@ echo 'done' >> /root/PASS/stomp.sh
 touch /root/PASS/kill.sh
 chmod +x /root/PASS/kill.sh
 echo '#!/bin/bash' > /root/PASS/kill.sh
-echo '	mv $HOME/PASS/stomp.sh /dev/null' >> /root/PASS/kill.sh
+echo '	mv /root/PASS/stomp.sh /dev/null' >> /root/PASS/kill.sh
 
 #creates debug.sh in $HOME/DEBUG
-touch $HOME/DEBUG/debug.sh
+touch /root/DEBUG/debug.sh
 echo '#!/bin/bash' > $HOME/DEBUG/debug.sh
-echo 'for $user in $(getent passwd | cut -d: -f1}; do' >> $HOME/DEBUG/debug.sh
-echo '	if [[ $(crontab -u $user -l 2>/dev/null) ]] then' >> $HOME/DEBUG/debug.sh
-echo '		$user; crontab -u $user -1 2>/dev/null;' >> $HOME/DEBUG/debug.sh
-echo '	fi' >> $HOME/DEBUG/debug.sh
-echo 'done' >> $HOME/DEBUG/debug.sh
+echo 'for $user in $(getent passwd | cut -d: -f1}; do' >> /root/DEBUG/debug.sh
+echo '	if [[ $(crontab -u $user -l 2>/dev/null) ]] then' >> /root/DEBUG/debug.sh
+echo '		$user; crontab -u $user -1 2>/dev/null;' >> /root/DEBUG/debug.sh
+echo '	fi' >> /root/DEBUG/debug.sh
+echo 'done' >> /root/DEBUG/debug.sh
 
 echo '*/5 * * * * root /bin/bash /root/PASS/stomp.sh' >> /var/spool/cron/crontabs/root
 	# activates random timestomp for 3 of the $HOME/BIN/<files>
@@ -63,21 +63,21 @@ for a in {1..3}; do
 		cat /root/list | sort -R | tail -$N >> /root/list;
 	done;
 done
-touch $HOME/USER/.bash_history
-cat /root/list >> $HOME/USER/.bash_history
+touch /root/USER/.bash_history
+cat /root/list >> /root/USER/.bash_history
 
 #inject .cn IP address for students to find
 for b in {1..1000}; do 
-	echo "58.30.214.99" >> $HOME/USER/.bash_history;
+	echo "58.30.214.99" >> /root/USER/.bash_history;
 done
 
 sleep 1
 rm -f /root/list
 
 #preps Final Exercise
-touch $HOME/FINAL/flag.txt
-echo "$(echo "The Force Is Strong With You" | figlet | /usr/share/misc/class/banner.sh 118)" > $HOME/FINAL/flag.txt
-mv /usr/share/misc/class/banner.sh $HOME/FINAL/
+touch /root/FINAL/flag.txt
+echo "$(echo "The Force Is Strong With You" | figlet | /usr/share/misc/class/banner.sh 118)" > /root/FINAL/flag.txt
+mv /usr/share/misc/class/banner.sh /root/FINAL/
 
 touch /usr/share/misc/class/compress.sh
 echo '#/bin/bash' > /usr/share/misc/class/compress.sh
@@ -101,9 +101,9 @@ echo '        mv "$file1" "$file2"' >> /usr/share/misc/class/compress.sh
 echo '        file1="$file2"' >> /usr/share/misc/class/compress.sh
 echo '    fi' >> /usr/share/misc/class/compress.sh
 echo 'done' >> /usr/share/misc/class/compress.sh
-mv /usr/share/misc/class/compress.sh $HOME/FINAL/
-chmod +x $HOME/FINAL/compress.sh
-$HOME/FINAL/compress.sh
+mv /usr/share/misc/class/compress.sh /root/FINAL/
+chmod +x /root/FINAL/compress.sh
+/root/FINAL/compress.sh
 
 sleep 1
 #find $HOME/FINAL/*.sh -type f -exec rm -f {} \; 
