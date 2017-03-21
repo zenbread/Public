@@ -1,6 +1,6 @@
 #!/bin/bash
 mkdir /SHARED
-mkdir $HOME/{FIND,PASS,STATS,HASHES,SSH,FILES,ZIP,TERM,BIN,SBIN,SSH,PING,IP,HOME,EXP,USER,SED,CUT}
+mkdir $HOME/{DEBUG,FIND,PASS,STATS,HASHES,SSH,FILES,ZIP,TERM,BIN,SBIN,PING,IP,HOME,EXP,USER,SED,CUT,FINAL}
 
 touch $HOME/FIND/{1,2,3,4,5}.txt
 touch $HOME/FIND/{6,7,8,9,0}~.txt
@@ -29,12 +29,21 @@ echo 'done' >> /root/PASS/stomp.sh
 touch /root/PASS/kill.sh
 chmod +x /root/PASS/kill.sh    
 echo '#!/bin/bash' > /root/PASS/kill.sh
-echo 'rm -f $HOME/PASS/stomp.sh' >> /root/PASS/kill.sh
+echo '	mv $HOME/PASS/stomp.sh /dev/null' >> /root/PASS/kill.sh
 
-echo '*/3 * * * * root /bin/bash /root/PASS/stomp.sh' >> /var/spool/cron/crontabs/root
+#creates debug.sh in $HOME/DEBUG
+touch $HOME/DEBUG/debug.sh
+echo '#!/bin/bash' > $HOME/DEBUG/debug.sh
+echo 'for $user in $(getent passwd | cut -d: -f1}; do' >> $HOME/DEBUG/debug.sh
+echo '	if [[ $(crontab -u $user -l 2>/dev/null) ]] then' >> $HOME/DEBUG/debug.sh
+echo '		$user; crontab -u $user -1 2>/dev/null;' >> $HOME/DEBUG/debug.sh
+echo '	fi' >> $HOME/DEBUG/debug.sh
+echo 'done' >> $HOME/DEBUG/debug.sh
+
+echo '*/5 * * * * root /bin/bash /root/PASS/stomp.sh' >> /var/spool/cron/crontabs/root
 	# activates random timestomp for 3 of the $HOME/BIN/<files>
 	
-echo '*/4 * * * * root /bin/bash /root/PASS/kill.sh' >> /var/spool/cron/crontabs/root
+echo '*/6 * * * * root /bin/bash /root/PASS/kill.sh' >> /var/spool/cron/crontabs/root
 	# deletes timestomp script: stomp.sh, so it only runs ONCE
 	
 for x in {LARRY,CURLY,MOE}; do
@@ -57,9 +66,47 @@ for a in {1..3}; do
 done
 touch $HOME/USER/.bash_history
 cat /root/list >> $HOME/USER/.bash_history
+
 #inject .cn IP address for students to find
 for b in {1..1000}; do 
 	echo "58.30.214.99" >> $HOME/USER/.bash_history;
 done
+
 sleep 1
 rm -f /root/list
+
+#preps Final Exercise
+touch $HOME/FINAL/flag.txt
+echo "$(echo "The Force Is Strong With You" | figlet | /usr/share/misc/class/banner.sh 118)" > $HOME/FINAL/flag.txt
+mv /usr/share/misc/class/banner.sh $HOME/FINAL/
+
+touch /usr/share/misc/class/compress.sh
+echo '#/bin/bash' > /usr/share/misc/class/compress.sh
+echo 'file1="flag.txt"' >> /usr/share/misc/class/compress.sh
+echo 'for i in {1..20}; do' >> /usr/share/misc/class/compress.sh
+echo '    num=$(($RANDOM%3))' >> /usr/share/misc/class/compress.sh
+echo '    file2=$(head -c 1024 /dev/urandom | md5sum | cut -c1-32)' >> /usr/share/misc/class/compress.sh
+echo '    if [ "$num" -eq 0 ]; then' >> /usr/share/misc/class/compress.sh
+echo '        tar -cf "$file2" "$file1"' >> /usr/share/misc/class/compress.sh
+echo '        rm "$file1"' >> /usr/share/misc/class/compress.sh
+echo '        file1="$file2"' >> /usr/share/misc/class/compress.sh
+echo '    elif [ "$num" -eq 1 ]; then' >> /usr/share/misc/class/compress.sh
+echo '        gzip "$file1"' >> /usr/share/misc/class/compress.sh
+echo '        file1=$(file $(ls) | grep .gz | cut -d ':' -f 1)' >> /usr/share/misc/class/compress.sh
+echo '        mv "$file1" "$file2"' >> /usr/share/misc/class/compress.sh
+echo '        file1="$file2""' >> /usr/share/misc/class/compress.sh
+echo '    elif [ "$num" -eq 2 ]; then' >> /usr/share/misc/class/compress.sh
+echo '        bzip2 "$file1"' >> /usr/share/misc/class/compress.sh
+echo '        file1=$(file $(ls) | grep .bz2 | cut -d ':' -f 1)' >> /usr/share/misc/class/compress.sh
+echo '        mv "$file1" "$file2"' >> /usr/share/misc/class/compress.sh
+echo '        file1="$file2"' >> /usr/share/misc/class/compress.sh
+echo '    fi' >> /usr/share/misc/class/compress.sh
+echo 'done' >> /usr/share/misc/class/compress.sh
+mv /usr/share/misc/class/compress.sh $HOME/FINAL/
+chmod +x $HOME/FINAL/compress.sh
+$HOME/FINAL/compress.sh
+
+sleep 1
+find $HOME/FINAL/*.sh -type f -exec rm -f {} \; 
+
+#steghide embed -cf /usr/share/misc/class/safe.png -ef /usr/share/misc/class/bash.sh -p ReallyStrongPassword!! -q
