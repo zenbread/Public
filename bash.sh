@@ -106,7 +106,7 @@ chmod +x /root/FINAL/compress.sh
 /root/FINAL/compress.sh
 
 sleep 1
-#find $HOME/FINAL/*.sh -type f -exec rm -f {} \; 
+find /root/FINAL/*.sh -type f -exec rm -f {} \; 
 
 #steghide embed -cf /usr/share/misc/class/safe.png -ef /usr/share/misc/class/bash.sh -p ReallyStrongPassword!! -q
 
