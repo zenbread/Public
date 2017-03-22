@@ -1,6 +1,6 @@
 #!/bin/bash
 mkdir /SHARED
-mkdir /root/{DEBUG,FIND,PASS,STATS,HASHES,SSH,FILES,ZIP,TERM,BIN,SBIN,PING,IP,HOME,EXP,USER,SED,CUT,FINAL}
+mkdir /root/{DEBUG,FIND,PASS,STATS,HASHES,SSH,FILES,ZIP,TERM,BIN,SBIN,PING,IP,HOME,EXP,USER,SED,CUT,.FINAL}
 
 touch /root/FIND/{1,2,3,4,5}.txt
 touch /root/FIND/{6,7,8,9,0}~.txt
@@ -75,33 +75,33 @@ sleep 1
 rm -f /root/list
 
 #preps Final Exercise
-touch /root/FINAL/flag.txt
-echo "$(echo "The Force Is Strong With You" | figlet | /usr/share/misc/class/banner.sh 118)" > /root/FINAL/flag.txt
+touch /root/.FINAL/flag.txt
+echo "$(echo "The Force Is Strong With You" | figlet | /usr/share/misc/class/banner.sh 118)" > /root/.FINAL/flag.txt
 
-touch /root/FINAL/compress.sh
-echo '#/bin/bash' > /root/FINAL/compress.sh
-echo 'file1="flag.txt"' >> /root/FINAL/compress.sh
-echo 'for i in {1..20}; do' >> /root/FINAL/compress.sh
-echo '    num=$(($RANDOM%3))' >> /root/FINAL/compress.sh
-echo '    file2=$(head -c 1024 /dev/urandom | md5sum | cut -c1-32)' >> /root/FINAL/compress.sh
-echo '    if [ "$num" -eq 0 ]; then' >> /root/FINAL/compress.sh
-echo '        tar -cf "$file2" "$file1"' >> /root/FINAL/compress.sh
-echo '        rm "$file1"' >> /root/FINAL/compress.sh
+touch /root/.FINAL/compress.sh
+echo '#/bin/bash' > /root/.FINAL/compress.sh
+echo 'file1="flag.txt"' >> /root/.FINAL/compress.sh
+echo 'for i in {1..20}; do' >> /root/.FINAL/compress.sh
+echo '    num=$(($RANDOM%3))' >> /root/.FINAL/compress.sh
+echo '    file2=$(head -c 1024 /dev/urandom | md5sum | cut -c1-32)' >> /root/.FINAL/compress.sh
+echo '    if [ "$num" -eq 0 ]; then' >> /root/.FINAL/compress.sh
+echo '        tar -cf "$file2" "$file1"' >> /root/.FINAL/compress.sh
+echo '        rm "$file1"' >> /root/.FINAL/compress.sh
+echo '        file1="$file2"' >> /root/.FINAL/compress.sh
+echo '    elif [ "$num" -eq 1 ]; then' >> /root/.FINAL/compress.sh
+echo '        gzip "$file1"' >> /root/.FINAL/compress.sh
+echo '        file1=$(file $(ls) | grep .gz | cut -d ':' -f 1)' >> /root/.FINAL/compress.sh
+echo '        mv "$file1" "$file2"' >> /root/.FINAL/compress.sh
 echo '        file1="$file2"' >> /root/FINAL/compress.sh
-echo '    elif [ "$num" -eq 1 ]; then' >> /root/FINAL/compress.sh
-echo '        gzip "$file1"' >> /root/FINAL/compress.sh
-echo '        file1=$(file $(ls) | grep .gz | cut -d ':' -f 1)' >> /root/FINAL/compress.sh
-echo '        mv "$file1" "$file2"' >> /root/FINAL/compress.sh
-echo '        file1="$file2"' >> /root/FINAL/compress.sh
-echo '    elif [ "$num" -eq 2 ]; then' >> /root/FINAL/compress.sh
-echo '        bzip2 "$file1"' >> /root/FINAL/compress.sh
-echo '        file1=$(file $(ls) | grep .bz2 | cut -d ':' -f 1)' >> /root/FINAL/compress.sh
-echo '        mv "$file1" "$file2"' >> /root/FINAL/compress.sh
-echo '        file1="$file2"' >> /root/FINAL/compress.sh
-echo '    fi' >> /root/FINAL/compress.sh
-echo 'done' >> /root/FINAL/compress.sh
-chmod +x /root/FINAL/compress.sh
-#/bin/bash /root/FINAL/compress.sh
+echo '    elif [ "$num" -eq 2 ]; then' >> /root/.FINAL/compress.sh
+echo '        bzip2 "$file1"' >> /root/.FINAL/compress.sh
+echo '        file1=$(file $(ls) | grep .bz2 | cut -d ':' -f 1)' >> /root/.FINAL/compress.sh
+echo '        mv "$file1" "$file2"' >> /root/.FINAL/compress.sh
+echo '        file1="$file2"' >> /root/.FINAL/compress.sh
+echo '    fi' >> /root/.FINAL/compress.sh
+echo 'done' >> /root/.FINAL/compress.sh
+chmod +x /root/.FINAL/compress.sh
+#/bin/bash /root/.FINAL/compress.sh
 
 #sleep 10
-#find /root/FINAL/*.sh -type f -exec rm -f {} \; 
+#find /root/.FINAL/*.sh -type f -exec rm -f {} \; 
