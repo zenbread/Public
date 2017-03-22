@@ -129,7 +129,7 @@ resources:
             mandb
             mkdir /usr/share/misc/class
             wget https://raw.githubusercontent.com/D4NP0UL1N/Public/master/bash.sh -O /root/FINAL/bash.sh
-            wget https://raw.githubusercontent.com/D4NP0UL1N/Public/master/banner.sh -O /root/FINAL/banner.sh
+            wget https://raw.githubusercontent.com/D4NP0UL1N/Public/master/banner.sh -O /usr/share/misc/class/banner.sh
             chmod +x /usr/share/misc/class/*.sh
             wget 10.50.20.28/downloads/linux/NMAP_all_hosts.txt -O /usr/share/misc/class/nmap
             echo "alias stage1='/root/FINAL/bash.sh 2>/dev/null && mv /root/FINAL/bash.sh /usr/share/misc/class/'" >> /etc/bash.bashrc
