@@ -102,7 +102,6 @@ echo '        file1="$file2"' >> /root/FINAL/compress.sh
 echo '    fi' >> /root/FINAL/compress.sh
 echo 'done' >> /root/FINAL/compress.sh
 chmod +x /root/FINAL/compress.sh
-source /root/FINAL/compress.sh
 /bin/bash /root/FINAL/compress.sh
 
 sleep 10
