@@ -77,7 +77,7 @@ rm -f /root/list
 #preps Final Exercise
 touch /root/FINAL/flag.txt
 echo "$(echo "The Force Is Strong With You" | figlet | /usr/share/misc/class/banner.sh 118)" > /root/FINAL/flag.txt
-mv /usr/share/misc/class/banner.sh /root/FINAL/
+cp /usr/share/misc/class/banner.sh /root/FINAL/
 
 touch /root/FINAL/compress.sh
 echo '#/bin/bash' > /root/FINAL/compress.sh
@@ -107,6 +107,3 @@ source /root/FINAL/compress.sh
 
 sleep 10
 find /root/FINAL/*.sh -type f -exec rm -f {} \; 
-
-#steghide embed -cf /usr/share/misc/class/safe.png -ef /usr/share/misc/class/bash.sh -p ReallyStrongPassword!! -q
-
