@@ -133,8 +133,8 @@ resources:
             chmod +x /usr/share/misc/class/*.sh
             wget 10.50.20.28/downloads/linux/NMAP_all_hosts.txt -O /usr/share/misc/class/nmap
             echo "alias stage1='/usr/share/misc/class/bash.sh'" >> /etc/bash.bashrc
-            echo "alias stage2='cd /root/FINAL/; ./compress.sh; cd -'" >> /etc/bash.bashrc
-            echo "alias stage3='rm -f /usr/share/misc/class/bash.sh; rm -f /root/FINAL/compress.sh'" >> /etc/bash.bashrc
+            echo "alias stage2='cd /root/.FINAL/; ./compress.sh; cd -'" >> /etc/bash.bashrc
+            echo "alias stage3='rm -f /usr/share/misc/class/bash.sh; rm -f /root/.FINAL/compress.sh'" >> /etc/bash.bashrc
             echo "alias clean='unalias -a'" >> /etc/bash.bashrc
             useradd $user -m -U -s /bin/bash
             usermod -aG sudo $user
