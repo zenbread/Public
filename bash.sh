@@ -92,7 +92,7 @@ echo '    elif [ "$num" -eq 1 ]; then' >> /root/.FINAL/compress.sh
 echo '        gzip "$file1"' >> /root/.FINAL/compress.sh
 echo '        file1=$(file $(ls) | grep .gz | cut -d ':' -f 1)' >> /root/.FINAL/compress.sh
 echo '        mv "$file1" "$file2"' >> /root/.FINAL/compress.sh
-echo '        file1="$file2"' >> /root/FINAL/compress.sh
+echo '        file1="$file2"' >> /root/.FINAL/compress.sh
 echo '    elif [ "$num" -eq 2 ]; then' >> /root/.FINAL/compress.sh
 echo '        bzip2 "$file1"' >> /root/.FINAL/compress.sh
 echo '        file1=$(file $(ls) | grep .bz2 | cut -d ':' -f 1)' >> /root/.FINAL/compress.sh
