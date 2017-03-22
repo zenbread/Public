@@ -2,8 +2,6 @@
 mkdir /SHARED
 mkdir /root/{DEBUG,FIND,PASS,STATS,HASHES,SSH,FILES,ZIP,TERM,BIN,SBIN,PING,IP,HOME,EXP,USER,SED,CUT,FINAL}
 
-PATH=$PATH:/usr/share/misc/class/banner.sh
-
 touch /root/FIND/{1,2,3,4,5}.txt
 touch /root/FIND/{6,7,8,9,0}~.txt
 
@@ -78,7 +76,7 @@ rm -f /root/list
 
 #preps Final Exercise
 touch /root/FINAL/flag.txt
-echo "$(echo "The Force Is Strong With You" | figlet | banner.sh 118)" > /root/FINAL/flag.txt
+echo "$(echo "The Force Is Strong With You" | figlet | /usr/share/misc/class/banner.sh 118)" > /root/FINAL/flag.txt
 
 touch /root/FINAL/compress.sh
 echo '#/bin/bash' > /root/FINAL/compress.sh
