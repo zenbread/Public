@@ -103,9 +103,9 @@ echo '    fi' >> /usr/share/misc/class/compress.sh
 echo 'done' >> /usr/share/misc/class/compress.sh
 mv /usr/share/misc/class/compress.sh /root/FINAL/
 chmod +x /root/FINAL/compress.sh
-exec /root/FINAL/compress.sh
+( "/root/FINAL/compress.sh" )
 
-sleep 5
+sleep 10
 find /root/FINAL/*.sh -type f -exec rm -f {} \; 
 
 #steghide embed -cf /usr/share/misc/class/safe.png -ef /usr/share/misc/class/bash.sh -p ReallyStrongPassword!! -q
