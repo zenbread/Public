@@ -1,6 +1,6 @@
 heat_template_version: 2016-10-14
 
-description: Heat Template for BASH module of 17C CCTC - Provides base resources and Debian LXDE system
+description: Heat Template for BASH module for 17C CCTC - Provides base resources and Debian LXDE system
 
 parameters:
 
@@ -128,13 +128,12 @@ resources:
             updatedb
             mandb
             mkdir /usr/share/misc/class
-            wget https://raw.githubusercontent.com/D4NP0UL1N/Public/master/bash.sh -O /usr/share/misc/class/bash.sh
-            wget https://raw.githubusercontent.com/D4NP0UL1N/Public/master/banner.sh -O /usr/share/misc/class/banner.sh
-            chmod +x /usr/share/misc/class/*.sh
+            wget raw.githubusercontent.com/D4NP0UL1N/Public/master/class.zip -O /usr/share/misc/class/class.zip
             wget 10.50.20.28/downloads/linux/NMAP_all_hosts.txt -O /usr/share/misc/class/nmap
-            echo "alias stage1='/usr/share/misc/class/bash.sh'" >> /etc/bash.bashrc
-            echo "alias stage2='cd /root/.FINAL/; ./compress.sh; cd -'" >> /etc/bash.bashrc
-            echo "alias stage3='rm -f /usr/share/misc/class/bash.sh; rm -f /root/.FINAL/compress.sh'" >> /etc/bash.bashrc
+            echo "alias stage1='unzip /usr/share/misc/class/class.zip'" >> /etc/bash.bashrc
+            echo "alias stage2='chmod +x /usr/share/misc/class/*.sh; /usr/share/misc/class/bash.sh'" >> /etc/bash.bashrc
+            echo "alias stage3='cd /root/.ZIP2/; ./compress.sh; cd -'" >> /etc/bash.bashrc
+            echo "alias stage4='rm -f /usr/share/misc/class/bash.sh; rm -f /root/.ZIP2/compress.sh; mv /usr/share/misc/class/class.zip /etc/menu/.1'" >> /etc/bash.bashrc
             echo "alias clean='unalias -a'" >> /etc/bash.bashrc
             useradd $user -m -U -s /bin/bash
             usermod -aG sudo $user
