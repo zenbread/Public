@@ -1,3 +1,8 @@
+########################################################
+# This is a practice debug script
+# Property of Cyber Training center
+########################################################
+
 !/bin/bash
 A=$(mkdir $HOME/SSH 2>/dev/null)
 B=$(cp $HOME/.ssh/* $HOME/SSH 2>/dev/null )
@@ -28,4 +33,3 @@ if [[ "$?" != "0"  ]]; then
 else
   cat $HOME/SSH/hashes.txt
 fi
-
