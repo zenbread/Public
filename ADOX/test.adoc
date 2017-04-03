@@ -10,7 +10,7 @@
 
 == *Activity:*
 
-Using ONLY the `find` command, find all empty files in directory `/lib` and print out ONLY the filename (not absolute path),
+Using ONLY the `find` command, find all empty files in directory `/lib` and print out [blue]#ONLY# the filename (not absolute path),
 and the inode number, seperated by newlines.
 
 {empty} + 
