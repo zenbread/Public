@@ -16,7 +16,7 @@ and the inode number, seperated by newlines.
 {empty} + 
 *Example Output:*  
 {empty} +
-image::https://git.cybbh.space/bash-scripting/17C_bash/raw/ASCII_Docking_Activities/Activities/Activity3-Find_Command_Extended/act3.png["EMPTY_INODE",height="100",width="150",align="left"]
+image::https://github.com/D4NP0UL1N/Public/blob/master/ADOX/act3.png["EMPTY_INODE",height="100",width="150",align="left"]
 
 {empty} +
 
