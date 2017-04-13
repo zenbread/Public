@@ -977,7 +977,7 @@ Add-ADGroupMember "CN=System Admins,CN=Users,DC=army,DC=warriors" -Members "CN=P
 Add-ADGroupMember "CN=Print Server Group,CN=Users,DC=army,DC=warriors" -Members "CN=Power Users,CN=Users,DC=army,DC=warriors"
 Add-ADGroupMember "CN=Power Users,CN=Users,DC=army,DC=warriors" -Members "CN=System Admins LV2,CN=Users,DC=army,DC=warriors"
 
-Invoke-WebRequest -Uri "https://github.com/Dan-P0ul1n/DD/blob/master/lulz.pdf" -OutFile "C:\WarriorShare\Brigade HQ\CMD GRP\lulz.pdf"
-Invoke-WebRequest -Uri "https://github.com/Dan-P0ul1n/DD/blob/master/lulz.pdf" -OutFile "C:\WarriorShare\Brigade HQ\S-6\14287.pdf"
-Invoke-WebRequest -Uri "https://github.com/Dan-P0ul1n/DD/blob/master/lulz.pdf" -OutFile "C:\WarriorShare\Brigade HQ\S-6\Domain CLI Cheat-Sheet.docx"
-Invoke-WebRequest -Uri "https://github.com/Dan-P0ul1n/DD/blob/master/lulz.pdf" -OutFile "C:\WarriorShare\3rd Battalion\Head Quarters\CMD GRP\phone_matrix.xlsx"
+Invoke-WebRequest -Uri "https://git.cybbh.space/CCTC/activities-exercises/raw/master/Windows/Exercise-Disorderly_Domain/build/lulz.pdf" -OutFile "C:\WarriorShare\Brigade HQ\CMD GRP\lulz.pdf"
+Invoke-WebRequest -Uri "https://git.cybbh.space/CCTC/activities-exercises/raw/master/Windows/Exercise-Disorderly_Domain/build/14287.pdf" -OutFile "C:\WarriorShare\Brigade HQ\S-6\14287.pdf"
+Invoke-WebRequest -Uri "https://git.cybbh.space/CCTC/activities-exercises/raw/master/Windows/Exercise-Disorderly_Domain/build/Domain CLI Cheat-Sheet.docx" -OutFile "C:\WarriorShare\Brigade HQ\S-6\Domain CLI Cheat-Sheet.docx"
+Invoke-WebRequest -Uri "https://git.cybbh.space/CCTC/activities-exercises/raw/master/Windows/Exercise-Disorderly_Domain/build/phone_matrix.xlsx" -OutFile "C:\WarriorShare\3rd Battalion\Head Quarters\CMD GRP\phone_matrix.xlsx"
