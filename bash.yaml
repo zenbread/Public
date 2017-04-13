@@ -1,5 +1,4 @@
 heat_template_version: 2016-10-14
-
 description: Heat Template for BASH module for 17C CCTC - Provides base resources and Debian LXDE system
 
 parameters:
