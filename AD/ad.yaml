@@ -148,7 +148,7 @@ resources:
             $password: { get_param: password }
             $studentID: { get_param: student_id }
       user_data_format: RAW
-	  
+                          
   WINDOWS10_subnet_0_port:
     type: OS::Neutron::Port
     properties:
@@ -160,7 +160,7 @@ resources:
               params:
                 studentID: { get_param: student_id }
       port_security_enabled: false
-	  
+
   WINDOWS10_Server:
     type: OS::Nova::Server
     properties:
