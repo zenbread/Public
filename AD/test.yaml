@@ -154,7 +154,7 @@ resources:
       fixed_ips:
         - ip_address:
             str_replace:
-              template: 10.studentID.0.1
+              template: 10.studentID.0.2
               params:
                 studentID: { get_param: student_id }
       port_security_enabled: false
