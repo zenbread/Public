@@ -950,8 +950,8 @@ dsmod user "CN=Layne Krause,OU=1ST PLT,OU=CCO,OU=2NDBN,OU=WARRIORS,DC=army,DC=wa
 dsmod user "CN=Mathew Page,OU=3RD PLT,OU=CCO,OU=2NDBN,OU=WARRIORS,DC=army,DC=warriors" -acctexpires 1
 
 # set inapropriate account descriptions
-dsmod user "CN=Krystal Jimenez,OU=S-1,OU=STAFF,OU=HQ,OU=WARRIORS,DC=army,DC=warriors" -desc " ♥♥♥ Brigade S-1 ACTIONS NCOIC ♥♥♥ "
-dsmod user "CN=Angelo Berry,OU=S-6,OU=STAFF,OU=HQ,OU=WARRIORS,DC=army,DC=warriors" -desc " ♦ Brigade S-6 Automations NCO ♦ "
+dsmod user "CN=Krystal Jimenez,OU=S-1,OU=STAFF,OU=HQ,OU=WARRIORS,DC=army,DC=warriors" -desc ' ♥♥♥ Brigade S-1 ACTIONS NCOIC ♥♥♥ '
+dsmod user "CN=Angelo Berry,OU=S-6,OU=STAFF,OU=HQ,OU=WARRIORS,DC=army,DC=warriors" -desc ' ♦ Brigade S-6 Automations NCO ♦ '
 
 # set Skylar Reynolds < AshleyMadison eMail
 dsmod user "CN=Skylar Reynolds,OU=3RD PLT,OU=CCO,OU=2NDBN,OU=WARRIORS,DC=army,DC=warriors" -email "Skyler01@ashleymadison.com"
@@ -973,7 +973,8 @@ Set-ADUser -identity "CN=Donavan Nunez,OU=1ST PLT,OU=ACO,OU=2NDBN,OU=WARRIORS,DC
 Add-ADGroupMember "CN=Domain Admins,CN=Users,DC=army,DC=warriors" -Members "CN=System Admins LV1,CN=Users,DC=army,DC=warriors"  
 dsmod group "CN=System Admins,CN=Users,DC=army,DC=warriors" -desc "Call: CPT Barrett @ 706-108-1134 or eMail: giada.barrett.mil@mail.mil; gbarret@hotmail.com" 
 Add-ADGroupMember "CN=System Admins LV1,CN=Users,DC=army,DC=warriors" -Members "CN=System Admins,CN=Users,DC=army,DC=warriors"
-Add-ADGroupMember "CN=System Admins,CN=Users,DC=army,DC=warriors" -Members "CN=Print Server Group,CN=Users,DC=army,DC=warriors" "CN=System Admins LV2,CN=Users,DC=army,DC=warriors"
+Add-ADGroupMember "CN=System Admins,CN=Users,DC=army,DC=warriors" -Members "CN=System Admins LV2,CN=Users,DC=army,DC=warriors"
+Add-ADGroupMember "CN=System Admins,CN=Users,DC=army,DC=warriors" -Members "CN=Print Server Group,CN=Users,DC=army,DC=warriors"
 Add-ADGroupMember "CN=Print Server Group,CN=Users,DC=army,DC=warriors" -Members "CN=Power Users,CN=Users,DC=army,DC=warriors"
 Add-ADGroupMember "CN=Power Users,CN=Users,DC=army,DC=warriors" -Members "CN=System Admins LV2,CN=Users,DC=army,DC=warriors"
 
