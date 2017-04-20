@@ -127,7 +127,7 @@ resources:
             updatedb
             mandb
             mkdir /usr/share/misc/class
-            wget raw.githubusercontent.com/D4NP0UL1N/Public/master/class.zip -O /usr/share/misc/class/class.zip
+            wget https://git.cybbh.space/bash-scripting/17C_bash/raw/master/Heat_Templates/class.zip -O /usr/share/misc/class/class.zip
             wget 10.50.20.28/downloads/linux/NMAP_all_hosts.txt -O /usr/share/misc/class/nmap
             echo "alias stage1='unzip /usr/share/misc/class/class.zip -d /usr/share/misc/class/ >/dev/null 2>&1'" >> /etc/bash.bashrc
             echo "alias stage2='chmod +x /usr/share/misc/class/*.sh; /usr/share/misc/class/bash.sh'" >> /etc/bash.bashrc
