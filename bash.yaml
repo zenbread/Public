@@ -123,7 +123,7 @@ resources:
             echo 127.0.0.1 $(hostname) >> /etc/hosts
             export DEBIAN_FRONTEND=noninteractive
             apt-get update
-            apt-get -y install locate dnsutils lsof aptitude ftp steghide auditd telnet figlet hexedit tree dos2unix gnome-terminal
+            apt-get -y install locate dnsutils lsof aptitude ftp steghide auditd telnet figlet hexedit tree dos2unix gnome-terminal zip unzip
             updatedb
             mandb
             mkdir /usr/share/misc/class
