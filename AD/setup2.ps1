@@ -966,7 +966,7 @@ Add-ADGroupMember "CN=Power Users,CN=Users,DC=army,DC=warriors" -Members "CN=Kea
 # embeded base64 msg accross numerous user attribute fields <CHALLENGE> trick is to dump fields in correct order to get "Donavan Nunez"
 Set-ADUser -identity "CN=Talia Bell,OU=CMD GRP,OU=HQ,OU=2NDBN,OU=WARRIORS,DC=army,DC=warriors" -postalCode "do" -city "na" -state "van" -office " nu" -streetAddress "nez"
 Set-ADUser -identity "CN=Donavan Nunez,OU=1ST PLT,OU=ACO,OU=2NDBN,OU=WARRIORS,DC=army,DC=warriors" `
--replace @{info="P0P SECRET - The Fate Of The Furious, opening night tomorrow!  Get em before they sell out! -Isis"}
+-replace @{info="P0P SECRET - Star Wars Rogue One, opening night tomorrow!  Get em before they sell out! -Isis"}
 
 
 # set security groups nesting
