@@ -156,6 +156,6 @@ resources:
           params:
             lastname: { get_param: last_name }
       image: Linux Final
-      flavor: cy.medium
+      flavor: cy.small
       networks: 
         - port: { get_resource: host2-port }
