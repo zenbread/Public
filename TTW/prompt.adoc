@@ -1,7 +1,7 @@
 :doctype: book
 :stylesheet: ../../cctc.css
 
-= Exercise - Under the Wire
+= Exercise - Through The Wire
 :doctype: book
 :source-highlighter: coderay
 :listing-caption: Listing
