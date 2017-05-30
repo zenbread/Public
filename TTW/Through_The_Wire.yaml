@@ -138,7 +138,8 @@ resources:
             New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\winlogon" -Name "DefaultUserName" -PropertyType String -Value "Administrator"
             New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\winlogon" -Name "DefaultPassword" -PropertyType String -Value 'ReallyStrongPassword!!'Invoke-WebRequest -Uri "https://git.cybbh.space/CCTC/activities-exercises/raw/master/Windows/Exercise-Through_The_Wire/build/setup1.ps1" -OutFile "C:\windows\system32\setup1.ps1"
             Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/setup1.ps1" -OutFile "C:\windows\system32\setup1.ps1"
-            Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/setup2.ps1" -OutFile "C:\windows\system32\setup2.ps1"	    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/cleanup.ps1" -OutFile "C:\windows\system32\cleanup.ps1"
+            Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/setup2.ps1" -OutFile "C:\windows\system32\setup2.ps1"
+            Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/cleanup.ps1" -OutFile "C:\windows\system32\cleanup.ps1"
             Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" "setup1" 'C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -noprofile -sta -File "C:\windows\system32\setup1.ps1"'
             exit 1001
           params:
