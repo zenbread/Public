@@ -32,12 +32,12 @@ A document containing the following:
 * +2% - Flags 15-16 collected
 * +2% - Flags 17-18 collected
 * +2% - Flags 19-20 collected
-* +2% - Flags 21-22 collected    80 %
+* +2% - Flags 21-22 collected ---- 80 %
 * +2% - Flags 23-24 collected
 * +4% - Flags 25-26 collected
-* +4% - Flags 27-28 collected    90 %
+* +4% - Flags 27-28 collected ---- 90 %
 * +5% - Flag 29 collected
-* +5% - Flag 30 collected       100 %
+* +5% - Flag 30 collected -------- 100 %
 
 
 == Learning Objectives / Outcomes
