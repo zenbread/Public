@@ -1,0 +1,49 @@
+:doctype: book
+:stylesheet: ../../cctc.css
+
+= Exercise - Under the Wire
+:doctype: book
+:source-highlighter: coderay
+:listing-caption: Listing
+// Uncomment next line to set page size (default is Letter)
+//:pdf-page-size: A4
+
+== Exercise
+
+[square]
+* Open the attached instructions: "Through_The_Wire_v1_Instructions.pdf"
+* Follow the "Through_The_Wire_v1_Instructions" and collect as many flags/passwords as possible, up to 30 total flags
+* Document the commands / cmdlets used to identify the password for each level
+* Reach at least level 12 to pass this exercise
+
+== Submit
+
+A document containing the following:
+
+[square]
+* Login password for each level
+* Commands/cmdlets used to get password for each level
+
+== Grading
+
+[square]
+* 70% - Flags 1-12 collected
+* +2% - Flags 13-14 collected
+* +2% - Flags 15-16 collected
+* +2% - Flags 17-18 collected
+* +2% - Flags 19-20 collected
+* +2% - Flags 21-22 collected    80 %
+* +2% - Flags 23-24 collected
+* +4% - Flags 25-26 collected
+* +4% - Flags 27-28 collected    90 %
+* +5% - Flag 29 collected
+* +5% - Flag 30 collected       100 %
+
+
+== Learning Objectives / Outcomes
+
+[square]
+* Familiarity with Windows commands and PowerShell cmdlets
+* Confidence interacting with Windows from within PowerShell
+* Problem solving
+* Research skills for command/cmdlet functions and syntax
