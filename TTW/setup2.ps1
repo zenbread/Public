@@ -56,14 +56,13 @@ foreach ($CLASS in $CLASSES) {
 	}
 }
 
-   echo $1ST
+   
     foreach ($4TH in $4THFOLDER) {
         echo $4TH
         foreach ($3RD in $3RDFOLDER) {
             new-item -ItemType Directory -Path "$CLASS\$1ST\$4TH\$3RD"
             }
         }
-    }
 	
 # ----- creates SMB share for folders created above ---
 new-SMBshare -path "C:\share" `
@@ -98,6 +97,7 @@ icacls "C:\share\WARRIORS\Fight3r5" /grant Apprent1ce:(OI)(CI)R /T /C
 secedit /export /cfg c:\secpol.cfg
 (gc C:\secpol.cfg).replace("PasswordComplexity = 1", "PasswordComplexity = 0") | Out-File C:\secpol.cfg
 (gc C:\secpol.cfg).replace("MinimumPasswordLength = 7", "MinimumPasswordLength = 1") | Out-File C:\secpol.cfg
+(gc C:\secpol.cfg).replace("SeInteractiveLogonRight = *S-1-5-32-544,*S-1-5-32-548,*S-1-5-32-549,*S-1-5-32-550,*S-1-5-32-551,*S-1-5-9", "SeInteractiveLogonRight = *S-1-5-32-544,*S-1-5-32-548,*S-1-5-32-549,*S-1-5-32-550,*S-1-5-32-551,*S-1-5-9,*S-1-5-11,*S-1-5-21-513") | Out-File C:\secpol.cfg
 secedit /configure /db c:\windows\security\local.sdb /cfg c:\secpol.cfg /areas SECURITYPOLICY
 rm -force c:\secpol.cfg -confirm:$false
 
@@ -122,10 +122,42 @@ New-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\Explo
 New-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name DisableRegistryTools -Value 1 -PropertyType DWord | Out-Null
 Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name DontDisplayLastUserName -Value 1
 
+#----- CLASSES 50 User Profile Folders ---
+
+$name1 = @("Apprent1ce01","Apprent1ce02","Apprent1ce03","Apprent1ce04","Apprent1ce05","Apprent1ce06","Apprent1ce07","Apprent1ce08","Apprent1ce09","Apprent1ce10")
+$name2 = @("Fight3r01","Fight3r02","Fight3r03","Fight3r04","Fight3r05","Fight3r06","Fight3r07","Fight3r08","Fight3r09","Fight3r10")
+$name3 = @("Paladin01","Paladin02","Paladin03","Paladin04","Paladin05","Paladin06","Paladin07","Paladin08","Paladin09","Paladin10")
+$name4 = @("Wizard01","Wizard02","Wizard03","Wizard04","Wizard05","Wizard06","Wizard07","Wizard08","Wizard09","Wizard10")
+$name5 = @("OSsassin01","OSsassin02","OSsassin03","OSsassin04","OSsassin05","OSsassin06","OSsassin07","OSsassin08","OSsassin09")
+$name6 = @("SYNmurai","Rang3r","C0deSling3r","M45T3R")
+foreach ($name in $name1) {
+	new-item -ItemType Directory -Path "C:\Users\$name\Desktop" -Force
+}
+foreach ($name in $name2) {
+	new-item -ItemType Directory -Path "C:\Users\$name\Desktop" -Force
+}
+foreach ($name in $name3) {
+	new-item -ItemType Directory -Path "C:\Users\$name\Desktop" -Force
+}
+foreach ($name in $name4) {
+	new-item -ItemType Directory -Path "C:\Users\$name\Desktop" -Force
+}
+foreach ($name in $name5) {
+	new-item -ItemType Directory -Path "C:\Users\$name\Desktop" -Force
+}
+foreach ($name in $name6) {
+	new-item -ItemType Directory -Path "C:\Users\$name\Desktop" -Force
+}
+
 #----- CLASSES 50 Accounts 3 hidden ---
 dsadd user "CN=Apprent1ce01,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Apprent1ce5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
+net user Apprent1ce01 password /ADD
+net user Apprent1ce01 /ADD
+
 dsadd user "CN=Apprent1ce02,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Apprent1ce5,CN=Users,DC=army,DC=warriors" -pwd "10.0.14409.1005" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
+
 dsadd user "CN=Apprent1ce03,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Apprent1ce5,CN=Users,DC=army,DC=warriors" -pwd "army" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
+
 dsadd user "CN=Apprent1ce04,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Apprent1ce5,CN=Users,DC=army,DC=warriors" -pwd "123456" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
 	echo "123456" > C:\Users\Apprent1ce03\README
 	icacls C:\Users\Apprent1ce03\README /grant Apprent1ce03:(OI)(CI)R /T /C
@@ -177,7 +209,8 @@ dsadd user "CN=Apprent1ce09,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -memb
 	0..698 | % { new-item -ItemType File -Path C:\Users\Apprent1ce08\Videos\file$_.txt -Force }
 	710..776 | % { new-item -ItemType File -Path C:\Users\Apprent1ce08\Videos\file$_.txt -Force }
 	834..991 | % { new-item -ItemType File -Path C:\Users\Apprent1ce08\Videos\file$_.txt -Force }
-	new-item -ItemType File -Path C:\Users\Apprent1ce08\Videos\file1103.txt -Force
+	new-item -ItemType Directory -Path "C:\Users\Apprent1ce08\Videos" -Force
+	new-item -ItemType File -Path "C:\Users\Apprent1ce08\Videos\file1103.txt" -Force
 	
 dsadd user "CN=Apprent1ce10,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Apprent1ce5,CN=Users,DC=army,DC=warriors" "CN=Fight3r5,CN=Users,DC=army,DC=warriors" -pwd "411" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
 	1..703 | % {if($_ % 2 -eq 1 ) { new-item -ItemType Directory -Path C:\Users\Apprent1ce09\Music\Stevie_Wonder$_ -Force } }
@@ -188,7 +221,8 @@ dsadd user "CN=Apprent1ce10,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -memb
 	icacls C:\Users\Apprent1ce09\Music /grant Apprent1ce09:(OI)(CI)R /T /C
 
 dsadd user "CN=Fight3r01,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Fight3r5,CN=Users,DC=army,DC=warriors" -pwd "475253" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
-	new-item -ItemType File -Path C:\Users\Apprent1ce10\Desktop\words.txt -Force
+	new-item -ItemType Directory -Path "C:\Users\Apprent1ce10\Desktop" -Force
+	new-item -ItemType File -Path "C:\Users\Apprent1ce10\Desktop\words.txt" -Force
 	function global:GET-8LetterWord() {
 	[int32[]]$ArrayofAscii=26,97,26,65,10,48,15,33
 	$Complexity=1
@@ -246,18 +280,22 @@ dsadd user "CN=Fight3r03,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -memberof "
 	icacls C:\Users\Fight3r02\Desktop /grant Fight3r02:(OI)(CI)R /T /C
 	
 dsadd user "CN=Fight3r04,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Fight3r5,CN=Users,DC=army,DC=warriors" "CN=Inspector General,CN=Users,DC=army,DC=warriors" -pwd "2081" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
+	new-item -ItemType Directory -Path "C:\Users\Fight3r02\Desktop" -Force
 	copy-item C:\Users\Fight3r02\Desktop\words.txt C:\Users\Fight3r03\Desktop\
 	icacls C:\Users\Fight3r03\Desktop /grant Fight3r03:(OI)(CI)R /T /C
 
 dsadd user "CN=Fight3r05,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Fight3r5,CN=Users,DC=army,DC=warriors" "CN=Inspector General,CN=Users,DC=army,DC=warriors" -pwd "144770" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
+	new-item -ItemType Directory -Path "C:\Users\Fight3r02\Desktop" -Force
 	copy-item C:\Users\Fight3r02\Desktop\words.txt C:\Users\Fight3r04\Desktop\
 	icacls C:\Users\Fight3r04\Desktop /grant Fight3r04:(OI)(CI)R /T /C
 	
 dsadd user "CN=Fight3r06,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Fight3r5,CN=Users,DC=army,DC=warriors" -pwd "364" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
+	new-item -ItemType Directory -Path "C:\Users\Fight3r02\Desktop" -Force
 	copy-item C:\Users\Fight3r02\Desktop\words.txt C:\Users\Fight3r05\Desktop\
 	icacls C:\Users\Fight3r05\Desktop /grant Fight3r05:(OI)(CI)R /T /C
 	
 dsadd user "CN=Fight3r07,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Fight3r5,CN=Users,DC=army,DC=warriors" -pwd "456976" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
+	new-item -ItemType Directory -Path "C:\Users\Fight3r06\Desktop" -Force
 	$AA = [char[]]([char]'a'..[char]'z')
 	$BB = [char[]]([char]'A'..[char]'Z')
 	$CC = [char[]]([char]'a'..[char]'z')
