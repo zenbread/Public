@@ -184,6 +184,7 @@ resources:
             & c:\npp.exe /S
             (new-object System.Net.WebClient).DownloadFile('https://the.earth.li/~sgtatham/putty/latest/x86/putty-0.67-installer.msi','C:\putty.msi')
             & msiexec /i c:\putty.msi /quiet /passive
+            (new-object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/OpenSSH-Win64.zip','C:\windows\system32\OpenSSH-Win64.zip')
             net user /add $user $password /y
             net localgroup administrators /add $user
             exit 1001
