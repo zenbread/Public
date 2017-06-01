@@ -208,7 +208,7 @@ dsmod user "CN=Apprent1ce05,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 
 	
 dsmod user "CN=Apprent1ce06,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "987654321"
 	Write-Output "The password for the next level is the manufacturing name of the only USB drive that was plugged into this server at some point." -n > C:\Users\Apprent1ce06\Desktop\challenge.txt
-	$dirs = @("1    -     99","100     -     199","a     -      z","z                                                                                                           -                                                                          a",)
+	$dirs = @("1    -     99","100     -     199","a     -      z","z                                                                                                           -                                                                          a")
 	foreach ($dir in $dirs) {
 		new-item -ItemType Directory -Path "C:\Apprent1ce05\Desktop\$dir" -Force
 		}
