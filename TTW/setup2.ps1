@@ -393,8 +393,8 @@ dsmod user "CN=Fight3r07,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "45697
 	
 dsmod user "CN=Fight3r08,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "popeye"
 	Write-Output "The password for the next level is the name of the built-in cmdlet that performs the wget like function on a Windows system." -n > C:\Users\Fight3r08\Desktop\challenge.txt
-	Invoke-WebRequest -Uri "https://git.cybbh.space/CCTC/activities-exercises/raw/master/Windows/Exercise-Through_The_Wire/build/new.txt" -OutFile "C:\Users\Fight3r07\Desktop\new.txt"
-	Invoke-WebRequest -Uri "https://git.cybbh.space/CCTC/activities-exercises/raw/master/Windows/Exercise-Through_The_Wire/build/old.txt" -OutFile "C:\Users\Fight3r07\Desktop\old.txt"
+	Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/new.txt" -OutFile "C:\Users\Fight3r07\Desktop\new.txt"
+	Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/old.txt" -OutFile "C:\Users\Fight3r07\Desktop\old.txt"
 	icacls C:\Users\Fight3r07 /grant Fight3r07:F /T /C
 	
 dsmod user "CN=Fight3r09,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "invoke-webrequest"
