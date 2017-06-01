@@ -208,7 +208,7 @@ dsmod user "CN=Apprent1ce04,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 
 
 dsmod user "CN=Apprent1ce05,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "ketchup"
 	Write-Output "The password for the next level is in a file in a directory on the desktop with spaces in it." -n > C:\Users\Apprent1ce05\Desktop\challenge.txt
-	new-item -ItemType Directory -Path "C:\Users\Apprent1ce04\secretsauce -Force"
+	new-item -ItemType Directory -Path "C:\Users\Apprent1ce04\secretsauce" -Force
 	echo "ketchup" > C:\Users\Apprent1ce04\secretsauce\saucey
 	attrib +h C:\Users\Apprent1ce04\secretsauce
 	icacls C:\Users\Apprent1ce04 /grant Apprent1ce04:F /T /C 
