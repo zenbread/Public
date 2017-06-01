@@ -270,7 +270,7 @@ dsmod user "CN=Apprent1ce10,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 
 	new-item -ItemType Directory -Path "C:\Users\Apprent1ce09\Music\Stevie_Wonder 139" -Force
 	icacls C:\Users\Apprent1ce09 /grant Apprent1ce09:F /T /C
 
-dsmod user "CN=Fight3r01,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "475253"
+dsmod user "CN=Fight3r01,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "5253"
 	Write-Output "The password for the next level is the last five digits of the MD5 hash of the hosts file." -n > C:\Users\Fight3r01\Desktop\challenge.txt
 	new-item -ItemType Directory -Path "C:\Users\Apprent1ce10\Desktop" -Force
 	new-item -ItemType File -Path "C:\Users\Apprent1ce10\Desktop\words.txt" -Force
@@ -290,7 +290,7 @@ dsmod user "CN=Fight3r01,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "47525
 		}
 	Return $NewWord
 	}
-	foreach ($Counter in 1..475254) { GET-8LetterWord >> C:\Users\Apprent1ce10\Desktop\words.txt }
+	foreach ($Counter in 1..5254) { GET-8LetterWord >> C:\Users\Apprent1ce10\Desktop\words.txt }
 	icacls C:\Users\Apprent1ce10 /grant Apprent1ce10:F /T /C
 	
 dsmod user "CN=Fight3r02,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "7566D"
