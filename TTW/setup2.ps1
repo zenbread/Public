@@ -160,34 +160,40 @@ dsadd user "CN=SYNmurai,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -memberof "
 dsadd user "CN=Rang3r,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=SYNmurai5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
 dsadd user "CN=C0deSling3r,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=SYNmurai5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
 dsadd user "CN=M45T3R,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=SYNmurai5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no
+start-sleep -s 1
 
 #----- Creates Profiles for Every User/Level in Domain .. to be populated with the follow-on challenges
 
-$users1 = @("Apprent1ce01","Apprent1ce02","Apprent1ce03","Apprent1ce04","Apprent1ce05","Apprent1ce06","Apprent1ce07","Apprent1ce08","Apprent1ce09","Apprent1ce10")
-foreach ($user in $users1) {
-	psexec -accepteula -u army\$user -p password \\$(hostname) "cmd /c exit" -accepteula -nobanner
+$AA = @("Apprent1ce01","Apprent1ce02","Apprent1ce03","Apprent1ce04","Apprent1ce05","Apprent1ce06","Apprent1ce07","Apprent1ce08","Apprent1ce09","Apprent1ce10")
+foreach ($A in $AA) {
+	psexec -accepteula -u army\$A -p password \\$(hostname) "cmd /c exit" -accepteula -nobanner
 }
-$users2 = @("Fight3r01","Fight3r02","Fight3r03","Fight3r04","Fight3r05","Fight3r06","Fight3r07","Fight3r08","Fight3r09","Fight3r10")
-foreach ($user in $users2) {
-	psexec -accepteula -u army\$user -p password \\$(hostname) "cmd /c exit" -accepteula -nobanner
+start-sleep -s 1
+$BB = @("Fight3r01","Fight3r02","Fight3r03","Fight3r04","Fight3r05","Fight3r06","Fight3r07","Fight3r08","Fight3r09","Fight3r10")
+foreach ($B in $BB) {
+	psexec -accepteula -u army\$B -p password \\$(hostname) "cmd /c exit" -accepteula -nobanner
 }
-$users3 = @("Paladin01","Paladin02","Paladin03","Paladin04","Paladin05","Paladin06","Paladin07","Paladin08","Paladin09","Paladin10")
-foreach ($user in $users3) {
-	psexec -accepteula -u army\$user -p password \\$(hostname) "cmd /c exit" -accepteula -nobanner
+start-sleep -s 1
+$CC = @("Paladin01","Paladin02","Paladin03","Paladin04","Paladin05","Paladin06","Paladin07","Paladin08","Paladin09","Paladin10")
+foreach ($C in $CC) {
+	psexec -accepteula -u army\$C -p password \\$(hostname) "cmd /c exit" -accepteula -nobanner
 }
-$users4 = @("Wizard01","Wizard02","Wizard03","Wizard04","Wizard05","Wizard06","Wizard07","Wizard08","Wizard09","Wizard10")
-foreach ($user in $users4) {
-	psexec -accepteula -u army\$user -p password \\$(hostname) "cmd /c exit" -accepteula -nobanner
+start-sleep -s 1
+$DD = @("Wizard01","Wizard02","Wizard03","Wizard04","Wizard05","Wizard06","Wizard07","Wizard08","Wizard09","Wizard10")
+foreach ($D in $DD) {
+	psexec -accepteula -u army\$D -p password \\$(hostname) "cmd /c exit" -accepteula -nobanner
 }
-$users5 = @("OSsassin01","OSsassin02","OSsassin03","OSsassin04","OSsassin05","OSsassin06","OSsassin07","OSsassin08","OSsassin09")
-foreach ($user in $users5) {
-	psexec -accepteula -u army\$user -p password \\$(hostname) "cmd /c exit" -accepteula -nobanner
+start-sleep -s 1
+$EE = @("OSsassin01","OSsassin02","OSsassin03","OSsassin04","OSsassin05","OSsassin06","OSsassin07","OSsassin08","OSsassin09")
+foreach ($E in $EE) {
+	psexec -accepteula -u army\$E -p password \\$(hostname) "cmd /c exit" -accepteula -nobanner
 }
-$users6 = @("SYNmurai","Rang3r","C0deSling3r","M45T3R")
-foreach ($user in $users6) {
-	psexec -accepteula -u army\$user -p password \\$(hostname) "cmd /c exit" -accepteula -nobanner
+start-sleep -s 1
+$FF = @("SYNmurai","Rang3r","C0deSling3r","M45T3R")
+foreach ($F in $FF) {
+	psexec -accepteula -u army\$F -p password \\$(hostname) "cmd /c exit" -accepteula -nobanner
 }
-
+start-sleep -s 1
 
 #----- Specific Files for each account/level/challenge .. modify domain user accounts with correct challenge "passwords"
 
@@ -291,6 +297,7 @@ dsmod user "CN=Fight3r01,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "5253"
 	Return $NewWord
 	}
 	foreach ($Counter in 1..5254) { GET-8LetterWord >> C:\Users\Apprent1ce10\Desktop\words.txt }
+	start-sleep -s 1
 	icacls C:\Users\Apprent1ce10 /grant Apprent1ce10:F /T /C
 	
 dsmod user "CN=Fight3r02,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "7566D"
@@ -331,6 +338,7 @@ dsmod user "CN=Fight3r03,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "1"
 		}
 	}) >> C:\Users\Fight3r02\Desktop\words.txt
 	icacls C:\Users\Fight3r02\Desktop /grant Fight3r02:F /T /C
+	start-sleep -s 1
 	
 dsmod user "CN=Fight3r04,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "2081"
 	Write-Output "The password for the next level is the number of words with either 'a' OR 'z', in the word, in the file on the desktop." -n > C:\Users\Fight3r04\Desktop\challenge.txt
@@ -381,7 +389,8 @@ dsmod user "CN=Fight3r07,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "45697
 		}
 	}) >> C:\Users\Fight3r06\Desktop\words.txt
 	icacls C:\Users\Fight3r06 /grant Fight3r06:F /T /C
-
+	start-sleep -s 1
+	
 dsmod user "CN=Fight3r08,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "popeye"
 	Write-Output "The password for the next level is the name of the built-in cmdlet that performs the wget like function on a Windows system." -n > C:\Users\Fight3r08\Desktop\challenge.txt
 	Invoke-WebRequest -Uri "https://git.cybbh.space/CCTC/activities-exercises/raw/master/Windows/Exercise-Through_The_Wire/build/new.txt" -OutFile "C:\Users\Fight3r07\Desktop\new.txt"
