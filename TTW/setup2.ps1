@@ -1,8 +1,8 @@
 $ErrorActionPreference = 'SilentlyContinue'
 #----- LOCK OUT Administrator from that which was set on yaml / Instructor ACCESS ONLY ---
 
-net user Administrator NotSoEasilyGuessed!!
-New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\winlogon" -Name "DefaultPassword" -PropertyType String -Value 'NotSoEasilyGuessed!!'
+net user Administrator ReallyStrongPassword!!
+New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\winlogon" -Name "DefaultPassword" -PropertyType String -Value 'ReallyStrongPassword!!'
 
 #----- OUs ---
 dsadd ou "OU=WARRIORS,DC=army,DC=warriors"
