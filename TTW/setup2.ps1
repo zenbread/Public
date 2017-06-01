@@ -13,9 +13,9 @@ dsadd ou "OU=Paladin,OU=WARRIORS,DC=army,DC=warriors"
 dsadd ou "OU=Wizard,OU=WARRIORS,DC=army,DC=warriors"
 dsadd ou "OU=OSsassin,OU=WARRIORS,DC=army,DC=warriors"
 dsadd ou "OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors"
-dsadd ou "OU=M45T3R,OU=WARRIORS,DC=army,DC=warriors"
-dsadd ou "OU=Rang3r,OU=WARRIORS,DC=army,DC=warriors"
-dsadd ou "OU=C0deSling3r,OU=WARRIORS,DC=army,DC=warriors"
+# dsadd ou "OU=M45T3R,OU=WARRIORS,DC=army,DC=warriors"
+# dsadd ou "OU=Rang3r,OU=WARRIORS,DC=army,DC=warriors"
+# dsadd ou "OU=C0deSling3r,OU=WARRIORS,DC=army,DC=warriors"
 
 
 #----- Security Groups ---
@@ -24,10 +24,10 @@ dsadd group "CN=Fight3r5,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -des
 dsadd group "CN=Paladin5,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "Paladin" -memberof "CN=Fight3r5,CN=Users,DC=army,DC=warriors"
 dsadd group "CN=Wizard5,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "Wizard" -memberof "CN=Paladin5,CN=Users,DC=army,DC=warriorss"
 dsadd group "CN=OSsassin5,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "OSsassin" -memberof "CN=Wizard5,CN=Users,DC=army,DC=warriors"
-dsadd group "CN=SYNmurai,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "SYNmurai"
-dsadd group "CN=Rang3r,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "Rang3r" -memberof "CN=SYNmurai,CN=Users,DC=army,DC=warriors"
-dsadd group "CN=C0deSling3r,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "C0deSling3r" -memberof "CN=SYNmurai,CN=Users,DC=army,DC=warriors"
-dsadd group "CN=M45T3R,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "M45T3R" -memberof "CN=SYNmurai,CN=Users,DC=army,DC=warriors"
+dsadd group "CN=SYNmurai5,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "SYNmurai" -memberof "CN=OSsassin5,CN=Users,DC=army,DC=warriors"
+dsadd group "CN=Rang3r5,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "Rang3r" -memberof "CN=SYNmurai5,CN=Users,DC=army,DC=warriors"
+dsadd group "CN=C0deSling3r5,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "C0deSling3r" -memberof "CN=SYNmurai5,CN=Users,DC=army,DC=warriors"
+dsadd group "CN=M45T3R5,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "M45T3R" -memberof "CN=SYNmurai5,CN=Users,DC=army,DC=warriors"
 
 
 #----- Share Drive Setup ---
@@ -63,6 +63,7 @@ foreach ($CLASS in $CLASSES) {
             new-item -ItemType Directory -Path "$CLASS\$1ST\$4TH\$3RD"
             }
         }
+start-sleep -s 10
 	
 # ----- creates SMB share for folders created above ---
 new-SMBshare -path "C:\share" `
@@ -75,7 +76,7 @@ icacls "C:\share\WARRIORS" /grant Everyone:R /C
 icacls "C:\share\WARRIORS\M45T3R" /grant M45T3R:F /T /C
 icacls "C:\share\WARRIORS\C0deSling3r" /grant C0deSling3r:F /T /C
 icacls "C:\share\WARRIORS\Rang3r" /grant Rang3r:F /T /C
-icacls "C:\share\WARRIORS\SYNmurai" /grant SYNmurai:F /T /C
+icacls "C:\share\WARRIORS\SYNmurai" /grant SYNmurai5:F /T /C
 icacls "C:\share\WARRIORS\OSsassin5" /grant OSsassin5:F /T /C
 icacls "C:\share\WARRIORS\Wizard5" /grant Wizard5:F /T /C
 icacls "C:\share\WARRIORS\Paladin5" /grant Paladin5:F /T /C
@@ -129,27 +130,36 @@ $users1 = @("Apprent1ce01","Apprent1ce02","Apprent1ce03","Apprent1ce04","Apprent
 foreach ($user in $users1) {
 dsadd user "CN=$user,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Apprent1ce5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
 }
+start-sleep -s 1
+
 $users2 = @("Fight3r01","Fight3r02","Fight3r03","Fight3r04","Fight3r05","Fight3r06","Fight3r07","Fight3r08","Fight3r09","Fight3r10")
 foreach ($user in $users2) {
-dsadd user "CN=$name,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Fight3r5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no
+dsadd user "CN=$user,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Fight3r5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no
 }
+start-sleep -s 1
+
 $users3 = @("Paladin01","Paladin02","Paladin03","Paladin04","Paladin05","Paladin06","Paladin07","Paladin08","Paladin09","Paladin10")
 foreach ($user in $users3) {
-dsadd user "CN=$name,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Paladin5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
+dsadd user "CN=$user,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Paladin5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
 }
+start-sleep -s 1
+
 $users4 = @("Wizard01","Wizard02","Wizard03","Wizard04","Wizard05","Wizard06","Wizard07","Wizard08","Wizard09","Wizard10")
 foreach ($user in $users4) {
 dsadd user "CN=$user,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Wizard5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
 }
+start-sleep -s 1
+
 $users5 = @("OSsassin01","OSsassin02","OSsassin03","OSsassin04","OSsassin05","OSsassin06","OSsassin07","OSsassin08","OSsassin09")
 foreach ($user in $users5) {
 dsadd user "CN=$user,OU=OSsassin,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=OSsassin5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no
 }
+start-sleep -s 1
 
-dsadd user "CN=SYNmurai,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=SYNmurai,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
-dsadd user "CN=Rang3r,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Rang3r,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
-dsadd user "CN=C0deSling3r,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=C0deSling3r,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
-dsadd user "CN=M45T3R,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=M45T3R,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no
+dsadd user "CN=SYNmurai,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=SYNmurai5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
+dsadd user "CN=Rang3r,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=SYNmurai5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
+dsadd user "CN=C0deSling3r,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=SYNmurai5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
+dsadd user "CN=M45T3R,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=SYNmurai5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no
 
 #----- Creates Profiles for Every User/Level in Domain .. to be populated with the follow-on challenges
 
@@ -616,6 +626,11 @@ dsmod user "CN=M45T3R,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET
 	Write-Output "" -n > C:\Users\M45T3R\Desktop\challenge.txt
 	
 #>
+
+attrib +h +s C:\Users\SYNmurai
+attrib +h +s C:\Users\M45T3R
+attrib +h +s C:\Users\C0deSling3r
+attrib +h +s C:\Users\Rang3r
 
 Remove-Item C:\windows\system32\setup1.ps1 -Force
 Remove-Item C:\windows\system32\reg.ps1 -Force
