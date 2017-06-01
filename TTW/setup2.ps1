@@ -496,7 +496,7 @@ dsmod user "CN=Paladin09,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "fortu
 	
 dsmod user "CN=Paladin10,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "3v3nt_L0g"
 	Write-Output "Challenge Hint - Its a dirty job, but someones gotta do it . ." -n > C:\Users\Paladin10\Desktop\challenge.txt
-	New-EventLog -LogName Application -Source "EventSystam"
+	# New-EventLog -LogName Application -Source "EventSystam"
 	Write-EventLog -LogName Application -Source "EventSystem" -EntryType Information -EventId 4625 -category 0 -Message "The description for Event ID '1073746449' in Source 'EventSystem' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'86400', 'SuppressDuplicateDuration', 'Software\Microsoft\EventSystem\EventLog', password: NOT_LIKELY"
 	Write-EventLog -LogName Application -Source "ESENT" -EntryType Information -EventId 326 -category 1 -Message "Congratulations! NO Password here!"
 	Write-EventLog -LogName System -Source "Service Control Manager" -EntryType Information -EventId 7036 -category 0 -Message "Congratulations!  you STILL HAVE NOT found the Password?"
