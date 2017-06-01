@@ -136,7 +136,7 @@ resources:
             net user Administrator DoDC0mPL14ntPassW0rd!!
             New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\winlogon" -Name "AutoAdminLogon" -PropertyType DWord -Value 1
             New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\winlogon" -Name "DefaultUserName" -PropertyType String -Value "Administrator"
-            New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\winlogon" -Name "DefaultPassword" -PropertyType String -Value 'ReallyStrongPassword!!'Invoke-WebRequest -Uri "https://git.cybbh.space/CCTC/activities-exercises/raw/master/Windows/Exercise-Through_The_Wire/build/setup1.ps1" -OutFile "C:\windows\system32\setup1.ps1"
+            New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\winlogon" -Name "DefaultPassword" -PropertyType String -Value 'DoDC0mPL14ntPassW0rd!!'
             Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/setup1.ps1" -OutFile "C:\windows\system32\setup1.ps1"
             Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/setup2.ps1" -OutFile "C:\windows\system32\setup2.ps1"
             Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/psexec.exe" -OutFile "C:\windows\system32\psexec.exe"
