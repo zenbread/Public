@@ -61,7 +61,9 @@ https://help.directadmin.com/item.php?id=394 +
 `50a0773ee14f0c1e3844fcf125e3f0d6` +
 `c96b9cdc7602a3413ff6f5c460ad3687` +
 {empty} +
-image::https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/locked_grub.png?raw=true["grub",height="100",width="350"] +
+
+image::https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/locked_grub.png?raw=true["grub",height="100",width="350",align="right"]
+
 == *Submit* +
 [square]
 ** DASBOOT_Student_Submission.pdf with the flags filled in. +
