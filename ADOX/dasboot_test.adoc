@@ -153,7 +153,7 @@ Using command: +
 `/tmp/mount*/etc/lel*` +
 `/tmp/mount*/etc/redirect*` +
 
-Of interest, in the output, are the files originating from `/etc` that are not process daemons (`/etc/init.d/\*`): +
+Of interest, in the output, are the files originating from `/etc` that are not process daemons (`/etc/init.d/`): +
 `/etc/{kek,lel}` and `/etc/redirect` +
 
 image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/kek.png?raw=true["1",height="250",width="450"] +
