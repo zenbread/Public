@@ -101,7 +101,7 @@ https://help.directadmin.com/item.php?id=394 +
 |Identify 1st boot obstacle "menu.lst" locked grub +
 image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/locked_grub.png?raw=true["grub",height="150",width="350",align="right"] +
 edit following file `/boot/grub/menu.lst`: +
-image:../pics/menu_lst.png["menu",height="133",width="405"]
+image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/menu_lst.png?raw=true["menu",height="133",width="405"]
 |Student either comments out the "lock" cmd or deletes it. +
   Student may either comment out the "password --md5" cmd or change the password using `openssl passwd -1 NeW_PaSsW0rD` or delete the cmd. +
 *f149 #1: 372e25f23b5a8ae33c7ba203412ace30*
@@ -110,9 +110,9 @@ image:../pics/menu_lst.png["menu",height="133",width="405"]
 
 |2.
 |Identify 2nd boot obstacle "/etc/inittab" default runlevel +
-image:../pics/reboot.png["reboot",height="100",width="350"] +
+image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/reboot.png?raw=true["reboot",height="100",width="350"] +
 edit following file `/etc/inittab`: +
-image:../pics/inittab.png["inittab",height="133",width="405"]
+image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/inittab.png?raw=true["inittab",height="133",width="405"]
 |Student changes default run-level: `id:6:initdefault` from 6 to "5" (multi-user with networking and GUI/X11). +
 Student changes links in `/etc/inittab` to run-control levels to correctly reflect targets: +
   
@@ -156,13 +156,13 @@ Using command: +
 Of interest, in the output, are the files originating from `/etc` that are not process daemons (`/etc/init.d/\*`): +
 `/etc/{kek,lel}` and `/etc/redirect` +
 
-image:../pics/kek.png["inttab",height="133",width="405"] +
+image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/kek.png?raw=true["inttab",height="133",width="405"] +
 
-image:../pics/lel.png["inttab",height="133",width="405"] +
+image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/lel.png?raw=true["inttab",height="133",width="405"] +
 
-image:../pics/redirect.png["inttab",height="133",width="405"] +
+image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/redirect.png?raw=true["inttab",height="133",width="405"] +
 
-image:../pics/art.png["art",height="133",width="405"] +
+image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/art.png?raw=true["art",height="133",width="405"] +
 
 Rebooting the image after `/etc/{kek,lel}`, and `/etc/redirect` have been subdued, reveals the final GUI/X11 flag: +
 
@@ -177,7 +177,7 @@ Rebooting the image after `/etc/{kek,lel}`, and `/etc/redirect` have been subdue
 student runs command: +
 `firefox /tmp/pic/flag5.jpg` and reveals final intel file/final flag: +
 
-image:../pics/intel.png["intel",height="133",width="405"] +
+image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/intel.png?raw=true["intel",height="133",width="405"] +
 
 *7<!xaK(s2`AqZX`z*
 |*10:* Submit Screenshot. +
