@@ -62,7 +62,7 @@ https://help.directadmin.com/item.php?id=394 +
 `c96b9cdc7602a3413ff6f5c460ad3687` +
 {empty} +
 
-image::https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/locked_grub.png?raw=true["grub",height="100",width="350",align="right"]
+
 
 == *Submit* +
 [square]
@@ -98,7 +98,9 @@ image::https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/locked_grub.png
 
 |1.
 |Identify 1st boot obstacle "menu.lst" locked grub +
-image::../pics/locked_grub.png["grub",height="100",width="350"] +
+
+image::https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/locked_grub.png?raw=true["grub",height="100",width="350",align="right"] +
+
 edit following file `/boot/grub/menu.lst`: +
 image::../pics/menu_lst.png["menu",height="133",width="405"]
 |Student either comments out the "lock" cmd or deletes it. +
