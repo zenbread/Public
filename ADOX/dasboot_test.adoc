@@ -1,6 +1,6 @@
 :doctype: book
 :stylesheet: ../../cctc.css
-:caption:
+
 
 = Exercise - DASBOOT
 :doctype: book
@@ -86,7 +86,7 @@ https://help.directadmin.com/item.php?id=394 +
 ** Understanding the possible avenues an adversary could use to exploit a system using the boot process, and bypass OS protections +
 
 == Grading
-[width="60%",cols="^2,10,10,10"]
+[width="60%",cols="4*"]
 |===
 |*Part* |*Goal* |*Solution* |*Point Allocation*
 
@@ -99,7 +99,7 @@ https://help.directadmin.com/item.php?id=394 +
 
 |1.
 |Identify 1st boot obstacle "menu.lst" locked grub +
-image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/locked_grub.png?raw=true["grub",height="150",width="350",align="right"] +
+image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/locked_grub.png?raw=true["grub",height="150",width="350"] +
 edit following file `/boot/grub/menu.lst`: +
 image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/menu_lst.png?raw=true["menu",height="150",width="350""] +
 |Student either comments out the "lock" cmd or deletes it. +
@@ -156,15 +156,15 @@ Using command: +
 Of interest, in the output, are the files originating from `/etc` that are not process daemons (`/etc/init.d/\*`): +
 `/etc/{kek,lel}` and `/etc/redirect` +
 
-image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/kek.png?raw=true["inttab",height="150",width="350"] +
+image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/kek.png?raw=true["1",height="250",width="450"] +
 
-image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/lel.png?raw=true["inttab",height="150",width="350"] +
+image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/lel.png?raw=true["2",height="150",width="350"] +
 
-image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/redirect.png?raw=true["inttab",height="150",width="350"] +
+image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/redirect.png?raw=true["3",height="125",width="350"] +
 
-image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/art.png?raw=true["art",height="150",width="350"] +
+image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/art.png?raw=true["4",height="50",width="350"] +
 
-Rebooting the image after `/etc/{kek,lel}`, and `/etc/redirect` have been subdued, reveals the final GUI/X11 flag: +
+Rebooting the image after `/etc/{kek,lel,redirect}` have been subdued, reveals the final GUI/X11 flag: +
 
 *f04dcc0423c9*
 |*20:* Student submits flag 1. +
