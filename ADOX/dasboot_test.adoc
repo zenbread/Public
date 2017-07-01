@@ -158,7 +158,7 @@ Of interest, in the output, are the files originating from `/etc` that are not p
 
 image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/kek.png?raw=true["inttab",height="150",width="350"] +
 
-image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/lel.png?raw=true["inttab",height="150",width="3505"] +
+image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/lel.png?raw=true["inttab",height="150",width="350"] +
 
 image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/redirect.png?raw=true["inttab",height="150",width="350"] +
 
