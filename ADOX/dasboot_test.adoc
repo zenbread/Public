@@ -1,5 +1,6 @@
 :doctype: book
 :stylesheet: ../../cctc.css
+:caption:
 
 = Exercise - DASBOOT
 :doctype: book
