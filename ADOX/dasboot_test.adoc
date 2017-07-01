@@ -112,7 +112,7 @@ image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/menu_lst.png?raw
 |Identify 2nd boot obstacle "/etc/inittab" default runlevel +
 image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/reboot.png?raw=true["reboot",height="150",width="350"] +
 edit following file `/etc/inittab`: +
-image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/inittab.png?raw=true["inittab",height="150",width="350"] +
+image:https://github.com/D4NP0UL1N/Public/blob/master/ADOX/pics/dasboot_inittab.png?raw=true["inittab",height="150",width="350"] +
 |Student changes default run-level: `id:6:initdefault` from 6 to "5" (multi-user with networking and GUI/X11). +
 Student changes links in `/etc/inittab` to run-control levels to correctly reflect targets: +
   
