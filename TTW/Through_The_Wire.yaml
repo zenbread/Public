@@ -1,6 +1,6 @@
 heat_template_version: 2016-10-14
 
-description: Heat Template for Disorderly Domain Exer of CCTC - Provides base resources, Windows 10 and 2012 R2 Server.
+description: Heat Template for Through The Wire Exer of CCTC - Provides base resources, Windows 10 and 2012 R2 Server.
 
 parameters:
 
@@ -131,12 +131,12 @@ resources:
             reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 1 /f
             Get-Service -Name TermService | Stop-Service -Force
             net user Administrator DoDC0mPL14ntPassW0rd!!
-            New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\winlogon" -Name "AutoAdminLogon" -PropertyType DWord -Value 1
-            New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\winlogon" -Name "DefaultUserName" -PropertyType String -Value "Administrator"
-            New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\winlogon" -Name "DefaultPassword" -PropertyType String -Value 'DoDC0mPL14ntPassW0rd!!'
+            Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\winlogon" -Name "AutoAdminLogon" -PropertyType DWord -Value 1
+            Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\winlogon" -Name "DefaultUserName" -PropertyType String -Value "Administrator"
+            Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\winlogon" -Name "DefaultPassword" -PropertyType String -Value 'DoDC0mPL14ntPassW0rd!!'
             Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/setup1.ps1" -OutFile "C:\windows\system32\setup1.ps1"
             Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/setup2.ps1" -OutFile "C:\windows\system32\setup2.ps1"
-            Invoke-WebRequest -Uri "https://github.com/D4NP0UL1N/Public/blob/master/TTW/PsExec.exe?raw=true" -OutFile "C:\windows\system32\psexec.exe"
+            Invoke-WebRequest -Uri "https://github.com/D4NP0UL1N/Public/blob/master/TTW/PsExec.exe?raw=true" -OutFile "C:\windows\system32\PsExec.exe"
             Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/cleanup.ps1" -OutFile "C:\windows\system32\cleanup.ps1"
             Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" "setup1" 'C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -noprofile -sta -File "C:\windows\system32\setup1.ps1"'
             exit 1001
