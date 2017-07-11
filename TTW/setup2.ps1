@@ -1,6 +1,6 @@
 $ErrorActionPreference = 'SilentlyContinue'
-#----- LOCK OUT Administrator from that which was set on yaml / Instructor ACCESS ONLY ---
 
+#----- LOCK OUT Administrator from that which was set on yaml / Instructor ACCESS ONLY ---
 net user Administrator ReallyStrongPassword!!
 Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\winlogon" -Name "DefaultPassword" -PropertyType String -Value 'ReallyStrongPassword!!'
 
@@ -83,8 +83,6 @@ icacls "C:\share\WARRIORS\Paladin5" /grant Paladin5:F /T /C
 icacls "C:\share\WARRIORS\Fight3r5" /grant Fight3r5:F /T /C
 icacls "C:\share\WARRIORS\Apprent1ce5" /grant Apprent1ce5:F /T /C
 
-
-#----- RIG PASSWORDS on BOX ---
 
 <#	
 	REG_SZ 			= String
@@ -217,10 +215,10 @@ dsmod user "CN=Apprent1ce06,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 
 	Write-Output "The password for the next level is the manufacturing name of the only USB drive that was plugged into this server at some point." -n > C:\Users\Apprent1ce06\Desktop\challenge.txt
 	$dirs = @("1    -     99","100     -     199","a     -      z","z                                                                                                           -                                                                          a")
 	foreach ($dir in $dirs) {
-		new-item -ItemType Directory -Path "C:\Apprent1ce05\Desktop\$dir" -Force
+		new-item -ItemType Directory -Path C:\Users\Apprent1ce05\Desktop\$dir -Force
 		}
-	echo "987654321" > C:\Apprent1ce05\Desktop\z                                                                                                           -                                                                          a\space.txt -Force
-	icacls C:\Apprent1ce05 /grant Apprent1ce05:F /T /C
+	echo "987654321" > "C:\Users\Apprent1ce05\Desktop\"z                                                                                                           -                                                                          a\space.txt"
+	icacls C:\Users\Apprent1ce05 /grant Apprent1ce05:F /T /C
 	
 dsmod user "CN=Apprent1ce07,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "SanDisk"
 	Write-Output "The password for the next level is the description of the Lego Land service." -n > C:\Users\Apprent1ce07\Desktop\challenge.txt
@@ -228,26 +226,26 @@ dsmod user "CN=Apprent1ce07,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 
 	New-Item "C:\windows\system32" -ItemType File -Name reg.ps1 -Force
 		echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum" -Name USBSTOR -Force' > "C:\windows\system32\reg.ps1"
 			echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "Device Parameters" -Force' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name Capabilities -Value "0X00000010" -PropertyType DWord | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name Class -Value "DiskDrive" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name ClassGUID -Value "{4d36e967-e325-11ce-bfc1-08002be10318}" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name CompatibleIDs -Value "USBSTOR\Disk USBSTOR\RAW" -PropertyType MultiString | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name ConfigFlags -Value "0X00000000" -PropertyType DWord | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name ContainerID -Value "{c2dc3c42-a281-557a-a6ed-e607894e99b3}" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name DeviceDesc -Value "@disk.inf;%disk_devdesc%;Disk Drive" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name Driver -Value "{4d36e967-e325-11ce-bfc1-08002be10318}\0001" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name FriendlyName -Value "SanDisk Cruzer Blade USB Device" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name HardwareID -Value "USBSTOR\DiskSanDisk_Cruzer_Blade___PMAP USBST..." -PropertyType MultiString | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name Mfg -Value "@disk.inf;%genmanufacturer%;(Standard disk drives)" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name Service -Value "disk" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "Capabilities" -Value "0X00000010" -PropertyType DWord | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "Class" -Value "DiskDrive" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "ClassGUID" -Value "{4d36e967-e325-11ce-bfc1-08002be10318}" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "CompatibleIDs" -Value "USBSTOR\Disk USBSTOR\RAW" -PropertyType MultiString | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "ConfigFlags" -Value "0X00000000" -PropertyType DWord | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "ContainerID" -Value "{c2dc3c42-a281-557a-a6ed-e607894e99b3}" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "DeviceDesc" -Value "@disk.inf;%disk_devdesc%;Disk Drive" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "Driver" -Value "{4d36e967-e325-11ce-bfc1-08002be10318}\0001" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "FriendlyName" -Value "SanDisk Cruzer Blade USB Device" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "HardwareID" -Value "USBSTOR\DiskSanDisk_Cruzer_Blade___PMAP USBST..." -PropertyType MultiString | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "Mfg" -Value "@disk.inf;%genmanufacturer%;(Standard disk drives)" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "Service" -Value "disk" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
 				echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0\Device Parameters" -Name "MediaChangeNotification" -Force' >> "C:\windows\system32\reg.ps1"
 				echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0\Device Parameters" -Name "Partmgr" -Force' >> "C:\windows\system32\reg.ps1"
 					echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0\Device Parameters\Partmgr" -Name "Attributes" -Value "0X00000000" -PropertyType DWord | Out-Null' >> "C:\windows\system32\reg.ps1"
 					echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0\Device Parameters\Partmgr" -Name "DiskId" -Value "{116c15b5-5f04-11e5-9d2b-000c293089ea}" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
 			echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "LogConf" -Force' >> "C:\windows\system32\reg.ps1"
 			echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "Properties" -Force' >> "C:\windows\system32\reg.ps1"
-	schtasks /create /tn "Reg Hack2" /tr "powershell.exe -file C:\windows\system32\reg.ps1" /ru SYSTEM /sc ONCE /st (get-date).AddMinutes(1).ToString("HH:mm") /V1 /z
-	#start-sleep -s 60
+		Register-ScheduledJob -Name RegLock -FilePath  C:\windows\system32\reg.ps1 -RunNow
+	    start-sleep -s 1
 	
 dsmod user "CN=Apprent1ce08,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "i_love_legos"
 	Write-Output "The password for the next level is the number of files in the Videos folder." -n > C:\Users\Apprent1ce08\Desktop\challenge.txt
@@ -270,7 +268,7 @@ dsmod user "CN=Apprent1ce10,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 
 	new-item -ItemType Directory -Path "C:\Users\Apprent1ce09\Music\Stevie_Wonder 139" -Force
 	icacls C:\Users\Apprent1ce09 /grant Apprent1ce09:F /T /C
 
-dsmod user "CN=Fight3r01,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "5253"
+dsmod user "CN=Fight3r01,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "5254"
 	Write-Output "The password for the next level is the last five digits of the MD5 hash of the hosts file." -n > C:\Users\Fight3r01\Desktop\challenge.txt
 	new-item -ItemType Directory -Path "C:\Users\Apprent1ce10\Desktop" -Force
 	new-item -ItemType File -Path "C:\Users\Apprent1ce10\Desktop\words.txt" -Force
@@ -418,7 +416,7 @@ dsmod user "CN=Paladin01,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "ZzZp"
 	icacls C:\Users\Fight3r10 /grant Fight3r10:F /T /C
 	
 dsmod user "CN=Paladin02,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(get-date -Format "MM/dd/yy")"
-	Write-Output "The password for the next level is the SID of the current user. Example  S-1-5-21-1004336348-1177238915-682003330-1000" -n > C:\Users\Paladin02\Desktop\challenge.txt
+	Write-Output "The password for the next level is the SID of the current user. Example  S-1-5-21-1004336348-1177238915-[682003330]-1000" -n > C:\Users\Paladin02\Desktop\challenge.txt
 	(new-object System.Net.WebClient).DownloadFile( "http://10.50.20.28/PoSH/2012R2-KB3191564-x64.msu","C:\2012R2-KB3191564-x64.msu" )
 	$dir = (Get-Item -Path "C:\" -Verbose).FullName
 	Foreach($item in (ls $dir *.msu -Name))	{
@@ -427,29 +425,34 @@ dsmod user "CN=Paladin02,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(get
 	}
 	$(get-date -Format "MM/dd/yy")
 	
-dsmod user "CN=Paladin03,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(((whoami /user | select-string -pattern 'S-1-5-21-*') -split " ")[1])"
-	Write-Output "The password for the next level is the RID of the 'krbtgt' user. Example  S-1-5-21-1004336348-1177238915-682003330-[501]" -n > C:\Users\Paladin03\Desktop\challenge.txt
+dsmod user "CN=Paladin03,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(((wmic useraccount list brief | slect-string "Paladin02") -split "-")[6])"
+	Write-Output "The password for the next level is the RID of the 'krbtgt' account. Example  S-1-5-21-1004336348-1177238915-682003330-[501]" -n > C:\Users\Paladin03\Desktop\challenge.txt
 	# no prep necessary
-
+  
 dsmod user "CN=Paladin04,OU=Paladin,OU=WARRIORS,DC=army,DC=army,DC=warriors" -pwd "502"
-	Write-Output "The password for the next level is the name of the program that is set to start upon each login." -n > C:\Users\Paladin04\Desktop\challenge.txt
+	Write-Output "The password for the next level is the SID of the only legitimate service. Example  S-1-5-80-159957745-2084983471-2137709666-960844832-[1182961511]" -n > C:\Users\Paladin04\Desktop\challenge.txt
 	# no prep necessary
-
-dsmod user "CN=Paladin05,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "garfield_loves_me"
-	Write-Output "The password for the next level is in the zip file." -n > C:\Users\Paladin05\Desktop\challenge.txt
-	echo '$A = ((whoami /user | select-string -pattern "Paladin04") -split " ")[0]' > C:\windows\system32\gar.ps1
-	echo 'if ( $A -match ("Paladin04") ) { New-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" -Name garfield_loves_me -Value "C:\Users\Paladin04\Desktop\Garfield.exe" -PropertyType String | Out-Null }' >> C:\windows\system32\gar.ps1
-	schtasks /create /tn "Garfield" /tr "powershell.exe -file C:\windows\system32\gar.ps1" /ru SYSTEM /sc ONLOGON /st (get-date).AddMinutes(1).ToString("HH:mm") /V1
 	
-dsmod user "CN=Paladin06,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "kung-fu"
-	Write-Output "The password for the next level is hidden in the user’s profile." -n > C:\Users\Paladin06\Desktop\challenge.txt
+dsmod user "CN=Paladin05,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(((cmd.exe /c "sc showsid Legit") -split "-")[10])"
+	Write-Output "The password for the next level is the name of the program that is set to start at logon." -n > C:\Users\Paladin05\Desktop\challenge.txt
+	cmd.exe /c "sc create Legit binpath= C:\windows\system32\kbd101f.cmd start= auto DisplayName= Totally-Legit type= own"
+	
+dsmod user "CN=Paladin06,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "yes"
+	Write-Output "The password for the next level is in the zip file." -n > C:\Users\Paladin06\Desktop\challenge.txt
+	echo '$A = (((wmic useraccount list brief | slect-string "Paladin04") -split "\\")[1] -split " ")[0]' > C:\windows\system32\schd.ps1
+	echo 'if ( $A -match ("Paladin04") ) { New-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run" -Name yes -Value "C:\Users\Paladin04\Desktop\no.exe" -PropertyType String | Out-Null }' >> C:\windows\system32\en-US\schd.ps1
+	$tr = New-JobTrigger -AtLogon -User army\Paladin04
+	$opts = New-ScheduledJobOption -HideInTaskScheduler -RunElevated -StartIfOnBattery -ContinueIfGoingOnBattery
+	Register-ScheduledJob -Name Paladin04 -FilePath  C:\windows\system32\schd.ps1 -ScheduledJobOption $opts -Trigger $tr		
+			
+dsmod user "CN=Paladin07,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "kung-fu"
+	Write-Output "The password for the next level is hidden in the user’s profile." -n > C:\Users\Paladin07\Desktop\challenge.txt
 	# creates "password.txt" a smoke-screen
 	1..500 | % { Write-Output " i, Paladin05, will not try to take the easy way out again ." -n >> C:\Users\Paladin05\Documents\password.txt }
 	Write-Output "" >> C:\Users\Paladin05\Documents\password.txt
 	Write-Output " Sincerely," -n >> C:\Users\Paladin05\Documents\password.txt 
 	Write-Output " Paladin05" -n >> C:\Users\Paladin05\Documents\password.txt
 	Write-Output "" >> C:\Users\Paladin05\Documents\password.txt
-		
 	# creates "Paladin1000.zip"
 	New-Item -ItemType Directory -Path C:\Users\Paladin05\Documents\archive
 	New-Item -ItemType File -Path C:\Users\Paladin05\Documents\Paladin1.txt
@@ -459,9 +462,9 @@ dsmod user "CN=Paladin06,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "kung-
 	Compress-Archive -Path C:\Users\Paladin05\Documents\Paladin*.zip -DestinationPath C:\Users\Paladin05\Documents\archive\Paladin$i.zip; Remove-Item C:\Users\Paladin05\Documents\Paladin*.zip; Move-Item C:\Users\Paladin05\Documents\archive\Paladin*.zip C:\Users\Paladin05\Documents\ 
 	}
 	icacls C:\Users\Paladin05 /grant Paladin05:F /T /C
-			
-dsmod user "CN=Paladin07,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors"-pwd "P455W0RD"
-	Write-Output "Challenge Hint - its a crappie site, but someones gotta phish it.." -n > C:\Users\Paladin07\Desktop\challenge.txt
+	
+dsmod user "CN=Paladin08,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "P455W0RD
+	Write-Output "Challenge Hint - its a crappie site, but someones gotta phish it.." -n > C:\Users\Paladin08\Desktop\challenge.txt
 	$FILES = @("nothing_here","empty_file","completely_blank","bit_free")
 	foreach ($FILE in $FILES) {
 		new-item -ItemType File -Path "C:\Users\Paladin06\Documents\$FILE" -Force
@@ -469,9 +472,9 @@ dsmod user "CN=Paladin07,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors"-pwd "P455W0
 	Add-Content -Path C:\Users\Paladin06\Documents\nothing_here -Value 'P455W0RD' -Stream 'hidden'	
 	Write-Output "challenges from here on ... get bit more challenging ;)" > C:\Users\Paladin06\Documents\NOTICE
 	icacls C:\Users\Paladin06 /grant Paladin06:F /T /C
-	
-dsmod user "CN=Paladin08,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "phishy"
-	Write-Output "Challenge Hint - Beijing to deny any knowledge of injecting cookies onto our systems . ." -n > C:\Users\Paladin08\Desktop\challenge.txt
+		
+dsmod user "CN=Paladin09,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "phi5hy" 
+	Write-Output "Challenge Hint - Beijing to deny any knowledge of injecting cookies onto our systems . ." -n > C:\Users\Paladin09\Desktop\challenge.txt
 	Write-Output "" > C:\Windows\Web\crappie
 	Write-Output " can't seem to remember where i put that darn lobster trap . . " -n >> C:\Windows\Web\crappie
 	Write-Output "" >> C:\Windows\Web\crappie	
@@ -480,11 +483,11 @@ dsmod user "CN=Paladin08,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "phish
 	new-item -ItemType File -Directory "C:\Windows\Web\WWW" -Force
 	0..404 | % { new-item -ItemType File -Path C:\Windows\Web\WWW\$_ -Force; attrib +h C:\Windows\Web\WWW\$_ }
 	attrib -h C:\Windows\Web\WWW\200
-	Write-Output "Passsword: phishy" > "C:\Windows\Web\WWW\200"
+	Write-Output "Passsword: phi5hy" > "C:\Windows\Web\WWW\200"
 	attrib +h C:\Windows\Web\WWW\200
 	
-dsmod user "CN=Paladin09,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "fortune_cookie"
-	Write-Output "Challenge Hint - let it be logged ..  the password is somewhere on this system . ." -n > C:\Users\Paladin09\Desktop\challenge.txt
+dsmod user "CN=Paladin10,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "fortune_cookie" 
+	Write-Output "Challenge Hint - let it be logged ..  the password is somewhere on this system . ." -n > C:\Users\Paladin10\Desktop\challenge.txt
 	new-item -ItemType Directory "C:\Windows\PLA\not_china" -Force
 	new-item -ItemType File "C:\Windows\PLA\not_china\Fortune Cookie Crumb" -Force
 	Add-Content -Path "C:\windows\PLA\not_china\The Fortune Cookie" -Value 'Password:  fortune_cookie' -Stream 'none'
@@ -492,36 +495,50 @@ dsmod user "CN=Paladin09,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "fortu
 	Write-Output "out to lunch .. check back in 5 min." -n  > C:\Windows\SysWOW64\Com\"fortune cookie.txt"
 	attrib +h "C:\Windows\SysWOW64\Com\fortune cookie.txt"
 	Write-Output "I cannot help you, for I am just a cookie." -n  > "C:\Windows\System32\Com\fortune cookie.txt"
-	attrib +h "C:\Windows\SysWOW64\Com\fortune cookie.txt"
+	attrib +h "C:\Windows\System32\Com\fortune cookie.txt"
 	Write-Output "only listen to The Fortune Cookie, and disregard all other fortune telling units." -n  > "C:\Users\Paladin08\Documents\fortune cookie.txt"
 	attrib +h "C:\Users\Paladin08\Documents\fortune cookie.txt"
-	
-	
-dsmod user "CN=Paladin10,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "3v3nt_L0g"
-	Write-Output "Challenge Hint - Its a dirty job, but someones gotta do it . ." -n > C:\Users\Paladin10\Desktop\challenge.txt
-	# New-EventLog -LogName Application -Source "EventSystam"
+
+
+dsmod user "CN=Wizard01,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "3v3nt_L0g"
+	Write-Output "Challenge Hint - This Windows File System Filter finished dead last . ." -n > C:\Users\Wizard1\Desktop\challenge.txt
 	Write-EventLog -LogName Application -Source "EventSystem" -EntryType Information -EventId 4625 -category 0 -Message "The description for Event ID '1073746449' in Source 'EventSystem' cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'86400', 'SuppressDuplicateDuration', 'Software\Microsoft\EventSystem\EventLog', password: NOT_LIKELY"
 	Write-EventLog -LogName Application -Source "ESENT" -EntryType Information -EventId 326 -category 1 -Message "Congratulations! NO Password here!"
 	Write-EventLog -LogName System -Source "Service Control Manager" -EntryType Information -EventId 7036 -category 0 -Message "Congratulations!  you STILL HAVE NOT found the Password?"
 	Write-EventLog -LogName "DNS Server" -Source "DNS" -EntryType Information -EventId 4500 -category 0 -Message "The DNS Application Directory Partition DomainDnsZones.army.warriors was created. The distinguished name of the root of this Directory Partition is DC=DomainDnsZones,DC=army,DC=warriors ........................  the Password is: 3v3nt_L0g"
-	
-<#
 
+dsmod user "CN=Wizard02,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "Top" 
+	Write-Output "Challenge Hint - It's a dirty job, but someone's gotta do it"	-n > C:\Users\Wizard02\Desktop\challenge.txt
+	# solution: (((Get-ItemProperty -Path "hklm:\system\currentcontrolset\control\servicegrouporder").List) | select-string FSFilter) -last
+	# no prep necessary			   
+	
+dsmod user "CN=Wizard03,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "d1rty_j0b" 
+	Write-Output "Congrats! You've reached the end of the exercise!" -n > C:\Users\Wizard03\Desktop\message.txt
+	#Write-Output "Challenge Hint - language barrier . ." -n > C:\Users\Wizard03\Desktop\challenge.txt
+	echo '$B = (((wmic useraccount list brief | slect-string "Wizard02") -split "\\")[1] -split " ")[0]' > C:\Windows\Resources\system.ps1
+	echo 'if ( $B -match ("Wizard02") ) {write-output "PASSWORD:  d1rty_j0b" >C:\Users\Wizard02\Desktop\PASSWORD.txt }' >> C:\Windows\Resources\system.ps1
+	# $tr = New-JobTrigger -AtLogon -User army\Wizard02
+	
+	$username = 'army\Wizard02'
+	$password = ConvertTo-SecureString -String 'Top' -AsPlainText -Force
+	$Creds = New-Object System.Management.Automation.PSCredential -ArgumentList ($username,$password)
+	
+	$tr = New-JobTrigger -Once -RepeatIndefinitely -RepetitionInterval 00:01:05 -At $(date)
+	$opts = New-ScheduledJobOption -StartIfOnBattery -ContinueIfGoingOnBattery
+	Register-ScheduledJob -Name RunMe -FilePath "C:\Windows\Resources\system.ps1" -RunNow -Credential $Creds -Authentication CredSSP
+	Disable-ScheduledJob -Name RunMe
+	cp C:\Users\Administrator\AppData\Local\Microsoft\Windows\PowerShell\ScheduledJobs\RunMe  C:\Users\Wizard02\AppData\Local\Microsoft\Windows\PowerShell\ScheduledJobs
+	icacls C:\Windows\System32\Tasks /grant Wizard02:RX /T /C
+	icacls C:\Windows\System32\Tasks\Microsoft\Windows\PowerShell\ScheduledJobs /grant Wizard02:M /T /C
+	# UnRegister-ScheduledJob -Name 1
+
+	
 #-----   WORK IN PROGRESS  ---
 	
-dsmod user "CN=Wizard01,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "d1rty_j0b"
-	Write-Output "" -n > C:\Users\Wizard01\Desktop\challenge.txt
-	$tr = New-JobTrigger -AtLogon -User army\Paladin10 -RepeatIndefinitely -RepetitionInterval 00:00:01
-		# $tr | fl       to check settings
-	$opts = New-ScheduledJobOption -DoNotAllowDemandStart -HideInTaskScheduler -RunElevated -StartIfOnBattery -ContinueIfGoingOnBattery -MultipleInstancePolicy Parallel
-		# $opts | fl     to check settings
-	Register-ScheduledJob -Name SysChecks -ScriptBlock {Write-Output "System Check In Progress.  Do not turn off your system.......................    pa55word: d1rty_j0b" -n > C:\Windows\Tasks\pass; attrib +h C:\Windows\Tasks\pass} -ScheduledJobOption $opts -Trigger $tr
-	$id = Get-ScheduledJob | Select -ExpandProperty Id
-	(Get-ScheduledJob -Id $id).StartJob()
-
-
-dsmod user "CN=Wizard02,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors"-pwd "NONESET"
-	Write-Output "Challenge Hint - Arrr! thar be ΘΗΣΑΥΡΟΣ burried in the Share . ." -n > C:\Users\Wizard02\Desktop\challenge.txt
+	<#
+	
+dsmod user "CN=Wizard04,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET" 
+	Write-Output "Challenge Hint - Arrr! thar be ΘΗΣΑΥΡΟΣ burried in the Share . ." -n > C:\Users\Wizard04\Desktop\challenge.txt
 	# Various Optional Keyboard Codes:   HKLM:\SYSTEM\CurrentControlSet\Control\Keyboard Layout\DosKeybCodes
 	# sets keyboard layout to Spanish Traditional at next user logon / really messes with the special character key locations
 	Set-ItemProperty "HKCU:\Keyboard Layout\Preload" -Name 1 -Value "00000c0a"
@@ -555,30 +572,23 @@ dsmod user "CN=Wizard02,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors"-pwd "NONESET"
 *	Set-WinSystemLocale en-US                              en-US:US   es-ES: Spain  ru-RU:Russia  zh-CN:China
 	Set-WinHomeLocation 0xF4							   0xF4: US   0xD9: Spain   0xCB:Russia   0x2D:China 
 	Set-WinHomeLocation -GeoId 244						   244: US    217: Spain    203:Russia    45:China
-	Set-WinUserLanguageList
-*	Set-WinUILanguageOverride en-US						   en-US:US   es-ES: Spain  ru-RU:Russia  zh-CN:China
-	
-	
-dsmod user "CN=Wizard03,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors"-pwd "b00ty"
-	Write-Output "Challenge Hint - thats one persistent mouse . . " -n > C:\Users\Wizard03\Desktop\challenge.txt
+	Set-WinUserLanguageList								   en-US:US   es-ES: Spain  ru-RU:Russia  zh-CN:China
+*	Set-WinUILanguageOverride en-US			
+
+dsmod user "CN=Wizard05,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "b00ty" 
+	Write-Output "Challenge Hint - thats one persistent mouse . . " -n > C:\Users\Wizard05\Desktop\challenge.txt
 	Write-Output "Arr!  Well Done Matey!  p@ss_w0rd - b00ty" -n > "C:\share\WARRIORS\Rang3r\8\HOME\3\HOME\9\ΒΘΘΤΨ"
 	attrib +s +h C:\share\WARRIORS\Rang3r\8\HOME\3\HOME\9\ΒΘΘΤΨ
 	icacls "C:\share\WARRIORS" /grant Wizard02:R /T /C
-
-dsmod user "CN=Wizard04,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET"
-	Write-Output "" -n > C:\Users\Wizard04\Desktop\challenge.txt
-	# write a job that checks value of reg key: HKCU:\Control Panel\Mouse\SwapMouseButtons
-	# if value is "0", the job sets the key back to "1" ; checks key every 3 seconds.
-	Set-ItemProperty "HKCU:\Control Panel\Mouse" -Name SwapMouseButtons -Value "1"
-
-dsmod user "CN=Wizard05,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors"-pwd "NONESET"
-	Write-Output "" -n > C:\Users\Wizard05\Desktop\challenge.txt
 	
 dsmod user "CN=Wizard06,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET" 
 	Write-Output "" -n > C:\Users\Wizard06\Desktop\challenge.txt
-	
+	# write a job that checks value of reg key: HKCU:\Control Panel\Mouse\SwapMouseButtons
+	# if value is "0", the job sets the key back to "1" ; checks key every 3 seconds.
+	Set-ItemProperty "HKCU:\Control Panel\Mouse" -Name SwapMouseButtons -Value "1"
+		
 dsmod user "CN=Wizard07,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET"
-	Write-Output "" -n > C:\Users\Wizard07\Desktop\challenge.txt
+	Write-Output "Challenge Hint - Its a dirty job, but someones gotta do it . ." -n > C:\Users\Wizard07\Desktop\challenge.txt
 
 dsmod user "CN=Wizard08,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET"
 	Write-Output "" -n > C:\Users\Wizard08\Desktop\challenge.txt
@@ -638,5 +648,7 @@ attrib +h +s C:\Users\Rang3r
 
 Remove-Item C:\windows\system32\setup1.ps1 -Force
 Remove-Item C:\windows\system32\reg.ps1 -Force
+Remove-Item C:\windows\system32\schd.ps1 -Force
+UnRegister-ScheduledJob -Name Paladin04
 Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" "cleanup" 'C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -noprofile -sta -File "C:\windows\system32\cleanup.ps1"'
 Restart-Computer
