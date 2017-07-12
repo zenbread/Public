@@ -1,6 +1,6 @@
 heat_template_version: 2016-10-14
 
-description: Heat Template for Through The Wire Exer of CCTC - Provides base resources, Windows 10 and 2012 R2 Server.
+description: Heat Template for Through The Wire Exer of CCTC - Provides base resources, Windows 10 and 2016 Server.
 
 parameters:
 
@@ -115,10 +115,10 @@ resources:
     properties:
       diskConfig: AUTO
       flavor: cy.large
-      image: Windows Server 2012 R2
+      image: Windows Server 2016
       name:
         str_replace:
-          template: lastname-Domain-Controller
+          template: lastname-Mystery
           params:
             lastname: { get_param: last_name }
       networks:
