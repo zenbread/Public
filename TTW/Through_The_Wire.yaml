@@ -1,6 +1,6 @@
 heat_template_version: 2016-10-14
 
-description: Heat Template for Through The Wire Exer of CCTC - Provides base resources, Windows 10 and 2016 Server.
+description: Heat Template for Through The Wire Exer of CCTC - Provides base resources 2016 Server.
 
 parameters:
 
@@ -139,54 +139,6 @@ resources:
             Invoke-WebRequest -Uri "https://github.com/D4NP0UL1N/Public/blob/master/TTW/PsExec.exe?raw=true" -OutFile "C:\windows\system32\PsExec.exe"
             Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/cleanup.ps1" -OutFile "C:\windows\system32\cleanup.ps1"
             Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" "setup1" 'C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -noprofile -sta -File "C:\windows\system32\setup1.ps1"'
-            exit 1001
-          params:
-            $user: { get_param: last_name }
-            $password: { get_param: password }
-            $studentID: { get_param: student_id }
-      user_data_format: RAW
-                          
-  server_2_subnet_0_port:
-    type: OS::Neutron::Port
-    properties:
-      network_id: { get_resource: network_0 }
-      fixed_ips:
-        - ip_address:
-            str_replace:
-              template: 10.studentID.0.2
-              params:
-                studentID: { get_param: student_id }
-      port_security_enabled: false
-
-  server_2:
-    type: OS::Nova::Server
-    properties:
-      diskConfig: AUTO
-      flavor: cy.large
-      image: Windows 10
-      name:
-        str_replace:
-          template: lastname-Windows-10
-          params:
-            lastname: { get_param: last_name }
-      networks:
-        - port: { get_resource: server_2_subnet_0_port }
-      user_data:
-        str_replace:
-          template: |
-            #ps1_sysnative
-            $ErrorActionPreference = 'SilentlyContinue'
-            netsh advfirewall set allprofiles state off
-            set-ItemProperty -Path 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System' -name "dontdisplaylastusername" -Value 1
-            (new-object System.Net.WebClient).DownloadFile('https://download.mozilla.org/?product=firefox-48.0.2-SSL&os=win64&lang=en-US','C:\firefox.exe')
-            & c:\firefox.exe -ms
-            (new-object System.Net.WebClient).DownloadFile('https://notepad-plus-plus.org/repository/6.x/6.9.2/npp.6.9.2.Installer.exe','C:\npp.exe')
-            & c:\npp.exe /S
-            (new-object System.Net.WebClient).DownloadFile('https://the.earth.li/~sgtatham/putty/latest/x86/putty-0.67-installer.msi','C:\putty.msi')
-            & msiexec /i c:\putty.msi /quiet /passive
-            (new-object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/OpenSSH-Win64.zip','C:\windows\system32\OpenSSH-Win64.zip')
-            net user /add $user $password /y
-            net localgroup administrators /add $user
             exit 1001
           params:
             $user: { get_param: last_name }
