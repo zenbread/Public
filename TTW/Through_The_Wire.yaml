@@ -114,7 +114,7 @@ resources:
     type: OS::Nova::Server
     properties:
       diskConfig: AUTO
-      flavor: cy.large
+      flavor: cy.mega
       image: Windows Server 2016
       name:
         str_replace:
