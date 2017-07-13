@@ -230,7 +230,7 @@ dsmod user "CN=Apprent1ce07,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 
 					echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0\Device Parameters\Partmgr" -Name "DiskId" -Value "{116c15b5-5f04-11e5-9d2b-000c293089ea}" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
 			echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0" -Name "LogConf" -Force' >> "C:\windows\system32\reg.ps1"
 			echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0" -Name "Properties" -Force' >> "C:\windows\system32\reg.ps1"
-		Register-ScheduledJob -Name USB -FilePath  C:\windows\system32\reg.ps1 -RunNow
+		schtasks /create /tn "Reg" /tr "powershell.exe -file C:\windows\system32\reg.ps1" /ru SYSTEM /sc ONCE /st (get-date).AddMinutes(1).ToString("HH:mm") /V1 /z
 	    start-sleep -s 1
 	
 dsmod user "CN=Apprent1ce08,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "i_love_legos"
