@@ -437,9 +437,9 @@ dsmod user "CN=Paladin07,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "kung-
 	New-Item -ItemType Directory -Path C:\Users\Paladin06\Documents\archive
 	New-Item -ItemType File -Path C:\Users\Paladin06\Documents\Paladin1.txt
 	Write-Output "kung-fu" -n > C:\Users\Paladin06\Documents\Paladin1.txt
-	Compress-Archive -Path C:\Users\Paladin06\Documents\Paladin1.txt -DestinationPath C:\Users\Paladin05\Documents\Paladin1.zip; Remove-Item C:\Users\Paladin05\Documents\Paladin1.txt
+	Compress-Archive -Path C:\Users\Paladin06\Documents\Paladin1.txt -DestinationPath C:\Users\Paladin06\Documents\Paladin1.zip; Remove-Item C:\Users\Paladin06\Documents\Paladin1.txt
 	for ($i=1; $i -lt 1001; $i = $i + 1) { 
-	Compress-Archive -Path C:\Users\Paladin06\Documents\Paladin*.zip -DestinationPath C:\Users\Paladin05\Documents\archive\Paladin$i.zip; Remove-Item C:\Users\Paladin05\Documents\Paladin*.zip; Move-Item C:\Users\Paladin05\Documents\archive\Paladin*.zip C:\Users\Paladin05\Documents\ 
+	Compress-Archive -Path C:\Users\Paladin06\Documents\Paladin*.zip -DestinationPath C:\Users\Paladin06\Documents\archive\Paladin$i.zip; Remove-Item C:\Users\Paladin06\Documents\Paladin*.zip; Move-Item C:\Users\Paladin06\Documents\archive\Paladin*.zip C:\Users\Paladin06\Documents\ 
 	}
 	icacls C:\Users\Paladin06 /grant Paladin06:F /T /C
 	
@@ -460,7 +460,8 @@ dsmod user "CN=Paladin09,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "phi5h
 	Write-Output "" >> C:\Windows\Web\crappie	
 	Write-Output " i know it is around here somewhere . ." -n >> C:\Windows\Web\crappie
 	Write-Output "" >> C:\Windows\Web\crappie
-	new-item -ItemType File -Directory "C:\Windows\Web\WWW" -Force
+	new-item -ItemType Directory "C:\Windows\Web\WWW" -Force
+	new-item -ItemType File "C:\Windows\Web\WWW" -name "getting warmer" -Force
 	0..404 | % { new-item -ItemType File -Path C:\Windows\Web\WWW\$_ -Force; attrib +h C:\Windows\Web\WWW\$_ }
 	attrib -h C:\Windows\Web\WWW\200
 	Write-Output "Passsword: phi5hy" > "C:\Windows\Web\WWW\200"
