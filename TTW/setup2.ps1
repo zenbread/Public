@@ -187,7 +187,7 @@ dsmod user "CN=Apprent1ce03,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 
 	
 dsmod user "CN=Apprent1ce04,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "123456"
 	Write-Output "The password for the next level is in a file in a hidden directory in the root of this user’s profile." -n > C:\Users\Apprent1ce04\Desktop\challenge.txt
-	echo "123456" > C:\Users\Apprent1ce03\README
+	echo "123456" > C:\Users\Apprent1ce03\Favorites\README
 	icacls C:\Users\Apprent1ce03 /grant Apprent1ce03:F /T /C
 
 dsmod user "CN=Apprent1ce05,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "ketchup"
