@@ -471,7 +471,7 @@ dsmod user "CN=Paladin10,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "fortu
 	Write-Output "Challenge Hint - let it be logged ..  the password is somewhere on this system . ." -n > C:\Users\Paladin10\Desktop\challenge.txt
 	new-item -ItemType Directory "C:\Windows\PLA\not_china" -Force
 	new-item -ItemType File "C:\Windows\PLA\not_china\Fortune Cookie Crumb" -Force
-	echo -n "nom nom nom cookies" > "C:\Windows\PLA\not_china\Fortune Cookie Crumb"
+	echo -n "find the hidden fortune cookie.s . . " > "C:\Windows\PLA\not_china\Fortune Cookie Crumb"
 	Add-Content -Path "C:\windows\PLA\not_china\The Fortune Cookie" -Value 'Password:  fortune_cookie' -Stream 'none'
 	Write-Output "The fortune you seek is inside the fortune cookie on this system." -n > "C:\Windows\PLA\not_china\The Fortune Cookie"
 	Write-Output "out to lunch .. check back in 5 min." -n  > C:\Windows\SysWOW64\Com\"fortune cookie.txt"
