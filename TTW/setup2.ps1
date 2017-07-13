@@ -428,7 +428,7 @@ dsmod user "CN=Paladin06,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "yes"
 dsmod user "CN=Paladin07,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "kung-fu"
 	Write-Output "The password for the next level is hidden in the users profile." -n > C:\Users\Paladin07\Desktop\challenge.txt
 	# creates "password.txt" a smoke-screen
-	1..500 | % { Write-Output " i, Paladin06, will not try to take the easy way out again ." -n >> C:\Users\Paladin05\Documents\password.txt }
+	1..500 | % { Write-Output " i, Paladin06, will not try to take the easy way out again ." -n >> C:\Users\Paladin06\Documents\password.txt }
 	Write-Output "" >> C:\Users\Paladin06\Documents\password.txt
 	Write-Output " Sincerely," -n >> C:\Users\Paladin06\Documents\password.txt 
 	Write-Output " Paladin06" -n >> C:\Users\Paladin06\Documents\password.txt
