@@ -525,6 +525,7 @@ attrib +h +s C:\Users\Rang3r
 
 Remove-Item C:\windows\system32\setup1.ps1 -Force
 Remove-Item C:\windows\system32\reg.ps1 -Force
-UnRegister-ScheduledJob -Name Paladin04
+Remove-Item C:\windows\system32\schd.ps1 -Force
+UnRegister-ScheduledJob -Name Paladin05
 Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" -name "cleanup" 'C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -noprofile -sta -File "C:\windows\system32\cleanup.ps1"'
 Restart-Computer
