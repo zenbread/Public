@@ -225,25 +225,25 @@ dsmod user "CN=Apprent1ce07,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 
 	Set-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Services\USBSTOR" -Name Start -Value 1 
 	New-Item "C:\windows\system32" -ItemType File -Name reg.ps1 -Force
 		echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum" -Name USBSTOR -Force' > "C:\windows\system32\reg.ps1"
-			echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "Device Parameters" -Force' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "Capabilities" -Value "0X00000010" -PropertyType DWord | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "Class" -Value "DiskDrive" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "ClassGUID" -Value "{4d36e967-e325-11ce-bfc1-08002be10318}" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "CompatibleIDs" -Value "USBSTOR\Disk USBSTOR\RAW" -PropertyType MultiString | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "ConfigFlags" -Value "0X00000000" -PropertyType DWord | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "ContainerID" -Value "{c2dc3c42-a281-557a-a6ed-e607894e99b3}" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "DeviceDesc" -Value "@disk.inf;%disk_devdesc%;Disk Drive" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "Driver" -Value "{4d36e967-e325-11ce-bfc1-08002be10318}\0001" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "FriendlyName" -Value "SanDisk Cruzer Blade USB Device" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "HardwareID" -Value "USBSTOR\DiskSanDisk_Cruzer_Blade___PMAP USBST..." -PropertyType MultiString | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "Mfg" -Value "@disk.inf;%genmanufacturer%;(Standard disk drives)" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "Service" -Value "disk" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
-				echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0\Device Parameters" -Name "MediaChangeNotification" -Force' >> "C:\windows\system32\reg.ps1"
-				echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0\Device Parameters" -Name "Partmgr" -Force' >> "C:\windows\system32\reg.ps1"
-					echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0\Device Parameters\Partmgr" -Name "Attributes" -Value "0X00000000" -PropertyType DWord | Out-Null' >> "C:\windows\system32\reg.ps1"
-					echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0\Device Parameters\Partmgr" -Name "DiskId" -Value "{116c15b5-5f04-11e5-9d2b-000c293089ea}" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
-			echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "LogConf" -Force' >> "C:\windows\system32\reg.ps1"
-			echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_PMAP\CF52A6CB&0" -Name "Properties" -Force' >> "C:\windows\system32\reg.ps1"
+			echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0" -Name "Device Parameters" -Force' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0" -Name "Capabilities" -Value "0X00000010" -PropertyType DWord | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0" -Name "Class" -Value "DiskDrive" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0" -Name "ClassGUID" -Value "{4d36e967-e325-11ce-bfc1-08002be10318}" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0" -Name "CompatibleIDs" -Value "USBSTOR\Disk USBSTOR\RAW" -PropertyType MultiString | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0" -Name "ConfigFlags" -Value "0X00000000" -PropertyType DWord | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0" -Name "ContainerID" -Value "{c2dc3c42-a281-557a-a6ed-e607894e99b3}" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0" -Name "DeviceDesc" -Value "@disk.inf;%disk_devdesc%;Disk Drive" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0" -Name "Driver" -Value "{4d36e967-e325-11ce-bfc1-08002be10318}\0001" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0" -Name "FriendlyName" -Value "SanDisk Cruzer Blade USB Device" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0" -Name "HardwareID" -Value "USBSTOR\DiskSanDisk_Cruzer_Blade___PMAP USBST..." -PropertyType MultiString | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0" -Name "Mfg" -Value "@disk.inf;%genmanufacturer%;Standard disk drives" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0" -Name "Service" -Value "disk" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
+				echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0\Device Parameters" -Name "MediaChangeNotification" -Force' >> "C:\windows\system32\reg.ps1"
+				echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0\Device Parameters" -Name "Partmgr" -Force' >> "C:\windows\system32\reg.ps1"
+					echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0\Device Parameters\Partmgr" -Name "Attributes" -Value "0X00000000" -PropertyType DWord | Out-Null' >> "C:\windows\system32\reg.ps1"
+					echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0\Device Parameters\Partmgr" -Name "DiskId" -Value "{116c15b5-5f04-11e5-9d2b-000c293089ea}" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
+			echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0" -Name "LogConf" -Force' >> "C:\windows\system32\reg.ps1"
+			echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0" -Name "Properties" -Force' >> "C:\windows\system32\reg.ps1"
 		Register-ScheduledJob -Name RegLock -FilePath  C:\windows\system32\reg.ps1 -RunNow
 	    start-sleep -s 1
 	
@@ -439,39 +439,39 @@ dsmod user "CN=Paladin05,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(((c
 	
 dsmod user "CN=Paladin06,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "yes"
 	Write-Output "The password for the next level is in the zip file." -n > C:\Users\Paladin06\Desktop\challenge.txt
-	echo '$A = (((wmic useraccount list brief | slect-string "Paladin04") -split "\\")[1] -split " ")[0]' > C:\windows\system32\schd.ps1
-	echo 'if ( $A -match ("Paladin04") ) { New-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run" -Name yes -Value "C:\Users\Paladin04\Desktop\no.exe" -PropertyType String | Out-Null }' >> C:\windows\system32\en-US\schd.ps1
+	echo '$A = (((wmic useraccount list brief | slect-string "Paladin05") -split "\\")[1] -split " ")[0]' > C:\windows\system32\schd.ps1
+	echo 'if ( $A -match ("Paladin05") ) { New-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run" -Name yes -Value "C:\Users\Paladin05\Desktop\no.exe" -PropertyType String | Out-Null }' >> C:\windows\system32\en-US\schd.ps1
 	$tr = New-JobTrigger -AtLogon -User army\Paladin04
 	$opts = New-ScheduledJobOption -HideInTaskScheduler -RunElevated -StartIfOnBattery -ContinueIfGoingOnBattery
-	Register-ScheduledJob -Name Paladin04 -FilePath  C:\windows\system32\schd.ps1 -ScheduledJobOption $opts -Trigger $tr		
+	Register-ScheduledJob -Name Paladin05 -FilePath  C:\windows\system32\schd.ps1 -ScheduledJobOption $opts -Trigger $tr		
 			
 dsmod user "CN=Paladin07,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "kung-fu"
 	Write-Output "The password for the next level is hidden in the user’s profile." -n > C:\Users\Paladin07\Desktop\challenge.txt
 	# creates "password.txt" a smoke-screen
-	1..500 | % { Write-Output " i, Paladin05, will not try to take the easy way out again ." -n >> C:\Users\Paladin05\Documents\password.txt }
-	Write-Output "" >> C:\Users\Paladin05\Documents\password.txt
-	Write-Output " Sincerely," -n >> C:\Users\Paladin05\Documents\password.txt 
-	Write-Output " Paladin05" -n >> C:\Users\Paladin05\Documents\password.txt
-	Write-Output "" >> C:\Users\Paladin05\Documents\password.txt
+	1..500 | % { Write-Output " i, Paladin06, will not try to take the easy way out again ." -n >> C:\Users\Paladin05\Documents\password.txt }
+	Write-Output "" >> C:\Users\Paladin06\Documents\password.txt
+	Write-Output " Sincerely," -n >> C:\Users\Paladin06\Documents\password.txt 
+	Write-Output " Paladin06" -n >> C:\Users\Paladin06\Documents\password.txt
+	Write-Output "" >> C:\Users\Paladin06\Documents\password.txt
 	# creates "Paladin1000.zip"
-	New-Item -ItemType Directory -Path C:\Users\Paladin05\Documents\archive
-	New-Item -ItemType File -Path C:\Users\Paladin05\Documents\Paladin1.txt
-	Write-Output "kung-fu" -n > C:\Users\Paladin05\Documents\Paladin1.txt
-	Compress-Archive -Path C:\Users\Paladin05\Documents\Paladin1.txt -DestinationPath C:\Users\Paladin05\Documents\Paladin1.zip; Remove-Item C:\Users\Paladin05\Documents\Paladin1.txt
+	New-Item -ItemType Directory -Path C:\Users\Paladin06\Documents\archive
+	New-Item -ItemType File -Path C:\Users\Paladin06\Documents\Paladin1.txt
+	Write-Output "kung-fu" -n > C:\Users\Paladin06\Documents\Paladin1.txt
+	Compress-Archive -Path C:\Users\Paladin06\Documents\Paladin1.txt -DestinationPath C:\Users\Paladin05\Documents\Paladin1.zip; Remove-Item C:\Users\Paladin05\Documents\Paladin1.txt
 	for ($i=1; $i -lt 1001; $i = $i + 1) { 
-	Compress-Archive -Path C:\Users\Paladin05\Documents\Paladin*.zip -DestinationPath C:\Users\Paladin05\Documents\archive\Paladin$i.zip; Remove-Item C:\Users\Paladin05\Documents\Paladin*.zip; Move-Item C:\Users\Paladin05\Documents\archive\Paladin*.zip C:\Users\Paladin05\Documents\ 
+	Compress-Archive -Path C:\Users\Paladin06\Documents\Paladin*.zip -DestinationPath C:\Users\Paladin05\Documents\archive\Paladin$i.zip; Remove-Item C:\Users\Paladin05\Documents\Paladin*.zip; Move-Item C:\Users\Paladin05\Documents\archive\Paladin*.zip C:\Users\Paladin05\Documents\ 
 	}
-	icacls C:\Users\Paladin05 /grant Paladin05:F /T /C
+	icacls C:\Users\Paladin05 /grant Paladin06:F /T /C
 	
 dsmod user "CN=Paladin08,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "P455W0RD
 	Write-Output "Challenge Hint - its a crappie site, but someones gotta phish it.." -n > C:\Users\Paladin08\Desktop\challenge.txt
 	$FILES = @("nothing_here","empty_file","completely_blank","bit_free")
 	foreach ($FILE in $FILES) {
-		new-item -ItemType File -Path "C:\Users\Paladin06\Documents\$FILE" -Force
+		new-item -ItemType File -Path "C:\Users\Paladin07\Documents\$FILE" -Force
 	}
-	Add-Content -Path C:\Users\Paladin06\Documents\nothing_here -Value 'P455W0RD' -Stream 'hidden'	
-	Write-Output "challenges from here on ... get bit more challenging ;)" > C:\Users\Paladin06\Documents\NOTICE
-	icacls C:\Users\Paladin06 /grant Paladin06:F /T /C
+	Add-Content -Path C:\Users\Paladin07\Documents\nothing_here -Value 'P455W0RD' -Stream 'hidden'	
+	Write-Output "challenges from here on ... get bit more challenging ;)" > C:\Users\Paladin07\Documents\NOTICE
+	icacls C:\Users\Paladin07 /grant Paladin07:F /T /C
 		
 dsmod user "CN=Paladin09,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "phi5hy" 
 	Write-Output "Challenge Hint - Beijing to deny any knowledge of injecting cookies onto our systems . ." -n > C:\Users\Paladin09\Desktop\challenge.txt
@@ -496,8 +496,8 @@ dsmod user "CN=Paladin10,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "fortu
 	attrib +h "C:\Windows\SysWOW64\Com\fortune cookie.txt"
 	Write-Output "I cannot help you, for I am just a cookie." -n  > "C:\Windows\System32\Com\fortune cookie.txt"
 	attrib +h "C:\Windows\System32\Com\fortune cookie.txt"
-	Write-Output "only listen to The Fortune Cookie, and disregard all other fortune telling units." -n  > "C:\Users\Paladin08\Documents\fortune cookie.txt"
-	attrib +h "C:\Users\Paladin08\Documents\fortune cookie.txt"
+	Write-Output "only listen to The Fortune Cookie, and disregard all other fortune telling units." -n  > "C:\Users\Paladin09\Documents\fortune cookie.txt"
+	attrib +h "C:\Users\Paladin09\Documents\fortune cookie.txt"
 
 
 dsmod user "CN=Wizard01,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "3v3nt_L0g"
