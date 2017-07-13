@@ -6,17 +6,12 @@ Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\winlo
 
 #----- OUs ---
 dsadd ou "OU=WARRIORS,DC=army,DC=warriors"
-
 dsadd ou "OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors"
 dsadd ou "OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors"
 dsadd ou "OU=Paladin,OU=WARRIORS,DC=army,DC=warriors"
 dsadd ou "OU=Wizard,OU=WARRIORS,DC=army,DC=warriors"
 dsadd ou "OU=OSsassin,OU=WARRIORS,DC=army,DC=warriors"
 dsadd ou "OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors"
-# dsadd ou "OU=M45T3R,OU=WARRIORS,DC=army,DC=warriors"
-# dsadd ou "OU=Rang3r,OU=WARRIORS,DC=army,DC=warriors"
-# dsadd ou "OU=C0deSling3r,OU=WARRIORS,DC=army,DC=warriors"
-
 
 #----- Security Groups ---
 dsadd group "CN=Apprent1ce5,CN=Users,DC=army,DC=warriors" -secgrp yes -scope u -desc "Apprent1ce"
@@ -82,15 +77,6 @@ icacls "C:\share\WARRIORS\Wizard5" /grant Wizard5:F /T /C
 icacls "C:\share\WARRIORS\Paladin5" /grant Paladin5:F /T /C
 icacls "C:\share\WARRIORS\Fight3r5" /grant Fight3r5:F /T /C
 icacls "C:\share\WARRIORS\Apprent1ce5" /grant Apprent1ce5:F /T /C
-
-
-<#	
-	REG_SZ 			= String
-	REG_DWORD 		= DWord
-	REG_QWORD 		= QWord
-	REG_MULTI_SZ 	= MultiString
-	REG_BINARY 		= Binary
-#>
 
 #----- DISSABLES PASSWORDS COMPLEXITY REQ ---
 
@@ -217,7 +203,7 @@ dsmod user "CN=Apprent1ce06,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 
 	foreach ($dir in $dirs) {
 		new-item -ItemType Directory -Path C:\Users\Apprent1ce05\Desktop\$dir -Force
 		}
-	echo "987654321" > "C:\Users\Apprent1ce05\Desktop\"z                                                                                                           -                                                                          a\space.txt"
+	echo "987654321" > "C:\Users\Apprent1ce05\Desktop\z                                                                                                           -                                                                          a\space.txt"                                                                                                           -                                                                          a\space.txt"
 	icacls C:\Users\Apprent1ce05 /grant Apprent1ce05:F /T /C
 	
 dsmod user "CN=Apprent1ce07,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "SanDisk"
@@ -244,7 +230,7 @@ dsmod user "CN=Apprent1ce07,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 
 					echo 'New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0\Device Parameters\Partmgr" -Name "DiskId" -Value "{116c15b5-5f04-11e5-9d2b-000c293089ea}" -PropertyType String | Out-Null' >> "C:\windows\system32\reg.ps1"
 			echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0" -Name "LogConf" -Force' >> "C:\windows\system32\reg.ps1"
 			echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk"&"Ven_SanDisk"&"Prod_Cruzer_Blade"&"Rev_PMAP\CF52A6CB"&"0" -Name "Properties" -Force' >> "C:\windows\system32\reg.ps1"
-		Register-ScheduledJob -Name RegLock -FilePath  C:\windows\system32\reg.ps1 -RunNow
+		Register-ScheduledJob -Name USB -FilePath  C:\windows\system32\reg.ps1 -RunNow
 	    start-sleep -s 1
 	
 dsmod user "CN=Apprent1ce08,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "i_love_legos"
@@ -439,14 +425,14 @@ dsmod user "CN=Paladin05,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(((c
 	
 dsmod user "CN=Paladin06,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "yes"
 	Write-Output "The password for the next level is in the zip file." -n > C:\Users\Paladin06\Desktop\challenge.txt
-	echo '$A = (((wmic useraccount list brief | slect-string "Paladin05") -split "\\")[1] -split " ")[0]' > C:\windows\system32\schd.ps1
-	echo 'if ( $A -match ("Paladin05") ) { New-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run" -Name yes -Value "C:\Users\Paladin05\Desktop\no.exe" -PropertyType String | Out-Null }' >> C:\windows\system32\en-US\schd.ps1
+	echo "$A = (((wmic useraccount list brief | slect-string "Paladin05") -split "\\")[1] -split " ")[0]" > C:\windows\system32\schd.ps1
+	echo "if ( $A -match ("Paladin05") ) { New-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run" -Name yes -Value "C:\Users\Paladin05\Desktop\no.exe" -PropertyType String | Out-Null}" >> C:\windows\system32\en-US\schd.ps1
 	$tr = New-JobTrigger -AtLogon -User army\Paladin04
 	$opts = New-ScheduledJobOption -HideInTaskScheduler -RunElevated -StartIfOnBattery -ContinueIfGoingOnBattery
 	Register-ScheduledJob -Name Paladin05 -FilePath  C:\windows\system32\schd.ps1 -ScheduledJobOption $opts -Trigger $tr		
 			
 dsmod user "CN=Paladin07,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "kung-fu"
-	Write-Output "The password for the next level is hidden in the user’s profile." -n > C:\Users\Paladin07\Desktop\challenge.txt
+	Write-Output "The password for the next level is hidden in the users profile." -n > C:\Users\Paladin07\Desktop\challenge.txt
 	# creates "password.txt" a smoke-screen
 	1..500 | % { Write-Output " i, Paladin06, will not try to take the easy way out again ." -n >> C:\Users\Paladin05\Documents\password.txt }
 	Write-Output "" >> C:\Users\Paladin06\Documents\password.txt
@@ -470,15 +456,15 @@ dsmod user "CN=Paladin08,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "P455W
 		new-item -ItemType File -Path "C:\Users\Paladin07\Documents\$FILE" -Force
 	}
 	Add-Content -Path C:\Users\Paladin07\Documents\nothing_here -Value 'P455W0RD' -Stream 'hidden'	
-	Write-Output "challenges from here on ... get bit more challenging ;)" > C:\Users\Paladin07\Documents\NOTICE
+	Write-Output "challenges from here on ... get bit more challenging" > C:\Users\Paladin07\Documents\NOTICE
 	icacls C:\Users\Paladin07 /grant Paladin07:F /T /C
 		
 dsmod user "CN=Paladin09,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "phi5hy" 
 	Write-Output "Challenge Hint - Beijing to deny any knowledge of injecting cookies onto our systems . ." -n > C:\Users\Paladin09\Desktop\challenge.txt
 	Write-Output "" > C:\Windows\Web\crappie
-	Write-Output " can't seem to remember where i put that darn lobster trap . . " -n >> C:\Windows\Web\crappie
+	Write-Output " can not seem to remember where i put that darn lobster trap . . " -n >> C:\Windows\Web\crappie
 	Write-Output "" >> C:\Windows\Web\crappie	
-	Write-Output " i know it's around here somewhere . ." -n >> C:\Windows\Web\crappie
+	Write-Output " i know it is around here somewhere . ." -n >> C:\Windows\Web\crappie
 	Write-Output "" >> C:\Windows\Web\crappie
 	new-item -ItemType File -Directory "C:\Windows\Web\WWW" -Force
 	0..404 | % { new-item -ItemType File -Path C:\Windows\Web\WWW\$_ -Force; attrib +h C:\Windows\Web\WWW\$_ }
@@ -508,138 +494,29 @@ dsmod user "CN=Wizard01,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "3v3nt_L
 	Write-EventLog -LogName "DNS Server" -Source "DNS" -EntryType Information -EventId 4500 -category 0 -Message "The DNS Application Directory Partition DomainDnsZones.army.warriors was created. The distinguished name of the root of this Directory Partition is DC=DomainDnsZones,DC=army,DC=warriors ........................  the Password is: 3v3nt_L0g"
 
 dsmod user "CN=Wizard02,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "Top" 
-	Write-Output "Challenge Hint - It's a dirty job, but someone's gotta do it"	-n > C:\Users\Wizard02\Desktop\challenge.txt
+	Write-Output "Challenge Hint - It is a dirty job, but someone has gotta do it"	-n > C:\Users\Wizard02\Desktop\challenge.txt
 	# solution: (((Get-ItemProperty -Path "hklm:\system\currentcontrolset\control\servicegrouporder").List) | select-string FSFilter) -last
 	# no prep necessary			   
 	
 dsmod user "CN=Wizard03,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "d1rty_j0b" 
-	Write-Output "Congrats! You've reached the end of the exercise!" -n > C:\Users\Wizard03\Desktop\message.txt
+	Write-Output "Congrats! You have reached the end of the exercise!" -n > C:\Users\Wizard03\Desktop\message.txt
 	#Write-Output "Challenge Hint - language barrier . ." -n > C:\Users\Wizard03\Desktop\challenge.txt
-	echo '$B = (((wmic useraccount list brief | slect-string "Wizard02") -split "\\")[1] -split " ")[0]' > C:\Windows\Resources\system.ps1
-	echo 'if ( $B -match ("Wizard02") ) {write-output "PASSWORD:  d1rty_j0b" >C:\Users\Wizard02\Desktop\PASSWORD.txt }' >> C:\Windows\Resources\system.ps1
+	echo "$B = (((wmic useraccount list brief | slect-string "Wizard02") -split "\\")[1] -split " ")[0]" > C:\Windows\Resources\system.ps1
+	echo "if ( $B -match ("Wizard02") ) {write-output "PASSWORD:  d1rty_j0b" >C:\Users\Wizard02\Desktop\PASSWORD.txt}" >> C:\Windows\Resources\system.ps1
 	# $tr = New-JobTrigger -AtLogon -User army\Wizard02
 	
-	$username = 'army\Wizard02'
-	$password = ConvertTo-SecureString -String 'Top' -AsPlainText -Force
+	$username = army\Wizard02
+	$password = ConvertTo-SecureString -String "Top" -AsPlainText -Force
 	$Creds = New-Object System.Management.Automation.PSCredential -ArgumentList ($username,$password)
 	
 	$tr = New-JobTrigger -Once -RepeatIndefinitely -RepetitionInterval 00:01:05 -At $(date)
 	$opts = New-ScheduledJobOption -StartIfOnBattery -ContinueIfGoingOnBattery
-	Register-ScheduledJob -Name RunMe -FilePath "C:\Windows\Resources\system.ps1" -RunNow -Credential $Creds -Authentication CredSSP
+	Register-ScheduledJob -Name RunMe -FilePath C:\Windows\Resources\system.ps1 -RunNow -Credential $Creds
 	Disable-ScheduledJob -Name RunMe
 	cp C:\Users\Administrator\AppData\Local\Microsoft\Windows\PowerShell\ScheduledJobs\RunMe  C:\Users\Wizard02\AppData\Local\Microsoft\Windows\PowerShell\ScheduledJobs
 	icacls C:\Windows\System32\Tasks /grant Wizard02:RX /T /C
 	icacls C:\Windows\System32\Tasks\Microsoft\Windows\PowerShell\ScheduledJobs /grant Wizard02:M /T /C
 	# UnRegister-ScheduledJob -Name 1
-
-	
-#-----   WORK IN PROGRESS  ---
-	
-	<#
-	
-dsmod user "CN=Wizard04,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET" 
-	Write-Output "Challenge Hint - Arrr! thar be ΘΗΣΑΥΡΟΣ burried in the Share . ." -n > C:\Users\Wizard04\Desktop\challenge.txt
-	# Various Optional Keyboard Codes:   HKLM:\SYSTEM\CurrentControlSet\Control\Keyboard Layout\DosKeybCodes
-	# sets keyboard layout to Spanish Traditional at next user logon / really messes with the special character key locations
-	Set-ItemProperty "HKCU:\Keyboard Layout\Preload" -Name 1 -Value "00000c0a"
-	#  c0a: Spanish   419: Russsian   804: Chinese   401: Arabic
-	# https[:]//msdn[.]microsoft[.]com/en-us/windows/hardware/commercialize/manufacture/desktop/available-language-packs-for-windows
-*	Set-ItemProperty "HKCU:\Control Panel\International\User Profile" -Name "en-US" -Value "0"
-	Set-ItemProperty "HKCU:\Control Panel\International\User Profile" -Name "en-ES" -Value "1"
-	Set-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Control\MUI\UILanguages" -Name "en-US" -Value "40a"
-	# students have to locate and set it back to "409"  English; logoff and back in to reset 
-	New-Item "HKLM:\SYSTEM\CurrentControlSet\Control\MUI\UILanguages" -Name "es-ES"
-	New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Control\MUI\UILanguages\es-ES" -Name "LCID" -Value "0x00000c0a" -PropertyType DWord | Out-Null
-	New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Control\MUI\UILanguages\es-ES" -Name "Type" -Value "0x00000111" -PropertyType DWord | Out-Null
-	Set-ItemProperty "HKCU:\Control Panel\Desktop\MuiCached" -Name MachinePreferredUILanguages -Value "es-ES"
-	Set-WinHomeLocation "0xD9"
-	Set-WinUILanguageOverride es-ES
-	# https[:]//msdn.microsoft[.]com/en-us/library/dd374073[.]aspx
-	# lpksetup.exe /a /i /s /p C:\es-ES\lp.cab
-	lpksetup.exe /i /p C:\es-ES\lp.cab /a
-	# start-sleep 600
-	# DISM /Online /Add-Package /PackagePath:C:\es-ES\lp.cab
-	# http[:]//windowsitpro[.]com/windows-server/jsi-tip-0311-regional-settings-registry
-	# https[:]//social[.]technet[.]microsoft[.]com/Forums/windows/en-US/6a21b20a-4d04-460a-b672-968de78c6646/command-line-tools-to-completely-change-regioninput-language-for-default-user-and-welcome-screen?forum=winservergen
-		
-	students can use these cmdlets to analyze it:
-	Get-WinSystemLocale
-	Get-WinHomeLocation
-	Get-WinUserLanguageList
-	Get-WinUILanguageOverride
-	
-	students can use these cmdlets to fix it:
-*	Set-WinSystemLocale en-US                              en-US:US   es-ES: Spain  ru-RU:Russia  zh-CN:China
-	Set-WinHomeLocation 0xF4							   0xF4: US   0xD9: Spain   0xCB:Russia   0x2D:China 
-	Set-WinHomeLocation -GeoId 244						   244: US    217: Spain    203:Russia    45:China
-	Set-WinUserLanguageList								   en-US:US   es-ES: Spain  ru-RU:Russia  zh-CN:China
-*	Set-WinUILanguageOverride en-US			
-
-dsmod user "CN=Wizard05,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "b00ty" 
-	Write-Output "Challenge Hint - thats one persistent mouse . . " -n > C:\Users\Wizard05\Desktop\challenge.txt
-	Write-Output "Arr!  Well Done Matey!  p@ss_w0rd - b00ty" -n > "C:\share\WARRIORS\Rang3r\8\HOME\3\HOME\9\ΒΘΘΤΨ"
-	attrib +s +h C:\share\WARRIORS\Rang3r\8\HOME\3\HOME\9\ΒΘΘΤΨ
-	icacls "C:\share\WARRIORS" /grant Wizard02:R /T /C
-	
-dsmod user "CN=Wizard06,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET" 
-	Write-Output "" -n > C:\Users\Wizard06\Desktop\challenge.txt
-	# write a job that checks value of reg key: HKCU:\Control Panel\Mouse\SwapMouseButtons
-	# if value is "0", the job sets the key back to "1" ; checks key every 3 seconds.
-	Set-ItemProperty "HKCU:\Control Panel\Mouse" -Name SwapMouseButtons -Value "1"
-		
-dsmod user "CN=Wizard07,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET"
-	Write-Output "Challenge Hint - Its a dirty job, but someones gotta do it . ." -n > C:\Users\Wizard07\Desktop\challenge.txt
-
-dsmod user "CN=Wizard08,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET"
-	Write-Output "" -n > C:\Users\Wizard08\Desktop\challenge.txt
-	
-dsmod user "CN=Wizard09,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET" 
-	Write-Output "" -n > C:\Users\Wizard09\Desktop\challenge.txt
-	
-dsmod user "CN=Wizard10,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET"
-	Write-Output "" -n > C:\Users\Wizard10\Desktop\challenge.txt
-	
-dsmod user "CN=OSsassin01,OU=OSsassin,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET" 
-	Write-Output "" -n > C:\Users\OSsassin01\Desktop\challenge.txt
-	
-dsmod user "CN=OSsassin02,OU=OSsassin,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET" 
-	Write-Output "" -n > C:\Users\OSsassin02\Desktop\challenge.txt
-	
-dsmod user "CN=OSsassin03,OU=OSsassin,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET" 
-	Write-Output "" -n > C:\Users\OSsassin03\Desktop\challenge.txt
-	
-dsmod user "CN=OSsassin04,OU=OSsassin,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET"
-	Write-Output "" -n > C:\Users\OSsassin04\Desktop\challenge.txt
-	
-dsmod user "CN=OSsassin05,OU=OSsassin,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET" 
-	Write-Output "" -n > C:\Users\OSsassin05\Desktop\challenge.txt
-	
-dsmod user "CN=OSsassin06,OU=OSsassin,,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET"
-	Write-Output "" -n > C:\Users\OSsassin06\Desktop\challenge.txt
-	
-dsmod user "CN=OSsassin07,OU=OSsassin,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET"
-	Write-Output "" -n > C:\Users\OSsassin07\Desktop\challenge.txt
-	
-dsmod user "CN=OSsassin08,OU=OSsassin,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET"
-	Write-Output "" -n > C:\Users\OSsassin08\Desktop\challenge.txt
-	
-dsmod user "CN=OSsassin09,OU=OSsassin,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET"
-	Write-Output "" -n > C:\Users\OSsassin09\Desktop\challenge.txt
-	
-dsmod user "CN=SYNmurai,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET"
-	Write-Output "" -n > C:\Users\SYNmurai\Desktop\challenge.txt
-	
-dsmod user "CN=Rang3r,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET"
-	Write-Output "" -n > C:\Users\Rang3r\Desktop\challenge.txt
-	
-dsmod user "CN=C0deSling3r,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET"
-	Write-Output "" -n > C:\Users\C0deSling3r\Desktop\challenge.txt
-	
-dsmod user "CN=M45T3R,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -pwd "NONESET"
-	Write-Output "" -n > C:\Users\M45T3R\Desktop\challenge.txt
-	
-#>
-
 
 attrib +h +s C:\Users\SYNmurai
 attrib +h +s C:\Users\M45T3R
@@ -650,5 +527,5 @@ Remove-Item C:\windows\system32\setup1.ps1 -Force
 Remove-Item C:\windows\system32\reg.ps1 -Force
 Remove-Item C:\windows\system32\schd.ps1 -Force
 UnRegister-ScheduledJob -Name Paladin04
-Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" "cleanup" 'C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -noprofile -sta -File "C:\windows\system32\cleanup.ps1"'
+Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" -name cleanup "C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -noprofile -sta -File "C:\windows\system32\cleanup.ps1""
 Restart-Computer
