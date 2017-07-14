@@ -402,7 +402,7 @@ dsmod user "CN=Paladin01,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "ZzZp"
 	Copy-Item C:\Users\Fight3r06\Desktop\words.txt C:\Users\Fight3r10\Desktop\
 	icacls C:\Users\Fight3r10 /grant Fight3r10:F /T /C
 	
-dsmod user "CN=Paladin02,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(((( Get-HotFix –ID KB3200970 | select HotFixID, installedon | select-string -pattern KB) -split "=")[2] -split " ")[0])"
+dsmod user "CN=Paladin02,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(((( Get-HotFix –ID KB3200970 | select HotFixID, installedon | select-string -pattern KB) -split "=")[2] -split " ")[0])""
 	Write-Output "The password for the next level is the SID of the current user. Example  S-1-5-21-1004336348-1177238915-[682003330]-1000" -n > C:\Users\Paladin02\Desktop\challenge.txt
 	
 dsmod user "CN=Paladin03,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(((wmic useraccount list brief | slect-string "Paladin02") -split "-")[6])"
@@ -523,5 +523,5 @@ Remove-Item C:\windows\system32\setup1.ps1 -Force
 Remove-Item C:\windows\system32\reg.ps1 -Force
 Remove-Item C:\windows\system32\schd.ps1 -Force
 UnRegister-ScheduledJob -Name Paladin05
-Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" -name "cleanup" 'C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -noprofile -sta -File "C:\windows\system32\cleanup.ps1"'
+Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" -name "cleanup" 'C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -noprofile -sta -File "C:\windows\system32\cleanup.ps1"'"
 Restart-Computer
