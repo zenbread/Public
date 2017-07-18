@@ -1,6 +1,6 @@
 heat_template_version: 2016-10-14
 
-description: Heat Template for Linux module of CCTC - Provides base resources and Debian Stretch system
+description: Heat Template for Linux Web-Server
 
 parameters:
 
@@ -49,22 +49,22 @@ resources:
       allocation_pools:
         - start:
             str_replace:
-              template: 10.studentID.0.200
+              template: 10.studentID.20.200
               params:
                 studentID: { get_param: student_id }
           end:
             str_replace:
-              template: 10.studentID.0.250
+              template: 10.studentID.20.250
               params:
                 studentID: { get_param: student_id }
       cidr:
         str_replace:
-          template: 10.studentID.0.0/24
+          template: 10.studentID.20.0/24
           params:
             studentID: { get_param: student_id }
       gateway_ip:
         str_replace:
-          template: 10.studentID.0.254
+          template: 10.studentID.20.254
           params:
             studentID: { get_param: student_id }
       network: { get_resource: stu-network }
@@ -83,7 +83,7 @@ resources:
           template: lastname_router
           params:
             lastname: { get_param: last_name }
-      external_gateway_info: {"network": public}
+      external_gateway_info: {"network": Floating Private Net}
 
   stu-router-interface:
     type:  OS::Neutron::RouterInterface
@@ -99,7 +99,7 @@ resources:
         - subnet_id: { get_resource: stu-subnet }
           ip_address:
             str_replace:
-              template: 10.studentID.0.1
+              template: 10.studentID.20.1
               params:
                 studentID: { get_param: student_id }
       port_security_enabled: false
@@ -123,33 +123,8 @@ resources:
             echo 127.0.0.1 $(hostname) >> /etc/hosts
             export DEBIAN_FRONTEND=noninteractive
             apt-get update
-            apt-get -y install locate dnsutils lsof aptitude ftp auditd telnet samba
-            apt-get -y install locate dnsutils lsof aptitude ftp auditd telnet samba
             updatedb
             mandb
-            apt-get -y install figlet hexedit tree
-            apt-get -y install figlet hexedit tree
-            wget 10.50.20.28/downloads/linux/banner.sh -O /usr/share/misc/banner.sh
-            chmod +x /usr/share/misc/banner.sh
-            wget 10.50.20.28/downloads/linux/check.pyc -O /usr/share/misc/check.pyc
-            chmod +x /usr/share/misc/check.pyc
-            cat > /usr/share/misc/check_script.sh << "__EOF__"
-            #!/bin/bash
-            /usr/bin/env python /usr/share/misc/check.pyc
-            __EOF__
-            chmod +x /usr/share/misc/check_script.sh
-            echo 'alias check="/usr/share/misc/check_script.sh"' >> /etc/bash.bashrc
-            mkdir /usr/share/cctc
-            wget 10.50.20.28/downloads/linux/runme -O /usr/share/cctc/runme
-            wget 10.50.20.28/downloads/linux/page.html -O /usr/share/cctc/page.html
-            apt-get install -y qemu
-            apt-get install -y qemu
-            wget 10.50.20.28/downloads/linux/fun.vdi -O /usr/share/cctc/fun.vdi
-            wget 10.50.20.28/downloads/linux/mbroken.zip -O /usr/share/cctc/mbroken.zip
-            wget 10.50.20.28/downloads/linux/NMAP_all_hosts.txt -O /usr/share/cctc/NMAP_all_hosts.txt
-            wget 10.50.20.28/downloads/linux/LEMARCHAND.zip -O /usr/share/cctc/LEMARCHAND.zip
-            wget 10.50.20.28/downloads/linux/MYSTERIOUS_FILE -O /usr/share/cctc/MYSTERIOUS_FILE
-            wget 10.50.20.28/downloads/linux/sorted.zip -O /usr/share/cctc/sorted.zip
             useradd $user -m -U -s /bin/bash
             usermod -aG sudo $user
             sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
