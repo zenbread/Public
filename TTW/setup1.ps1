@@ -8,7 +8,7 @@ Install-ADDSForest `
 -DomainName 'army.warriors' `
 -DomainNetbiosName 'ARMY' `
 -ForestMode 'Win2012R2' `
--SafeModeAdministratorPassword (ConvertTo-SecureString -String 'DoDC0mPL14ntPassW0rd!!' -AsPlainText -Force) `
+-SafeModeAdministratorPassword (ConvertTo-SecureString -String 'PassWord12345!!' -AsPlainText -Force) `
 -InstallDns:$true `
 -LogPath 'C:\Windows\NTDS' `
 -NoRebootOnCompletion:$true `
