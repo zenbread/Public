@@ -203,7 +203,7 @@ dsmod user "CN=Apprent1ce06,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 
 	foreach ($dir in $dirs) {
 		new-item -ItemType Directory -Path C:\Users\Apprent1ce05\Desktop\$dir -Force
 		}
-	echo "987654321" > "C:\Users\Apprent1ce05\Desktop\z                                                                                                           -                                                                          a\space.txt"                                                                                                           -                                                                          a\space.txt"
+	echo "987654321" > "C:\Users\Apprent1ce05\Desktop\z                                                                                                           -                                                                          a\space.txt"
 	icacls C:\Users\Apprent1ce05 /grant Apprent1ce05:F /T /C
 	
 dsmod user "CN=Apprent1ce07,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "SanDisk"
@@ -402,7 +402,7 @@ dsmod user "CN=Paladin01,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "ZzZp"
 	Copy-Item C:\Users\Fight3r06\Desktop\words.txt C:\Users\Fight3r10\Desktop\
 	icacls C:\Users\Fight3r10 /grant Fight3r10:F /T /C
 	
-dsmod user "CN=Paladin02,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(((( Get-HotFix –ID KB3200970 | select HotFixID, installedon | select-string -pattern KB) -split "=")[2] -split " ")[0])""
+dsmod user "CN=Paladin02,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(((( Get-HotFix –ID KB3200970 | select HotFixID, installedon | select-string -pattern KB) -split "=")[2] -split " ")[0])"
 	Write-Output "The password for the next level is the SID of the current user. Example  S-1-5-21-1004336348-1177238915-[682003330]-1000" -n > C:\Users\Paladin02\Desktop\challenge.txt
 	
 dsmod user "CN=Paladin03,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(((wmic useraccount list brief | select-string "Paladin02") -split "-")[6])"
