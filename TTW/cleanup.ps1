@@ -7,3 +7,4 @@ Remove-Item C:\windows\system32\psexec.exe
 Remove-Item C:\windows\system32\setup1.ps1
 Remove-Item C:\windows\system32\setup2.ps1
 Remove-Item C:\windows\system32\setup2.ps1 -force
+restart-computer
