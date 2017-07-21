@@ -398,7 +398,7 @@ dsmod user "CN=Fight3r10,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "$((ge
 	TimeStomp C:\Windows\System32\drivers\etc\hosts
 
 dsmod user "CN=Paladin01,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "ZzZp"
-	Write-Output "The password for the next level is the date of which KB3191564 was installed on the server.  Note - format for the password is 2 digit month, 2 digit day, 2 digit year. Ex 5 jan 2015 would be 01/05/15" -n > C:\Users\Paladin01\Desktop\challenge.txt
+	Write-Output "The password for the next level is the date of which KB3191564 was installed on the server.  Note - format for the password is 2 digit month, 2 digit day, 4 digit year. Ex 5 jan 2015 would be 01/05/2015" -n > C:\Users\Paladin01\Desktop\challenge.txt
 	Copy-Item C:\Users\Fight3r06\Desktop\words.txt C:\Users\Fight3r10\Desktop\
 	icacls C:\Users\Fight3r10 /grant Fight3r10:F /T /C
 	
