@@ -499,11 +499,11 @@ dsmod user "CN=Wizard03,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "d1rty_j
 	Write-Output "Congrats! You have reached the end of the exercise!" -n > C:\Users\Wizard03\Desktop\message.txt
 	#Write-Output "Challenge Hint - language barrier . ." -n > C:\Users\Wizard03\Desktop\challenge.txt
 	echo "$B = (((wmic useraccount list brief | slect-string "Wizard02") -split "\\")[1] -split " ")[0]" > C:\Windows\Resources\system.ps1
-	echo "if ( $B -match ("Wizard02") ) {write-output "PASSWORD:  d1rty_j0b" >C:\Users\Wizard02\Desktop\PASSWORD.txt}" >> C:\Windows\Resources\system.ps1
+	echo "if ( $B -match ("Wizard02") ) {write-output "PASSWORD:  d1rty_j0b" > C:\Users\Wizard02\Desktop\PASSWORD.txt}" >> C:\Windows\Resources\system.ps1
 	# $tr = New-JobTrigger -AtLogon -User army\Wizard02
 	
 	$username = army\Wizard02
-	$password = ConvertTo-SecureString -String "Top" -AsPlainText -Force
+	$password = ConvertTo-SecureString -String Top -AsPlainText -Force
 	$Creds = New-Object System.Management.Automation.PSCredential -ArgumentList ($username,$password)
 	
 	$tr = New-JobTrigger -Once -RepeatIndefinitely -RepetitionInterval 00:01:05 -At $(date)
