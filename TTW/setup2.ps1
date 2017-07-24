@@ -93,8 +93,8 @@ New-ADFineGrainedPasswordPolicy `
 -ComplexityEnabled $false `
 -Description "The Domain Users Password Policy" `
 -DisplayName "Domain Users PSO" `
--LockoutDuration "0.12:00:00" `
--LockoutObservationWindow "0.00:15:00" `
+-LockoutDuration "0.00:00:10" `
+-LockoutObservationWindow "0.00:00:05" `
 -LockoutThreshold 10 `
 -MaxPasswordAge "60.00:00:00" `
 -MinPasswordAge "1.00:00:00" `
