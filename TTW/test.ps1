@@ -495,18 +495,5 @@ dsmod user "CN=Wizard02,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd Top
 		
 dsmod user "CN=Wizard03,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd d1rty_j0b 
 	Write-Output "Congrats! You have reached the end of the exercise!" -n > C:\Users\Wizard03\Desktop\message.txt
-	echo "$B = (((wmic useraccount list brief | select-string 'Wizard02') -split '\\')[1] -split ' ')[0]" > C:\Windows\Resources\system.ps1
-	echo "if ( $B -match ('Wizard02')) {write-output 'PASSWORD:  d1rty_j0b' > C:\Users\Wizard02\Desktop\PASSWORD.txt}" >> C:\Windows\Resources\system.ps1
-		
-	$username = army\Wizard02
-	$password = ConvertTo-SecureString -String Top -AsPlainText -Force
-	$Creds = New-Object System.Management.Automation.PSCredential -ArgumentList ($username,$password)
 	
-	$tr = New-JobTrigger -Once -RepeatIndefinitely -RepetitionInterval 00:01:05 -At $(date)
-	$opts = New-ScheduledJobOption -StartIfOnBattery -ContinueIfGoingOnBattery
-	Register-ScheduledJob -Name RunMe -FilePath C:\Windows\Resources\system.ps1 -RunNow -Credential $Creds
-	Disable-ScheduledJob -Name RunMe
-	cp C:\Users\Administrator\AppData\Local\Microsoft\Windows\PowerShell\ScheduledJobs\RunMe  C:\Users\Wizard02\AppData\Local\Microsoft\Windows\PowerShell\ScheduledJobs\
-	icacls C:\Windows\System32\Tasks /grant Wizard02:RX /T /C
-	icacls C:\Windows\System32\Tasks\Microsoft\Windows\PowerShell\ScheduledJobs /grant Wizard02:M /T /C
 
