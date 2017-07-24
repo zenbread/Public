@@ -453,17 +453,3 @@ dsmod user "CN=Paladin08,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd P455W0
 	Add-Content -Path C:\Users\Paladin07\Documents\nothing_here -Value P455W0RD -Stream hidden	
 	Write-Output "challenges from here on ... get bit more challenging" > C:\Users\Paladin07\Documents\NOTICE
 	icacls C:\Users\Paladin07 /grant Paladin07:F /T /C
-		
-dsmod user "CN=Paladin09,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd phi5hy 
-	Write-Output "Challenge Hint - Beijing to deny any knowledge of injecting cookies onto our systems . ." -n > C:\Users\Paladin09\Desktop\challenge.txt
-	Write-Output "" > C:\Windows\Web\crappie
-	Write-Output " can not seem to remember where i put that darn lobster trap . . " -n >> C:\Windows\Web\crappie
-	Write-Output "" >> C:\Windows\Web\crappie	
-	Write-Output " i know it is around here somewhere . ." -n >> C:\Windows\Web\crappie
-	Write-Output "" >> C:\Windows\Web\crappie
-	new-item -ItemType Directory "C:\Windows\Web\WWW" -Force
-	new-item -ItemType File "C:\Windows\Web\WWW" -name "getting warmer" -Force
-	0..404 | % { new-item -ItemType File -Path C:\Windows\Web\WWW\$_ -Force; attrib +h C:\Windows\Web\WWW\$_ }
-	attrib -h C:\Windows\Web\WWW\200
-	Write-Output "Passsword: phi5hy" > "C:\Windows\Web\WWW\200"
-	attrib +h C:\Windows\Web\WWW\200
