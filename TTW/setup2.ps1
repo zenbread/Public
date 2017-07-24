@@ -176,28 +176,28 @@ foreach ($user in $users6) {
 #----- Specific Files for each account/level/challenge .. modify domain user accounts with correct challenge "passwords"
 
 
-dsmod user "CN=Apprent1ce01,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd password
+dsmod user "CN=Apprent1ce01,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "password"
 	Write-Output "The password for the next level is the Powershell build version." -n > C:\Users\Apprent1ce01\Desktop\challenge.txt
 		
-dsmod user "CN=Apprent1ce02,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 10.0.14409.1005
+dsmod user "CN=Apprent1ce02,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "10.0.14409.1005"
 	Write-Output "The password for the next level is the short name of the domain in which this server is a part of." -n > C:\Users\Apprent1ce02\Desktop\challenge.txt
 	
-dsmod user "CN=Apprent1ce03,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd army
+dsmod user "CN=Apprent1ce03,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "army"
 	Write-Output "The password for the next level is in a readme file somewhere in this user’s profile." -n > C:\Users\Apprent1ce03\Desktop\challenge.txt
 	
-dsmod user "CN=Apprent1ce04,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 123456
+dsmod user "CN=Apprent1ce04,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "123456"
 	Write-Output "The password for the next level is in a file in a hidden directory in the root of this user’s profile." -n > C:\Users\Apprent1ce04\Desktop\challenge.txt
 	echo "123456" > C:\Users\Apprent1ce03\Favorites\README
 	icacls C:\Users\Apprent1ce03 /grant Apprent1ce03:F /T /C
 
-dsmod user "CN=Apprent1ce05,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd ketchup
+dsmod user "CN=Apprent1ce05,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "ketchup"
 	Write-Output "The password for the next level is in a file in a directory on the desktop with spaces in it." -n > C:\Users\Apprent1ce05\Desktop\challenge.txt
 	new-item -ItemType Directory -Path "C:\Users\Apprent1ce04\secretsauce" -Force
 	echo "ketchup" > C:\Users\Apprent1ce04\secretsauce\saucey
 	attrib +h C:\Users\Apprent1ce04\secretsauce
 	icacls C:\Users\Apprent1ce04 /grant Apprent1ce04:F /T /C 
 	
-dsmod user "CN=Apprent1ce06,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 987654321
+dsmod user "CN=Apprent1ce06,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "987654321"
 	Write-Output "The password for the next level is the manufacturing name of the only USB drive that was plugged into this server at some point." -n > C:\Users\Apprent1ce06\Desktop\challenge.txt
 	$dirs = @("1    -     99","100     -     199","a     -      z","z                                                                                                           -                                                                          a")
 	foreach ($dir in $dirs) {
@@ -206,7 +206,7 @@ dsmod user "CN=Apprent1ce06,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 
 	echo "987654321" > "C:\Users\Apprent1ce05\Desktop\z                                                                                                           -                                                                          a\space.txt"
 	icacls C:\Users\Apprent1ce05 /grant Apprent1ce05:F /T /C
 	
-dsmod user "CN=Apprent1ce07,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd SanDisk
+dsmod user "CN=Apprent1ce07,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "SanDisk"
 	Write-Output "The password for the next level is the description of the Lego Land service." -n > C:\Users\Apprent1ce07\Desktop\challenge.txt
 	Set-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Services\USBSTOR" -Name Start -Value 1 
 	New-Item "C:\windows\system32" -ItemType File -Name reg.ps1 -Force
@@ -234,11 +234,11 @@ dsmod user "CN=Apprent1ce07,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 
 		# Register-ScheduledJob -Name USB -FilePath  C:\windows\system32\reg.ps1 -RunNow
 	    start-sleep -s 1
 	
-dsmod user "CN=Apprent1ce08,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd i_love_legos
+dsmod user "CN=Apprent1ce08,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "i_love_legos"
 	Write-Output "The password for the next level is the number of files in the Videos folder." -n > C:\Users\Apprent1ce08\Desktop\challenge.txt
 	new-service LegoLand -Desc "i_love_legos" "C:\windows\system32\notepad.exe"
 
-dsmod user "CN=Apprent1ce09,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 925
+dsmod user "CN=Apprent1ce09,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "925"
 	Write-Output "The password for the next level is the number of folders in the Music folder." -n > C:\Users\Apprent1ce09\Desktop\challenge.txt
 	0..698 | % { new-item -ItemType File -Path C:\Users\Apprent1ce08\Videos\file$_.txt -Force }
 	710..776 | % { new-item -ItemType File -Path C:\Users\Apprent1ce08\Videos\file$_.txt -Force }
@@ -246,7 +246,7 @@ dsmod user "CN=Apprent1ce09,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 
 	new-item -ItemType Directory -Path "C:\Users\Apprent1ce08\Videos" -Force
 	new-item -ItemType File -Path "C:\Users\Apprent1ce08\Videos\file1103.txt" -Force
 	
-dsmod user "CN=Apprent1ce10,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 411
+dsmod user "CN=Apprent1ce10,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "411"
 	Write-Output "The password for the next level is the number of words in a file on the desktop." -n > C:\Users\Apprent1ce10\Desktop\challenge.txt
 	1..703 | % {if($_ % 2 -eq 1 ) { new-item -ItemType Directory -Path C:\Users\Apprent1ce09\Music\Stevie_Wonder$_ -Force } }
 	18..73 | % { new-item -ItemType Directory -Path C:\Users\Apprent1ce09\Music\Teddy_Pendergrass$_ -Force }
@@ -255,7 +255,7 @@ dsmod user "CN=Apprent1ce10,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 
 	new-item -ItemType Directory -Path "C:\Users\Apprent1ce09\Music\Stevie_Wonder 139" -Force
 	icacls C:\Users\Apprent1ce09 /grant Apprent1ce09:F /T /C
 
-dsmod user "CN=Fight3r01,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd 5254
+dsmod user "CN=Fight3r01,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "5254"
 	Write-Output "The password for the next level is the last five digits of the MD5 hash of the hosts file." -n > C:\Users\Fight3r01\Desktop\challenge.txt
 	new-item -ItemType Directory -Path "C:\Users\Apprent1ce10\Desktop" -Force
 	new-item -ItemType File -Path "C:\Users\Apprent1ce10\Desktop\words.txt" -Force
@@ -281,11 +281,11 @@ dsmod user "CN=Fight3r01,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd 5254
 	}
 	icacls C:\Users\Apprent1ce10 /grant Apprent1ce10:F /T /C
 	
-dsmod user "CN=Fight3r02,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd 7566D
+dsmod user "CN=Fight3r02,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "7566D"
 	Write-Output "The password for the next level is the number of times 'gaab' is listed in the file on the desktop." -n > C:\Users\Fight3r02\Desktop\challenge.txt
 	# no prep necessary
 
-dsmod user "CN=Fight3r03,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd 1
+dsmod user "CN=Fight3r03,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "1"
 	Write-Output "The password for the next level is the number of words with 'az', in the word, in the file on the desktop." -n > C:\Users\Fight3r03\Desktop\challenge.txt
 	$AA = [char[]]([char]'a'..[char]'z')
 	$BB = [char[]]([char]'a'..[char]'z')
@@ -320,25 +320,25 @@ dsmod user "CN=Fight3r03,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd 1
 	}) >> C:\Users\Fight3r02\Desktop\words.txt
 	icacls C:\Users\Fight3r02\Desktop /grant Fight3r02:F /T /C
 	
-dsmod user "CN=Fight3r04,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd 2081
+dsmod user "CN=Fight3r04,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "2081"
 	Write-Output "The password for the next level is the number of words with either 'a' OR 'z', in the word, in the file on the desktop." -n > C:\Users\Fight3r04\Desktop\challenge.txt
 	new-item -ItemType Directory -Path "C:\Users\Fight3r02\Desktop" -Force
 	copy-item C:\Users\Fight3r02\Desktop\words.txt C:\Users\Fight3r03\Desktop\
 	icacls C:\Users\Fight3r03 /grant Fight3r03:F /T /C
 
-dsmod user "CN=Fight3r05,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd 144770
+dsmod user "CN=Fight3r05,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "144770"
 	Write-Output "The password for the next level is the number of words meeting the following criteria in the file on the desktop CRITERIA - 'a' appears at least twice, followed by either an a, b, c . .  OR g" -n > C:\Users\Fight3r05\Desktop\challenge.txt
 	new-item -ItemType Directory -Path "C:\Users\Fight3r02\Desktop" -Force
 	copy-item C:\Users\Fight3r02\Desktop\words.txt C:\Users\Fight3r04\Desktop\
 	icacls C:\Users\Fight3r04 /grant Fight3r04:F /T /C
 	
-dsmod user "CN=Fight3r06,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd 364
+dsmod user "CN=Fight3r06,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "364"
 	Write-Output "The password for the next level is the number of unique words in the file on the desktop." -n > C:\Users\Fight3r06\Desktop\challenge.txt
 	new-item -ItemType Directory -Path "C:\Users\Fight3r02\Desktop" -Force
 	copy-item C:\Users\Fight3r02\Desktop\words.txt C:\Users\Fight3r05\Desktop\
 	icacls C:\Users\Fight3r05 /grant Fight3r05:F /T /C
 	
-dsmod user "CN=Fight3r07,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd 456976
+dsmod user "CN=Fight3r07,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "456976"
 	Write-Output "The password for the next level is the only line that makes the two files in the Downloads folder different." -n > C:\Users\Fight3r07\Desktop\challenge.txt
 	new-item -ItemType Directory -Path "C:\Users\Fight3r06\Desktop" -Force
 	$AA = [char[]]([char]'a'..[char]'z')
@@ -370,17 +370,17 @@ dsmod user "CN=Fight3r07,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd 456976
 	}) >> C:\Users\Fight3r06\Desktop\words.txt
 	icacls C:\Users\Fight3r06 /grant Fight3r06:F /T /C
 
-dsmod user "CN=Fight3r08,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd popeye
+dsmod user "CN=Fight3r08,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "popeye"
 	Write-Output "The password for the next level is the name of the built-in cmdlet that performs the wget like function on a Windows system." -n > C:\Users\Fight3r08\Desktop\challenge.txt
 	Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/new.txt" -OutFile "C:\Users\Fight3r07\Desktop\new.txt"
 	Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/old.txt" -OutFile "C:\Users\Fight3r07\Desktop\old.txt"
 	icacls C:\Users\Fight3r07 /grant Fight3r07:F /T /C
 	
-dsmod user "CN=Fight3r09,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd invoke-webrequest
+dsmod user "CN=Fight3r09,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "invoke-webrequest"
 	Write-Output "The password for the next level is the last access time of the hosts file.  Note - format for the password is 2 digit month, 2 digit day, 2 digit year. Ex 5 jan 2015 would be 01/05/15." -n > C:\Users\Fight3r09\Desktop\challenge.txt
 	# no prep necessary
 
-dsmod user "CN=Fight3r10,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd =$((get-date).AddYears(+3).AddDays(10).ToString("MM/dd/yy"))
+dsmod user "CN=Fight3r10,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "$((get-date).AddYears(+3).AddDays(10).ToString("MM/dd/yy"))"
 	Write-Output "The password for the next level is the 21st line from the top in ASCII-sorted, descending order of the file on the desktop." -n > C:\Users\Fight3r10\Desktop\challenge.txt
 	Function global:TimeStomp 
 	{
@@ -397,27 +397,27 @@ dsmod user "CN=Fight3r10,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd =$((ge
 	}
 	TimeStomp C:\Windows\System32\drivers\etc\hosts
 
-dsmod user "CN=Paladin01,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd ZzZp
+dsmod user "CN=Paladin01,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "ZzZp"
 	Write-Output "The password for the next level is the date of which KB3191564 was installed on the server.  Note - format for the password is 2 digit month, 2 digit day, 4 digit year. Ex 5 jan 2015 would be 01/05/2015" -n > C:\Users\Paladin01\Desktop\challenge.txt
 	Copy-Item C:\Users\Fight3r06\Desktop\words.txt C:\Users\Fight3r10\Desktop\
 	icacls C:\Users\Fight3r10 /grant Fight3r10:F /T /C
 	
-dsmod user "CN=Paladin02,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd $((((Get-HotFix –ID KB3200970 | select HotFixID, installedon | select-string -pattern KB) -split "=")[2] -split " ")[0])
+dsmod user "CN=Paladin02,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$((((Get-HotFix –ID KB3200970 | select HotFixID, installedon | select-string "KB") -split "=")[2] -split " ")[0])"
 	Write-Output "The password for the next level is the SID of the current user. Example  S-1-5-21-1004336348-1177238915-[682003330]-1000" -n > C:\Users\Paladin02\Desktop\challenge.txt
 	
-dsmod user "CN=Paladin03,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd $(((wmic useraccount list brief | select-string "Paladin02") -split "-")[6])
+dsmod user "CN=Paladin03,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(((wmic useraccount list brief | select-string "Paladin02") -split "-")[6])"
 	Write-Output "The password for the next level is the RID of the 'krbtgt' account. Example  S-1-5-21-1004336348-1177238915-682003330-[501]" -n > C:\Users\Paladin03\Desktop\challenge.txt
 	# no prep necessary
   
-dsmod user "CN=Paladin04,OU=Paladin,OU=WARRIORS,DC=army,DC=army,DC=warriors" -pwd 502
+dsmod user "CN=Paladin04,OU=Paladin,OU=WARRIORS,DC=army,DC=army,DC=warriors" -pwd "502"
 	Write-Output "The password for the next level is the SID of the only legitimate service. Example  S-1-5-80-159957745-2084983471-2137709666-960844832-[1182961511]" -n > C:\Users\Paladin04\Desktop\challenge.txt
 	# no prep necessary
 	
-dsmod user "CN=Paladin05,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd $(((cmd.exe /c "sc showsid Legit") -split "-")[10])
+dsmod user "CN=Paladin05,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(((cmd.exe /c "sc showsid Legit") -split "-")[10])"
 	Write-Output "The password for the next level is the name of the program that is set to start at logon." -n > C:\Users\Paladin05\Desktop\challenge.txt
 	cmd.exe /c "sc create Legit binpath= C:\windows\system32\kbd101f.cmd start= auto DisplayName= Totally-Legit type= own"
 	
-dsmod user "CN=Paladin06,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd yes
+dsmod user "CN=Paladin06,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "yes"
 	Write-Output "The password for the next level is in the zip file." -n > C:\Users\Paladin06\Desktop\challenge.txt
 	echo "$A = (((wmic useraccount list brief | slect-string 'Paladin05') -split "\\")[1] -split " ")[0]" > C:\windows\system32\schd.ps1
 	echo "if ( $A -match ('Paladin05') ) { New-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run" -Name yes -Value "C:\Users\Paladin05\Desktop\no.exe" -PropertyType String | Out-Null}" >> C:\windows\system32\schd.ps1
@@ -425,7 +425,7 @@ dsmod user "CN=Paladin06,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd yes
 	$opts = New-ScheduledJobOption -HideInTaskScheduler -RunElevated -StartIfOnBattery -ContinueIfGoingOnBattery
 	Register-ScheduledJob -Name Paladin05 -FilePath  C:\windows\system32\schd.ps1 -ScheduledJobOption $opts -Trigger $tr		
 			
-dsmod user "CN=Paladin07,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd kung-fu
+dsmod user "CN=Paladin07,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "kung-fu"
 	Write-Output "The password for the next level is hidden in the users profile." -n > C:\Users\Paladin07\Desktop\challenge.txt
 	# creates "password.txt" a smoke-screen
 	1..500 | % { Write-Output " i, Paladin06, will not try to take the easy way out again ." -n >> C:\Users\Paladin06\Documents\password.txt }
@@ -444,17 +444,17 @@ dsmod user "CN=Paladin07,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd kung-f
 	Remove-Item C:\Users\Paladin06\Documents\archive -force
 	icacls C:\Users\Paladin06 /grant Paladin06:F /T /C
 	
-dsmod user "CN=Paladin08,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd P455W0RD
+dsmod user "CN=Paladin08,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "P455W0RD"
 	Write-Output "Challenge Hint - its a crappie site, but someones gotta phish it.." -n > C:\Users\Paladin08\Desktop\challenge.txt
 	$FILES = @("nothing_here","empty_file","completely_blank","bit_free")
 	foreach ($FILE in $FILES) {
 		new-item -ItemType File -Path "C:\Users\Paladin07\Documents\$FILE" -Force
 	}
-	Add-Content -Path C:\Users\Paladin07\Documents\nothing_here -Value P455W0RD -Stream hidden	
+	Add-Content -Path C:\Users\Paladin07\Documents\nothing_here -Value "P455W0RD" -Stream "hidden"	
 	Write-Output "challenges from here on ... get bit more challenging" > C:\Users\Paladin07\Documents\NOTICE
 	icacls C:\Users\Paladin07 /grant Paladin07:F /T /C
 		
-dsmod user "CN=Paladin09,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd phi5hy 
+dsmod user "CN=Paladin09,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "phi5hy" 
 	Write-Output "Challenge Hint - Beijing to deny any knowledge of injecting cookies onto our systems . ." -n > C:\Users\Paladin09\Desktop\challenge.txt
 	Write-Output "" > C:\Windows\Web\crappie
 	Write-Output " can not seem to remember where i put that darn lobster trap . . " -n >> C:\Windows\Web\crappie
@@ -468,7 +468,7 @@ dsmod user "CN=Paladin09,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd phi5hy
 	Write-Output "Passsword: phi5hy" > "C:\Windows\Web\WWW\200"
 	attrib +h C:\Windows\Web\WWW\200
 	
-dsmod user "CN=Paladin10,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd fortune_cookie 
+dsmod user "CN=Paladin10,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "fortune_cookie" 
 	Write-Output "Challenge Hint - let it be logged ..  the password is somewhere on this system . ." -n > C:\Users\Paladin10\Desktop\challenge.txt
 	new-item -ItemType Directory "C:\Windows\PLA\not_china" -Force
 	new-item -ItemType File "C:\Windows\PLA\not_china\Fortune Cookie Crumb" -Force
@@ -483,29 +483,29 @@ dsmod user "CN=Paladin10,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd fortun
 	attrib +h "C:\Users\Paladin09\Documents\fortune cookie.txt"
 
 
-dsmod user "CN=Wizard01,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd 3v3nt_L0g
+dsmod user "CN=Wizard01,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "3v3nt_L0g"
 	Write-Output "Challenge Hint - This Windows File System Filter finished dead last . ." -n > C:\Users\Wizard1\Desktop\challenge.txt
-	Write-EventLog -LogName "Application" -Source "EventSystem" -EntryType Information -EventId "4625" -category 0 -Message "The description for Event ID 1073746449 in Source EventSystem cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:86400, SuppressDuplicateDuration, Software\Microsoft\EventSystem\EventLog, password: NOT_LIKELY"
+	Write-EventLog -LogName "Application" -Source "EventSystem" -EntryType Information -EventId "4625" -category 0 -Message "The description for Event ID '1073746449' in Source EventSystem cannot be found.  The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.  The following information is part of the event:'86400', SuppressDuplicateDuration, Software\Microsoft\EventSystem\EventLog, password: NOT_LIKELY"
 	Write-EventLog -LogName "Application" -Source "ESENT" -EntryType Information -EventId "326" -category 1 -Message "Congratulations! NO Password here!"
 	Write-EventLog -LogName "System" -Source "Service Control Manager" -EntryType Information -EventId "7036" -category 0 -Message "Congratulations!  you STILL HAVE NOT found the Password"
 	Write-EventLog -LogName "Application" -Source "ESENT" -EntryType Information -EventId "326" -category 1 -Message "The DNS Application Directory Partition DomainDnsZones.army.warriors was created. The distinguished name of the root of this Directory Partition is DC=DomainDnsZones,DC=army,DC=warriors ........................  the Password is: 3v3nt_L0g"
 
-dsmod user "CN=Wizard02,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd Top 
+dsmod user "CN=Wizard02,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "Top" 
 	Write-Output "Challenge Hint - It is a dirty job, but someone has gotta do it"	-n > C:\Users\Wizard02\Desktop\challenge.txt
 		
-dsmod user "CN=Wizard03,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd d1rty_j0b 
+dsmod user "CN=Wizard03,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "d1rty_j0b" 
 	Write-Output "Congrats! You have reached the end of the exercise!" -n > C:\Users\Wizard03\Desktop\message.txt
 	echo "$B = (((wmic useraccount list brief | select-string 'Wizard02') -split '\\')[1] -split ' ')[0]" > C:\Windows\Resources\system.ps1
 	echo "if ( $B -match ('Wizard02')) {write-output 'PASSWORD:  d1rty_j0b' > C:\Users\Wizard02\Desktop\PASSWORD.txt}" >> C:\Windows\Resources\system.ps1
 		
 	$username = army\Wizard02
-	$password = ConvertTo-SecureString -String Top -AsPlainText -Force
+	$password = ConvertTo-SecureString -String "Top" -AsPlainText -Force
 	$Creds = New-Object System.Management.Automation.PSCredential -ArgumentList ($username,$password)
 	
 	$tr = New-JobTrigger -Once -RepeatIndefinitely -RepetitionInterval 00:01:05 -At $(date)
 	$opts = New-ScheduledJobOption -StartIfOnBattery -ContinueIfGoingOnBattery
-	Register-ScheduledJob -Name RunMe -FilePath C:\Windows\Resources\system.ps1 -RunNow -Credential $Creds
-	Disable-ScheduledJob -Name RunMe
+	Register-ScheduledJob -Name "RunMe" -FilePath C:\Windows\Resources\system.ps1 -RunNow -Credential $Creds
+	Disable-ScheduledJob -Name "RunMe"
 	cp C:\Users\Administrator\AppData\Local\Microsoft\Windows\PowerShell\ScheduledJobs\RunMe  C:\Users\Wizard02\AppData\Local\Microsoft\Windows\PowerShell\ScheduledJobs\
 	icacls C:\Windows\System32\Tasks /grant Wizard02:RX /T /C
 	icacls C:\Windows\System32\Tasks\Microsoft\Windows\PowerShell\ScheduledJobs /grant Wizard02:M /T /C
