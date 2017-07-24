@@ -6,23 +6,23 @@ Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\winlo
 
 #----- OUs ---
 dsadd ou "OU=WARRIORS,DC=army,DC=warriors"
-dsadd ou "OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors"
-dsadd ou "OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors"
+dsadd ou "OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors"
+dsadd ou "OU=Fighter,OU=WARRIORS,DC=army,DC=warriors"
 dsadd ou "OU=Paladin,OU=WARRIORS,DC=army,DC=warriors"
 dsadd ou "OU=Wizard,OU=WARRIORS,DC=army,DC=warriors"
 dsadd ou "OU=OSsassin,OU=WARRIORS,DC=army,DC=warriors"
 dsadd ou "OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors"
 
 #----- Security Groups ---
-dsadd group "CN=Apprent1ce5,CN=Users,DC=army,DC=warriors" -secgrp yes -scope u -desc "Apprent1ce"
-dsadd group "CN=Fight3r5,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "Fight3r" -memberof "CN=Apprent1ce5,CN=Users,DC=army,DC=warriors"
-dsadd group "CN=Paladin5,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "Paladin" -memberof "CN=Fight3r5,CN=Users,DC=army,DC=warriors"
-dsadd group "CN=Wizard5,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "Wizard" -memberof "CN=Paladin5,CN=Users,DC=army,DC=warriorss"
-dsadd group "CN=OSsassin5,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "OSsassin" -memberof "CN=Wizard5,CN=Users,DC=army,DC=warriors"
-dsadd group "CN=SYNmurai5,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "SYNmurai" -memberof "CN=OSsassin5,CN=Users,DC=army,DC=warriors"
-dsadd group "CN=Rang3r5,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "Rang3r" -memberof "CN=SYNmurai5,CN=Users,DC=army,DC=warriors"
-dsadd group "CN=C0deSling3r5,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "C0deSling3r" -memberof "CN=SYNmurai5,CN=Users,DC=army,DC=warriors"
-dsadd group "CN=M45T3R5,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "M45T3R" -memberof "CN=SYNmurai5,CN=Users,DC=army,DC=warriors"
+dsadd group "CN=Apprentices,CN=Users,DC=army,DC=warriors" -secgrp yes -scope u -desc "Apprentice"
+dsadd group "CN=Fighters,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "Fighter" -memberof "CN=Apprentices,CN=Users,DC=army,DC=warriors"
+dsadd group "CN=Paladins,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "Paladin" -memberof "CN=Fighters,CN=Users,DC=army,DC=warriors"
+dsadd group "CN=Wizards,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "Wizard" -memberof "CN=Paladins,CN=Users,DC=army,DC=warriorss"
+dsadd group "CN=OSsassins,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "OSsassin" -memberof "CN=Wizards,CN=Users,DC=army,DC=warriors"
+dsadd group "CN=SYNmurais,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "SYNmurai" -memberof "CN=OSsassins,CN=Users,DC=army,DC=warriors"
+dsadd group "CN=Rangers,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "Ranger" -memberof "CN=SYNmurais,CN=Users,DC=army,DC=warriors"
+dsadd group "CN=CodeSlingers,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "CodeSlinger" -memberof "CN=SYNmurais,CN=Users,DC=army,DC=warriors"
+dsadd group "CN=MASTERS,CN=Users,DC=army,DC=warriors" -secgrp yes -scope g -desc "MASTER" -memberof "CN=SYNmurais,CN=Users,DC=army,DC=warriors"
 
 
 #----- Share Drive Setup ---
@@ -32,7 +32,7 @@ set-variable -name ROOT -value "C:\share"
 set-variable -name TOP -value "WARRIORS"
 new-item -ItemType Directory -Path "$ROOT\$TOP\" -Force
 
-$CLASSES = @("Apprent1ce","Fight3r","Paladin","Wizard","OSsassin","SYNmurai","M45T3R","Rang3r","C0deSling3r")
+$CLASSES = @("Apprentice","Fighter","Paladin","Wizard","OSsassin","SYNmurai","MASTER","Ranger","CodeSlinger")
 $1STFOLDER = @("1","2","3","4","5","6","7","8","9","10")
 $2NDFOLDER = @("10","9","8","7","6","5","4","3","2","1")
 $3RDFOLDER = @("1","2","3","4","5","6","7","8","9","10")
@@ -68,15 +68,15 @@ new-SMBshare -path "C:\share" `
 Add-NTFSAccess -Path C:\share -Account 'Everyone' -AccessRights Read
 
 icacls "C:\share\WARRIORS" /grant Everyone:R /C
-icacls "C:\share\WARRIORS\M45T3R" /grant M45T3R:F /T /C
-icacls "C:\share\WARRIORS\C0deSling3r" /grant C0deSling3r:F /T /C
-icacls "C:\share\WARRIORS\Rang3r" /grant Rang3r:F /T /C
-icacls "C:\share\WARRIORS\SYNmurai" /grant SYNmurai5:F /T /C
-icacls "C:\share\WARRIORS\OSsassin5" /grant OSsassin5:F /T /C
-icacls "C:\share\WARRIORS\Wizard5" /grant Wizard5:F /T /C
-icacls "C:\share\WARRIORS\Paladin5" /grant Paladin5:F /T /C
-icacls "C:\share\WARRIORS\Fight3r5" /grant Fight3r5:F /T /C
-icacls "C:\share\WARRIORS\Apprent1ce5" /grant Apprent1ce5:F /T /C
+icacls "C:\share\WARRIORS\MASTER" /grant MASTER:F /T /C
+icacls "C:\share\WARRIORS\CodeSlinger" /grant CodeSlinger:F /T /C
+icacls "C:\share\WARRIORS\Ranger" /grant Ranger:F /T /C
+icacls "C:\share\WARRIORS\SYNmurai" /grant SYNmurais:F /T /C
+icacls "C:\share\WARRIORS\OSsassins" /grant OSsassins:F /T /C
+icacls "C:\share\WARRIORS\Wizards" /grant Wizards:F /T /C
+icacls "C:\share\WARRIORS\Paladins" /grant Paladins:F /T /C
+icacls "C:\share\WARRIORS\Fighters" /grant Fighters:F /T /C
+icacls "C:\share\WARRIORS\Apprentices" /grant Apprentices:F /T /C
 
 #----- DISSABLES PASSWORDS COMPLEXITY REQ ---
 
@@ -110,48 +110,48 @@ Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\Syste
 
 #----- CLreates 50 Domain User Accounts .. 3 hidden ---  all must have default password to be used in follow on psexec for loops
 
-$users1 = @("Apprent1ce01","Apprent1ce02","Apprent1ce03","Apprent1ce04","Apprent1ce05","Apprent1ce06","Apprent1ce07","Apprent1ce08","Apprent1ce09","Apprent1ce10")
+$users1 = @("Apprentice01","Apprentice02","Apprentice03","Apprentice04","Apprentice05","Apprentice06","Apprentice07","Apprentice08","Apprentice09","Apprentice10")
 foreach ($user in $users1) {
-dsadd user "CN=$user,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Apprent1ce5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
+dsadd user "CN=$user,OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Apprentices,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
 }
 start-sleep -s 1
 
-$users2 = @("Fight3r01","Fight3r02","Fight3r03","Fight3r04","Fight3r05","Fight3r06","Fight3r07","Fight3r08","Fight3r09","Fight3r10")
+$users2 = @("Fighter01","Fighter02","Fighter03","Fighter04","Fighter05","Fighter06","Fighter07","Fighter08","Fighter09","Fighter10")
 foreach ($user in $users2) {
-dsadd user "CN=$user,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Fight3r5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no
+dsadd user "CN=$user,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Fighters,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no
 }
 start-sleep -s 1
 
 $users3 = @("Paladin01","Paladin02","Paladin03","Paladin04","Paladin05","Paladin06","Paladin07","Paladin08","Paladin09","Paladin10")
 foreach ($user in $users3) {
-dsadd user "CN=$user,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Paladin5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
+dsadd user "CN=$user,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Paladins,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
 }
 start-sleep -s 1
 
 $users4 = @("Wizard01","Wizard02","Wizard03","Wizard04","Wizard05","Wizard06","Wizard07","Wizard08","Wizard09","Wizard10")
 foreach ($user in $users4) {
-dsadd user "CN=$user,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Wizard5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
+dsadd user "CN=$user,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=Wizards,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
 }
 start-sleep -s 1
 
 $users5 = @("OSsassin01","OSsassin02","OSsassin03","OSsassin04","OSsassin05","OSsassin06","OSsassin07","OSsassin08","OSsassin09")
 foreach ($user in $users5) {
-dsadd user "CN=$user,OU=OSsassin,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=OSsassin5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no
+dsadd user "CN=$user,OU=OSsassin,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=OSsassins,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no
 }
 start-sleep -s 1
 
-dsadd user "CN=SYNmurai,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=SYNmurai5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
-dsadd user "CN=Rang3r,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=SYNmurai5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
-dsadd user "CN=C0deSling3r,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=SYNmurai5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
-dsadd user "CN=M45T3R,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=SYNmurai5,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no
+dsadd user "CN=SYNmurai,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=SYNmurais,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
+dsadd user "CN=Ranger,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=SYNmurais,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
+dsadd user "CN=CodeSlinger,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=SYNmurais,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
+dsadd user "CN=MASTER,OU=SYNmurai,OU=WARRIORS,DC=army,DC=warriors" -memberof "CN=SYNmurais,CN=Users,DC=army,DC=warriors" -pwd "password" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no
 
 #----- Creates Profiles for Every User/Level in Domain .. to be populated with the follow-on challenges
 
-$users1 = @("Apprent1ce01","Apprent1ce02","Apprent1ce03","Apprent1ce04","Apprent1ce05","Apprent1ce06","Apprent1ce07","Apprent1ce08","Apprent1ce09","Apprent1ce10")
+$users1 = @("Apprentice01","Apprentice02","Apprentice03","Apprentice04","Apprentice05","Apprentice06","Apprentice07","Apprentice08","Apprentice09","Apprentice10")
 foreach ($user in $users1) {
 	psexec -accepteula -u army\$user -p password \\$(hostname) cmd /c "exit" -accepteula -nobanner
 }
-$users2 = @("Fight3r01","Fight3r02","Fight3r03","Fight3r04","Fight3r05","Fight3r06","Fight3r07","Fight3r08","Fight3r09","Fight3r10")
+$users2 = @("Fighter01","Fighter02","Fighter03","Fighter04","Fighter05","Fighter06","Fighter07","Fighter08","Fighter09","Fighter10")
 foreach ($user in $users2) {
 	psexec -accepteula -u army\$user -p password \\$(hostname) cmd /c "exit" -accepteula -nobanner
 }
@@ -167,7 +167,7 @@ $users5 = @("OSsassin01","OSsassin02","OSsassin03","OSsassin04","OSsassin05","OS
 foreach ($user in $users5) {
 	psexec -accepteula -u army\$user -p password \\$(hostname) cmd /c "exit" -accepteula -nobanner
 }
-$users6 = @("SYNmurai","Rang3r","C0deSling3r","M45T3R")
+$users6 = @("SYNmurai","Ranger","CodeSlinger","MASTER")
 foreach ($user in $users6) {
 	psexec -accepteula -u army\$user -p password \\$(hostname) cmd /c "exit" -accepteula -nobanner
 }
@@ -176,38 +176,38 @@ foreach ($user in $users6) {
 #----- Specific Files for each account/level/challenge .. modify domain user accounts with correct challenge "passwords"
 
 
-dsmod user "CN=Apprent1ce01,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "password"
-	Write-Output "The password for the next level is the Powershell build version." -n > C:\Users\Apprent1ce01\Desktop\challenge.txt
+dsmod user "CN=Apprentice01,OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors" -pwd "password"
+	Write-Output "The password for the next level is the Powershell build version. Note - format for the buildversion is ##.#.#####.###" -n > C:\Users\Apprentice01\Desktop\challenge.txt
 		
-dsmod user "CN=Apprent1ce02,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(Write-Host $PSVersionTable.BuildVersion)"
-	Write-Output "The password for the next level is the short name of the domain in which this server is a part of." -n > C:\Users\Apprent1ce02\Desktop\challenge.txt
+dsmod user "CN=Apprentice02,OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(Write-Host $PSVersionTable.BuildVersion)"
+	Write-Output "The password for the next level is the short name of the domain in which this server is a part of." -n > C:\Users\Apprentice02\Desktop\challenge.txt
 	
-dsmod user "CN=Apprent1ce03,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "army"
-	Write-Output "The password for the next level is in a readme file somewhere in this user’s profile." -n > C:\Users\Apprent1ce03\Desktop\challenge.txt
+dsmod user "CN=Apprentice03,OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors" -pwd "army"
+	Write-Output "The password for the next level is in a readme file somewhere in this user’s profile." -n > C:\Users\Apprentice03\Desktop\challenge.txt
 	
-dsmod user "CN=Apprent1ce04,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "123456"
-	Write-Output "The password for the next level is in a file in a hidden directory in the root of this user’s profile." -n > C:\Users\Apprent1ce04\Desktop\challenge.txt
-	echo "123456" > C:\Users\Apprent1ce03\Favorites\README
-	icacls C:\Users\Apprent1ce03 /grant Apprent1ce03:F /T /C
+dsmod user "CN=Apprentice04,OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors" -pwd "123456"
+	Write-Output "The password for the next level is in a file in a hidden directory in the root of this user’s profile." -n > C:\Users\Apprentice04\Desktop\challenge.txt
+	echo "123456" > C:\Users\Apprentice03\Favorites\README
+	icacls C:\Users\Apprentice03 /grant Apprentice03:F /T /C
 
-dsmod user "CN=Apprent1ce05,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "ketchup"
-	Write-Output "The password for the next level is in a file in a directory on the desktop with spaces in it." -n > C:\Users\Apprent1ce05\Desktop\challenge.txt
-	new-item -ItemType Directory -Path "C:\Users\Apprent1ce04\secretsauce" -Force
-	echo "ketchup" > C:\Users\Apprent1ce04\secretsauce\saucey
-	attrib +h C:\Users\Apprent1ce04\secretsauce
-	icacls C:\Users\Apprent1ce04 /grant Apprent1ce04:F /T /C 
+dsmod user "CN=Apprentice05,OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors" -pwd "ketchup"
+	Write-Output "The password for the next level is in a file in a directory on the desktop with spaces in it." -n > C:\Users\Apprentice05\Desktop\challenge.txt
+	new-item -ItemType Directory -Path "C:\Users\Apprentice04\secretsauce" -Force
+	echo "ketchup" > C:\Users\Apprentice04\secretsauce\saucey
+	attrib +h C:\Users\Apprentice04\secretsauce
+	icacls C:\Users\Apprentice04 /grant Apprentice04:F /T /C 
 	
-dsmod user "CN=Apprent1ce06,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "987654321"
-	Write-Output "The password for the next level is the manufacturing name of the only USB drive that was plugged into this server at some point." -n > C:\Users\Apprent1ce06\Desktop\challenge.txt
+dsmod user "CN=Apprentice06,OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors" -pwd "987654321"
+	Write-Output "The password for the next level is the manufacturing name of the only USB drive that was plugged into this server at some point." -n > C:\Users\Apprentice06\Desktop\challenge.txt
 	$dirs = @("1    -     99","100     -     199","a     -      z","z                                                                                                           -                                                                          a")
 	foreach ($dir in $dirs) {
-		new-item -ItemType Directory -Path C:\Users\Apprent1ce05\Desktop\$dir -Force
+		new-item -ItemType Directory -Path C:\Users\Apprentice05\Desktop\$dir -Force
 		}
-	echo "987654321" > "C:\Users\Apprent1ce05\Desktop\z                                                                                                           -                                                                          a\space.txt"
-	icacls C:\Users\Apprent1ce05 /grant Apprent1ce05:F /T /C
+	echo "987654321" > "C:\Users\Apprentice05\Desktop\z                                                                                                           -                                                                          a\space.txt"
+	icacls C:\Users\Apprentice05 /grant Apprentice05:F /T /C
 	
-dsmod user "CN=Apprent1ce07,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "SanDisk"
-	Write-Output "The password for the next level is the description of the Lego Land service." -n > C:\Users\Apprent1ce07\Desktop\challenge.txt
+dsmod user "CN=Apprentice07,OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors" -pwd "SanDisk"
+	Write-Output "The password for the next level is the description of the Lego Land service." -n > C:\Users\Apprentice07\Desktop\challenge.txt
 	Set-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Services\USBSTOR" -Name Start -Value 1 
 	New-Item "C:\windows\system32" -ItemType File -Name reg.ps1 -Force
 		echo 'New-Item "HKLM:\SYSTEM\CurrentControlSet\Enum" -Name USBSTOR -Force' > "C:\windows\system32\reg.ps1"
@@ -234,31 +234,32 @@ dsmod user "CN=Apprent1ce07,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd 
 		# Register-ScheduledJob -Name USB -FilePath  C:\windows\system32\reg.ps1 -RunNow
 	    start-sleep -s 1
 	
-dsmod user "CN=Apprent1ce08,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "i_love_legos"
-	Write-Output "The password for the next level is the number of files in the Videos folder." -n > C:\Users\Apprent1ce08\Desktop\challenge.txt
+dsmod user "CN=Apprentice08,OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors" -pwd "i_love_legos"
+	Write-Output "The password for the next level is the number of files in the Videos folder." -n > C:\Users\Apprentice08\Desktop\challenge.txt
 	new-service LegoLand -Desc "i_love_legos" "C:\windows\system32\notepad.exe"
 
-dsmod user "CN=Apprent1ce09,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "925"
-	Write-Output "The password for the next level is the number of folders in the Music folder." -n > C:\Users\Apprent1ce09\Desktop\challenge.txt
-	0..698 | % { new-item -ItemType File -Path C:\Users\Apprent1ce08\Videos\file$_.txt -Force }
-	710..776 | % { new-item -ItemType File -Path C:\Users\Apprent1ce08\Videos\file$_.txt -Force }
-	834..991 | % { new-item -ItemType File -Path C:\Users\Apprent1ce08\Videos\file$_.txt -Force }
-	new-item -ItemType Directory -Path "C:\Users\Apprent1ce08\Videos" -Force
-	new-item -ItemType File -Path "C:\Users\Apprent1ce08\Videos\file1103.txt" -Force
+dsmod user "CN=Apprentice09,OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors" -pwd "925"
+	Write-Output "The password for the next level is the number of folders in the Music folder." -n > C:\Users\Apprentice09\Desktop\challenge.txt
+	0..698 | % { new-item -ItemType File -Path C:\Users\Apprentice08\Videos\file$_.txt -Force }
+	710..776 | % { new-item -ItemType File -Path C:\Users\Apprentice08\Videos\file$_.txt -Force }
+	834..991 | % { new-item -ItemType File -Path C:\Users\Apprentice08\Videos\file$_.txt -Force }
+	new-item -ItemType Directory -Path "C:\Users\Apprentice08\Videos" -Force
+	new-item -ItemType File -Path "C:\Users\Apprentice08\Videos\file1103.txt" -Force
 	
-dsmod user "CN=Apprent1ce10,OU=Apprent1ce,OU=WARRIORS,DC=army,DC=warriors" -pwd "411"
-	Write-Output "The password for the next level is the number of words in a file on the desktop." -n > C:\Users\Apprent1ce10\Desktop\challenge.txt
-	1..703 | % {if($_ % 2 -eq 1 ) { new-item -ItemType Directory -Path C:\Users\Apprent1ce09\Music\Stevie_Wonder$_ -Force } }
-	18..73 | % { new-item -ItemType Directory -Path C:\Users\Apprent1ce09\Music\Teddy_Pendergrass$_ -Force }
-	new-item -ItemType Directory -Path "C:\Users\Apprent1ce09\Music\Teddy_Pendergrass" -Force
-	new-item -ItemType Directory -Path "C:\Users\Apprent1ce09\Music\Luther Vandros" -Force
-	new-item -ItemType Directory -Path "C:\Users\Apprent1ce09\Music\Stevie_Wonder 139" -Force
-	icacls C:\Users\Apprent1ce09 /grant Apprent1ce09:F /T /C
+dsmod user "CN=Apprentice10,OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors" -pwd "411"
+	Write-Output "The password for the next level is the number of words in a file on the desktop." -n > C:\Users\Apprentice10\Desktop\challenge.txt
+	Write-Output "Note: Next Level Login - Fighter01" -n >> C:\Users\Apprentice10\Desktop\challenge.txt
+	1..703 | % {if($_ % 2 -eq 1 ) { new-item -ItemType Directory -Path C:\Users\Apprentice09\Music\Stevie_Wonder$_ -Force } }
+	18..73 | % { new-item -ItemType Directory -Path C:\Users\Apprentice09\Music\Teddy_Pendergrass$_ -Force }
+	new-item -ItemType Directory -Path "C:\Users\Apprentice09\Music\Teddy_Pendergrass" -Force
+	new-item -ItemType Directory -Path "C:\Users\Apprentice09\Music\Luther Vandros" -Force
+	new-item -ItemType Directory -Path "C:\Users\Apprentice09\Music\Stevie_Wonder 139" -Force
+	icacls C:\Users\Apprentice09 /grant Apprentice09:F /T /C
 
-dsmod user "CN=Fight3r01,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "5254"
-	Write-Output "The password for the next level is the last five digits of the MD5 hash of the hosts file." -n > C:\Users\Fight3r01\Desktop\challenge.txt
-	new-item -ItemType Directory -Path "C:\Users\Apprent1ce10\Desktop" -Force
-	new-item -ItemType File -Path "C:\Users\Apprent1ce10\Desktop\words.txt" -Force
+dsmod user "CN=Fighter01,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "5254"
+	Write-Output "The password for the next level is the last five digits of the MD5 hash of the hosts file." -n > C:\Users\Fighter01\Desktop\challenge.txt
+	new-item -ItemType Directory -Path "C:\Users\Apprentice10\Desktop" -Force
+	new-item -ItemType File -Path "C:\Users\Apprentice10\Desktop\words.txt" -Force
 	function global:GET-8LetterWord() {
 	[int32[]]$ArrayofAscii=26,97,26,65,10,48,15,33
 	$Complexity=1
@@ -277,29 +278,29 @@ dsmod user "CN=Fight3r01,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "5254"
 	}
 	
 	foreach ($Counter in 1..5254) { 
-	GET-8LetterWord >> C:\Users\Apprent1ce10\Desktop\words.txt 
+	GET-8LetterWord >> C:\Users\Apprentice10\Desktop\words.txt 
 	}
-	icacls C:\Users\Apprent1ce10 /grant Apprent1ce10:F /T /C
+	icacls C:\Users\Apprentice10 /grant Apprentice10:F /T /C
 	
-dsmod user "CN=Fight3r02,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "7566D"
-	Write-Output "The password for the next level is the number of times 'gaab' is listed in the file on the desktop." -n > C:\Users\Fight3r02\Desktop\challenge.txt
+dsmod user "CN=Fighter02,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "7566D"
+	Write-Output "The password for the next level is the number of times 'gaab' is listed in the file on the desktop." -n > C:\Users\Fighter02\Desktop\challenge.txt
 	# no prep necessary
 
-dsmod user "CN=Fight3r03,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "1"
-	Write-Output "The password for the next level is the number of words with 'az', in the word, in the file on the desktop." -n > C:\Users\Fight3r03\Desktop\challenge.txt
+dsmod user "CN=Fighter03,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "1"
+	Write-Output "The password for the next level is the number of words with 'az', in the word, in the file on the desktop." -n > C:\Users\Fighter03\Desktop\challenge.txt
 	$AA = [char[]]([char]'a'..[char]'z')
 	$BB = [char[]]([char]'a'..[char]'z')
 	$CC = [char[]]([char]'a'..[char]'z')
 	$DD = [char[]]([char]'a'..[char]'z')
 	$(foreach ($A in $AA) {
 		"$A"
-	}) > C:\Users\Fight3r02\Desktop\words.txt
+	}) > C:\Users\Fighter02\Desktop\words.txt
 	
 	$(foreach ($A in $AA) {
 		foreach ($B in $BB) {
 			"$A$B"
 		}
-	}) >> C:\Users\Fight3r02\Desktop\words.txt
+	}) >> C:\Users\Fighter02\Desktop\words.txt
 	
 	$(foreach ($A in $AA) {
 		foreach ($B in $BB) {
@@ -307,7 +308,7 @@ dsmod user "CN=Fight3r03,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "1"
 				"$A$B$C"
 			}
 		}
-	}) >> C:\Users\Fight3r02\Desktop\words.txt
+	}) >> C:\Users\Fighter02\Desktop\words.txt
 	
 	$(foreach ($A in $AA) {
 		foreach ($B in $BB) {
@@ -317,30 +318,30 @@ dsmod user "CN=Fight3r03,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "1"
 				}
 			}
 		}
-	}) >> C:\Users\Fight3r02\Desktop\words.txt
-	icacls C:\Users\Fight3r02\Desktop /grant Fight3r02:F /T /C
+	}) >> C:\Users\Fighter02\Desktop\words.txt
+	icacls C:\Users\Fighter02\Desktop /grant Fighter02:F /T /C
 	
-dsmod user "CN=Fight3r04,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "2081"
-	Write-Output "The password for the next level is the number of words with either 'a' OR 'z', in the word, in the file on the desktop." -n > C:\Users\Fight3r04\Desktop\challenge.txt
-	new-item -ItemType Directory -Path "C:\Users\Fight3r02\Desktop" -Force
-	copy-item C:\Users\Fight3r02\Desktop\words.txt C:\Users\Fight3r03\Desktop\
-	icacls C:\Users\Fight3r03 /grant Fight3r03:F /T /C
+dsmod user "CN=Fighter04,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "2081"
+	Write-Output "The password for the next level is the number of words with either 'a' OR 'z', in the word, in the file on the desktop." -n > C:\Users\Fighter04\Desktop\challenge.txt
+	new-item -ItemType Directory -Path "C:\Users\Fighter02\Desktop" -Force
+	copy-item C:\Users\Fighter02\Desktop\words.txt C:\Users\Fighter03\Desktop\
+	icacls C:\Users\Fighter03 /grant Fighter03:F /T /C
 
-dsmod user "CN=Fight3r05,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "144770"
-	Write-Output "The password for the next level is the number of words meeting the following criteria in the file on the desktop CRITERIA - 'a' appears at least twice, followed by either an a, b, c . .  OR g" -n > C:\Users\Fight3r05\Desktop\challenge.txt
-	new-item -ItemType Directory -Path "C:\Users\Fight3r02\Desktop" -Force
-	copy-item C:\Users\Fight3r02\Desktop\words.txt C:\Users\Fight3r04\Desktop\
-	icacls C:\Users\Fight3r04 /grant Fight3r04:F /T /C
+dsmod user "CN=Fighter05,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "144770"
+	Write-Output "The password for the next level is the number of words meeting the following criteria in the file on the desktop CRITERIA - 'a' appears at least twice, followed by either an a, b, c . .  OR g" -n > C:\Users\Fighter05\Desktop\challenge.txt
+	new-item -ItemType Directory -Path "C:\Users\Fighter02\Desktop" -Force
+	copy-item C:\Users\Fighter02\Desktop\words.txt C:\Users\Fighter04\Desktop\
+	icacls C:\Users\Fighter04 /grant Fighter04:F /T /C
 	
-dsmod user "CN=Fight3r06,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "364"
-	Write-Output "The password for the next level is the number of unique words in the file on the desktop." -n > C:\Users\Fight3r06\Desktop\challenge.txt
-	new-item -ItemType Directory -Path "C:\Users\Fight3r02\Desktop" -Force
-	copy-item C:\Users\Fight3r02\Desktop\words.txt C:\Users\Fight3r05\Desktop\
-	icacls C:\Users\Fight3r05 /grant Fight3r05:F /T /C
+dsmod user "CN=Fighter06,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "364"
+	Write-Output "The password for the next level is the number of unique words in the file on the desktop." -n > C:\Users\Fighter06\Desktop\challenge.txt
+	new-item -ItemType Directory -Path "C:\Users\Fighter02\Desktop" -Force
+	copy-item C:\Users\Fighter02\Desktop\words.txt C:\Users\Fighter05\Desktop\
+	icacls C:\Users\Fighter05 /grant Fighter05:F /T /C
 	
-dsmod user "CN=Fight3r07,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "456976"
-	Write-Output "The password for the next level is the only line that makes the two files in the Downloads folder different." -n > C:\Users\Fight3r07\Desktop\challenge.txt
-	new-item -ItemType Directory -Path "C:\Users\Fight3r06\Desktop" -Force
+dsmod user "CN=Fighter07,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "456976"
+	Write-Output "The password for the next level is the only line that makes the two files in the Downloads folder different." -n > C:\Users\Fighter07\Desktop\challenge.txt
+	new-item -ItemType Directory -Path "C:\Users\Fighter06\Desktop" -Force
 	$AA = [char[]]([char]'a'..[char]'z')
 	$BB = [char[]]([char]'A'..[char]'Z')
 	$CC = [char[]]([char]'a'..[char]'z')
@@ -353,7 +354,7 @@ dsmod user "CN=Fight3r07,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "45697
 				}
 			}
 		}
-	}) >> C:\Users\Fight3r06\Desktop\words.txt
+	}) >> C:\Users\Fighter06\Desktop\words.txt
 	start-sleep -s 1
 	$EE = [char[]]([char]'A'..[char]'Z')
 	$FF = [char[]]([char]'m'..[char]'z')
@@ -367,21 +368,22 @@ dsmod user "CN=Fight3r07,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "45697
 				}
 			}
 		}
-	}) >> C:\Users\Fight3r06\Desktop\words.txt
-	icacls C:\Users\Fight3r06 /grant Fight3r06:F /T /C
+	}) >> C:\Users\Fighter06\Desktop\words.txt
+	icacls C:\Users\Fighter06 /grant Fighter06:F /T /C
 
-dsmod user "CN=Fight3r08,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "popeye"
-	Write-Output "The password for the next level is the name of the built-in cmdlet that performs the wget like function on a Windows system." -n > C:\Users\Fight3r08\Desktop\challenge.txt
-	Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/new.txt" -OutFile "C:\Users\Fight3r07\Desktop\new.txt"
-	Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/old.txt" -OutFile "C:\Users\Fight3r07\Desktop\old.txt"
-	icacls C:\Users\Fight3r07 /grant Fight3r07:F /T /C
+dsmod user "CN=Fighter08,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "popeye"
+	Write-Output "The password for the next level is the name of the built-in cmdlet that performs the wget like function on a Windows system." -n > C:\Users\Fighter08\Desktop\challenge.txt
+	Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/new.txt" -OutFile "C:\Users\Fighter07\Desktop\new.txt"
+	Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/old.txt" -OutFile "C:\Users\Fighter07\Desktop\old.txt"
+	icacls C:\Users\Fighter07 /grant Fighter07:F /T /C
 	
-dsmod user "CN=Fight3r09,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "invoke-webrequest"
-	Write-Output "The password for the next level is the last access time of the hosts file.  Note - format for the password is 2 digit month, 2 digit day, 2 digit year. Ex 5 jan 2015 would be 01/05/15." -n > C:\Users\Fight3r09\Desktop\challenge.txt
+dsmod user "CN=Fighter09,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "invoke-webrequest"
+	Write-Output "The password for the next level is the last access time of the hosts file.  Note - format for the password is 2 digit month, 2 digit day, 2 digit year. Ex 5 jan 2015 would be 01/05/15." -n > C:\Users\Fighter09\Desktop\challenge.txt
 	# no prep necessary
 
-dsmod user "CN=Fight3r10,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "$((get-date).AddYears(+3).AddDays(10).ToString("MM/dd/yy"))"
-	Write-Output "The password for the next level is the 21st line from the top in ASCII-sorted, descending order of the file on the desktop." -n > C:\Users\Fight3r10\Desktop\challenge.txt
+dsmod user "CN=Fighter10,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "$((get-date).AddYears(+3).AddDays(10).ToString("MM/dd/yy"))"
+	Write-Output "The password for the next level is the 21st line from the top in ASCII-sorted, descending order of the file on the desktop." -n > C:\Users\Fighter10\Desktop\challenge.txt
+	Write-Output "Note: Next Level Login - Paladin01" -n >> C:\Users\Fighter10\Desktop\challenge.txt
 	Function global:TimeStomp 
 	{
 	Param (
@@ -398,11 +400,12 @@ dsmod user "CN=Fight3r10,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "$((ge
 	TimeStomp C:\Windows\System32\drivers\etc\hosts
 
 dsmod user "CN=Paladin01,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "ZzZp"
-	Write-Output "The password for the next level is the date of which KB3191564 was installed on the server.  Note - format for the password is 2 digit month, 2 digit day, 4 digit year. Ex 5 jan 2015 would be 01/05/2015" -n > C:\Users\Paladin01\Desktop\challenge.txt
-	Copy-Item C:\Users\Fight3r06\Desktop\words.txt C:\Users\Fight3r10\Desktop\
-	icacls C:\Users\Fight3r10 /grant Fight3r10:F /T /C
+	Write-Output "The password for the next level is the date KB3200970 was installed on the server.  Note - format for the password is 2 digit month, 2 digit day, 4 digit year. Ex 5 jan 2015 would be 01/05/2015" -n > C:\Users\Paladin01\Desktop\challenge.txt
+	Copy-Item C:\Users\Fighter06\Desktop\words.txt C:\Users\Fighter10\Desktop\
+	icacls C:\Users\Fighter10 /grant Fighter10:F /T /C
 	
-dsmod user "CN=Paladin02,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$((((Get-HotFix –ID KB3200970 | select Installedon) -split ' ')[0] -split '=')[1])"
+#dsmod user "CN=Paladin02,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$((((Get-HotFix –ID KB3200970 | select Installedon) -split ' ')[0] -split '=')[1])"
+dsmod user "CN=Paladin02,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "11/21/2016"
 	Write-Output "The password for the next level is the SID of the current user. Example  S-1-5-21-1004336348-1177238915-[682003330]-1000" -n > C:\Users\Paladin02\Desktop\challenge.txt
 	
 dsmod user "CN=Paladin03,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(((wmic useraccount list brief | select-string 'Paladin02') -split '-')[6])"
@@ -470,6 +473,7 @@ dsmod user "CN=Paladin09,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "phi5h
 	
 dsmod user "CN=Paladin10,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "fortune_cookie" 
 	Write-Output "Challenge Hint - let it be logged ..  the password is somewhere on this system . ." -n > C:\Users\Paladin10\Desktop\challenge.txt
+	Write-Output "Note: Next Level Login - ??????" -n >> C:\Users\Paladin10\Desktop\challenge.txt
 	new-item -ItemType Directory "C:\Windows\PLA\not_china" -Force
 	new-item -ItemType File "C:\Windows\PLA\not_china\Fortune Cookie Crumb" -Force
 	Write-Output "find the hidden fortune cookie.s . . " -n > "C:\Windows\PLA\not_china\Fortune Cookie Crumb"
@@ -511,13 +515,14 @@ dsmod user "CN=Wizard03,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "d1rty_j
 	icacls C:\Windows\System32\Tasks\Microsoft\Windows\PowerShell\ScheduledJobs /grant Wizard02:M /T /C
 	
 attrib +h +s C:\Users\SYNmurai
-attrib +h +s C:\Users\M45T3R
-attrib +h +s C:\Users\C0deSling3r
-attrib +h +s C:\Users\Rang3r
+attrib +h +s C:\Users\MASTER
+attrib +h +s C:\Users\CodeSlinger
+attrib +h +s C:\Users\Ranger
 
 Remove-Item C:\windows\system32\setup1.ps1 -Force
 Remove-Item C:\windows\system32\reg.ps1 -Force
 Remove-Item C:\windows\system32\schd.ps1 -Force
 UnRegister-ScheduledJob -Name Paladin05
+icacls C:\Windows\System32\cleanup.ps1 /grant Everyone:F /T /C
 Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" -Name "cleanup" 'C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -noprofile -sta -File "C:\windows\system32\cleanup.ps1"'
 Restart-Computer
