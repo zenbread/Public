@@ -525,8 +525,8 @@ Remove-Item C:\windows\system32\schd.ps1 -Force
 UnRegister-ScheduledJob -Name Paladin05
 
 New-Item $PROFILE.AllUsersAllHosts -ItemType File -Force
-echo "$ProfileRoot = (Split-Path -Parent $MyInvocation.MyCommand.Path)" > C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1
-echo "$env:path += '$ProfileRoot'" >> C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1
+echo '$ProfileRoot = (Split-Path -Parent $MyInvocation.MyCommand.Path)' > C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1
+echo '$env:path += "$ProfileRoot"' >> C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1
 icacls C:\Windows\System32\start.ps1 /grant Everyone:F /T /C
 #Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" -Name "cleanup" 'C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -noprofile -sta -File "C:\windows\system32\start.ps1"'
 Restart-Computer
