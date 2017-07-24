@@ -78,7 +78,7 @@ icacls "C:\share\WARRIORS\Paladins" /grant Paladins:F /T /C
 icacls "C:\share\WARRIORS\Fighters" /grant Fighters:F /T /C
 icacls "C:\share\WARRIORS\Apprentices" /grant Apprentices:F /T /C
 
-#----- DISSABLES PASSWORDS COMPLEXITY REQ ---
+#----- DISABLES PASSWORD COMPLEXITY REQ AND ENABLES LOCAL LOGIN FOR USERS OTHER THAN ADMIN ---
 
 secedit /export /cfg c:\secpol.cfg
 (gc C:\secpol.cfg).replace("PasswordComplexity = 1", "PasswordComplexity = 0") | Out-File C:\secpol.cfg
@@ -173,7 +173,7 @@ foreach ($user in $users6) {
 }
 
 
-#----- Specific Files for each account/level/challenge .. modify domain user accounts with correct challenge "passwords"
+#----- Specific Files for each account/level/challenge .. modifies domain user accounts with correct challenge "passwords"
 
 
 dsmod user "CN=Apprentice01,OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors" -pwd "password"
