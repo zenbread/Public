@@ -15,5 +15,4 @@ Install-ADDSForest `
 -SysvolPath 'C:\Windows\SYSVOL' `
 -Force:$true
 Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" -name "setup2" 'C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -noprofile -sta -File "C:\windows\system32\setup2.ps1"'
-Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" -name "setup3" 'C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -noprofile -sta -File "C:\windows\system32\setup2.ps1"'
 Restart-Computer -Force
