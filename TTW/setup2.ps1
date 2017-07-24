@@ -495,8 +495,8 @@ dsmod user "CN=Wizard02,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd Top
 		
 dsmod user "CN=Wizard03,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd d1rty_j0b 
 	Write-Output "Congrats! You have reached the end of the exercise!" -n > C:\Users\Wizard03\Desktop\message.txt
-	echo "$B = (((wmic useraccount list brief | select-string "Wizard02") -split "\\")[1] -split " ")[0]" > C:\Windows\Resources\system.ps1
-	echo 'if ( $B -match ("Wizard02")) {write-output "PASSWORD:  d1rty_j0b" > C:\Users\Wizard02\Desktop\PASSWORD.txt}' >> C:\Windows\Resources\system.ps1
+	echo "$B = (((wmic useraccount list brief | select-string 'Wizard02') -split '\\')[1] -split ' ')[0]" > C:\Windows\Resources\system.ps1
+	echo "if ( $B -match ('Wizard02')) {write-output 'PASSWORD:  d1rty_j0b' > C:\Users\Wizard02\Desktop\PASSWORD.txt}" >> C:\Windows\Resources\system.ps1
 		
 	$username = army\Wizard02
 	$password = ConvertTo-SecureString -String Top -AsPlainText -Force
@@ -519,5 +519,5 @@ Remove-Item C:\windows\system32\setup1.ps1 -Force
 Remove-Item C:\windows\system32\reg.ps1 -Force
 Remove-Item C:\windows\system32\schd.ps1 -Force
 UnRegister-ScheduledJob -Name Paladin05
-Set-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce -Name "cleanup" C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -noprofile -sta -File "C:\windows\system32\cleanup.ps1"
+Set-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce -Name cleanup "C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -noprofile -sta -File C:\windows\system32\cleanup.ps1"
 Restart-Computer
