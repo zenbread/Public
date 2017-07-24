@@ -492,6 +492,3 @@ dsmod user "CN=Wizard01,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd 3v3nt_L0
 
 dsmod user "CN=Wizard02,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd Top 
 	Write-Output "Challenge Hint - It is a dirty job, but someone has gotta do it"	-n > C:\Users\Wizard02\Desktop\challenge.txt
-		
-dsmod user "CN=Wizard03,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd d1rty_j0b 
-	Write-Output "Congrats! You have reached the end of the exercise!" -n > C:\Users\Wizard03\Desktop\message.txt
