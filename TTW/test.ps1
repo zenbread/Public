@@ -509,15 +509,4 @@ dsmod user "CN=Wizard03,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd d1rty_j0
 	cp C:\Users\Administrator\AppData\Local\Microsoft\Windows\PowerShell\ScheduledJobs\RunMe  C:\Users\Wizard02\AppData\Local\Microsoft\Windows\PowerShell\ScheduledJobs\
 	icacls C:\Windows\System32\Tasks /grant Wizard02:RX /T /C
 	icacls C:\Windows\System32\Tasks\Microsoft\Windows\PowerShell\ScheduledJobs /grant Wizard02:M /T /C
-	
-attrib +h +s C:\Users\SYNmurai
-attrib +h +s C:\Users\M45T3R
-attrib +h +s C:\Users\C0deSling3r
-attrib +h +s C:\Users\Rang3r
 
-Remove-Item C:\windows\system32\setup1.ps1 -Force
-Remove-Item C:\windows\system32\reg.ps1 -Force
-Remove-Item C:\windows\system32\schd.ps1 -Force
-UnRegister-ScheduledJob -Name Paladin05
-Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" -Name "cleanup" 'C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -noprofile -sta -File "C:\windows\system32\cleanup.ps1"'
-Restart-Computer
