@@ -489,6 +489,3 @@ dsmod user "CN=Wizard01,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd 3v3nt_L0
 	Write-EventLog -LogName "Application" -Source "ESENT" -EntryType Information -EventId "326" -category 1 -Message "Congratulations! NO Password here!"
 	Write-EventLog -LogName "System" -Source "Service Control Manager" -EntryType Information -EventId "7036" -category 0 -Message "Congratulations!  you STILL HAVE NOT found the Password"
 	Write-EventLog -LogName "Application" -Source "ESENT" -EntryType Information -EventId "326" -category 1 -Message "The DNS Application Directory Partition DomainDnsZones.army.warriors was created. The distinguished name of the root of this Directory Partition is DC=DomainDnsZones,DC=army,DC=warriors ........................  the Password is: 3v3nt_L0g"
-
-dsmod user "CN=Wizard02,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd Top 
-	Write-Output "Challenge Hint - It is a dirty job, but someone has gotta do it"	-n > C:\Users\Wizard02\Desktop\challenge.txt
