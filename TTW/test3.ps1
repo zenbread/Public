@@ -467,20 +467,3 @@ dsmod user "CN=Paladin09,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd phi5hy
 	attrib -h C:\Windows\Web\WWW\200
 	Write-Output "Passsword: phi5hy" > "C:\Windows\Web\WWW\200"
 	attrib +h C:\Windows\Web\WWW\200
-	
-dsmod user "CN=Paladin10,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd fortune_cookie 
-	Write-Output "Challenge Hint - let it be logged ..  the password is somewhere on this system . ." -n > C:\Users\Paladin10\Desktop\challenge.txt
-	new-item -ItemType Directory "C:\Windows\PLA\not_china" -Force
-	new-item -ItemType File "C:\Windows\PLA\not_china\Fortune Cookie Crumb" -Force
-	Write-Output "find the hidden fortune cookie.s . . " -n > "C:\Windows\PLA\not_china\Fortune Cookie Crumb"
-	Add-Content -Path "C:\windows\PLA\not_china\The Fortune Cookie" -Value "Password:  fortune_cookie" -Stream "none"
-	Write-Output "The fortune you seek is inside the fortune cookie on this system." -n > "C:\Windows\PLA\not_china\The Fortune Cookie"
-	Write-Output "out to lunch .. check back in 5 min." -n  > C:\Windows\SysWOW64\Com\"fortune cookie.txt"
-	attrib +h "C:\Windows\SysWOW64\Com\fortune cookie.txt"
-	Write-Output "I cannot help you, for I am just a cookie." -n  > "C:\Windows\System32\Com\fortune cookie.txt"
-	attrib +h "C:\Windows\System32\Com\fortune cookie.txt"
-	Write-Output "only listen to The Fortune Cookie, and disregard all other fortune telling units." -n  > "C:\Users\Paladin09\Documents\fortune cookie.txt"
-	attrib +h "C:\Users\Paladin09\Documents\fortune cookie.txt"
-
-
-dsmod user "CN=Wizard01,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd 3v3nt_L0g
