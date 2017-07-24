@@ -424,22 +424,3 @@ dsmod user "CN=Paladin06,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd yes
 	$tr = New-JobTrigger -AtLogon -User army\Paladin05
 	$opts = New-ScheduledJobOption -HideInTaskScheduler -RunElevated -StartIfOnBattery -ContinueIfGoingOnBattery
 	Register-ScheduledJob -Name Paladin05 -FilePath  C:\windows\system32\schd.ps1 -ScheduledJobOption $opts -Trigger $tr		
-			
-dsmod user "CN=Paladin07,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd kung-fu
-	Write-Output "The password for the next level is hidden in the users profile." -n > C:\Users\Paladin07\Desktop\challenge.txt
-	# creates "password.txt" a smoke-screen
-	1..500 | % { Write-Output " i, Paladin06, will not try to take the easy way out again ." -n >> C:\Users\Paladin06\Documents\password.txt }
-	Write-Output "" >> C:\Users\Paladin06\Documents\password.txt
-	Write-Output " Sincerely," -n >> C:\Users\Paladin06\Documents\password.txt 
-	Write-Output " Paladin06" -n >> C:\Users\Paladin06\Documents\password.txt
-	Write-Output "" >> C:\Users\Paladin06\Documents\password.txt
-	# creates "Paladin1000.zip"
-	New-Item -ItemType Directory -Path C:\Users\Paladin06\Documents\archive
-	New-Item -ItemType File -Path C:\Users\Paladin06\Documents\Paladin1.txt
-	Write-Output "kung-fu" -n > C:\Users\Paladin06\Documents\Paladin1.txt
-	Compress-Archive -Path C:\Users\Paladin06\Documents\Paladin1.txt -DestinationPath C:\Users\Paladin06\Documents\Paladin1.zip; Remove-Item C:\Users\Paladin06\Documents\Paladin1.txt
-	for ($i=1; $i -lt 1001; $i = $i + 1) { 
-	Compress-Archive -Path C:\Users\Paladin06\Documents\Paladin*.zip -DestinationPath C:\Users\Paladin06\Documents\archive\Paladin$i.zip; Remove-Item C:\Users\Paladin06\Documents\Paladin*.zip; Move-Item C:\Users\Paladin06\Documents\archive\Paladin*.zip C:\Users\Paladin06\Documents\; 
-	}
-	Remove-Item C:\Users\Paladin06\Documents\archive -force
-	icacls C:\Users\Paladin06 /grant Paladin06:F /T /C
