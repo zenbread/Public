@@ -380,7 +380,7 @@ dsmod user "CN=Fight3r09,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd invoke
 	Write-Output "The password for the next level is the last access time of the hosts file.  Note - format for the password is 2 digit month, 2 digit day, 2 digit year. Ex 5 jan 2015 would be 01/05/15." -n > C:\Users\Fight3r09\Desktop\challenge.txt
 	# no prep necessary
 
-dsmod user "CN=Fight3r10,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd "$((get-date).AddYears(+3).AddDays(10).ToString("MM/dd/yy"))"
+dsmod user "CN=Fight3r10,OU=Fight3r,OU=WARRIORS,DC=army,DC=warriors" -pwd =$((get-date).AddYears(+3).AddDays(10).ToString("MM/dd/yy"))
 	Write-Output "The password for the next level is the 21st line from the top in ASCII-sorted, descending order of the file on the desktop." -n > C:\Users\Fight3r10\Desktop\challenge.txt
 	Function global:TimeStomp 
 	{
@@ -450,7 +450,7 @@ dsmod user "CN=Paladin08,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd P455W0
 	foreach ($FILE in $FILES) {
 		new-item -ItemType File -Path "C:\Users\Paladin07\Documents\$FILE" -Force
 	}
-	Add-Content -Path C:\Users\Paladin07\Documents\nothing_here -Value 'P455W0RD' -Stream 'hidden'	
+	Add-Content -Path C:\Users\Paladin07\Documents\nothing_here -Value P455W0RD -Stream hidden	
 	Write-Output "challenges from here on ... get bit more challenging" > C:\Users\Paladin07\Documents\NOTICE
 	icacls C:\Users\Paladin07 /grant Paladin07:F /T /C
 		
