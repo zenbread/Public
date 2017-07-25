@@ -287,7 +287,7 @@ dsmod user "CN=Fighter02,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "7566D
 	# no prep necessary
 
 dsmod user "CN=Fighter03,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "1"
-	Write-Output "The password for the next level is the number of words with 'az', in the word, in the file on the desktop." -n > C:\Users\Fighter03\Desktop\challenge.txt
+	Write-Output "The password for the next level is the number of times 'az' appears in the words.txt file on the desktop." -n > C:\Users\Fighter03\Desktop\challenge.txt
 	Write-Output "Hint: 'az', may appear more than one time in a word." -n >> C:\Users\Fighter03\Desktop\challenge.txt
 	$AA = [char[]]([char]'a'..[char]'z')
 	$BB = [char[]]([char]'a'..[char]'z')
@@ -323,12 +323,12 @@ dsmod user "CN=Fighter03,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "1"
 	icacls C:\Users\Fighter02\Desktop /grant Fighter02:F /T /C
 	
 dsmod user "CN=Fighter04,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "2081"
-	Write-Output "The password for the next level is the number of words with either 'a' OR 'z', in the word, in the file on the desktop." -n > C:\Users\Fighter04\Desktop\challenge.txt
+	Write-Output "The password for the next level is the number of words with either 'a' OR 'z', in the word, in the words.txt file on the desktop." -n > C:\Users\Fighter04\Desktop\challenge.txt
 	new-item -ItemType Directory -Path "C:\Users\Fighter02\Desktop" -Force
 	copy-item C:\Users\Fighter02\Desktop\words.txt C:\Users\Fighter03\Desktop\
 	icacls C:\Users\Fighter03 /grant Fighter03:F /T /C
 
-dsmod user "CN=Fighter05,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "144770"
+dsmod user "CN=Fighter05,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "129054"
 	Write-Output "The password for the next level is the number of words meeting the following criteria in the file on the desktop CRITERIA - 'a' appears at least twice, followed by either an a, b, c . .  OR g" -n > C:\Users\Fighter05\Desktop\challenge.txt
 	new-item -ItemType Directory -Path "C:\Users\Fighter02\Desktop" -Force
 	copy-item C:\Users\Fighter02\Desktop\words.txt C:\Users\Fighter04\Desktop\
