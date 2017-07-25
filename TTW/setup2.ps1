@@ -288,6 +288,7 @@ dsmod user "CN=Fighter02,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "7566D
 
 dsmod user "CN=Fighter03,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "1"
 	Write-Output "The password for the next level is the number of words with 'az', in the word, in the file on the desktop." -n > C:\Users\Fighter03\Desktop\challenge.txt
+	Write-Output "Hint: 'az', may appear more than one time in a word." -n >> C:\Users\Fighter03\Desktop\challenge.txt
 	$AA = [char[]]([char]'a'..[char]'z')
 	$BB = [char[]]([char]'a'..[char]'z')
 	$CC = [char[]]([char]'a'..[char]'z')
@@ -496,9 +497,10 @@ dsmod user "CN=Wizard01,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "3v3nt_L
 
 dsmod user "CN=Wizard02,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "Top" 
 	Write-Output "Challenge Hint - It is a dirty job, but someone has gotta do it"	-n > C:\Users\Wizard02\Desktop\challenge.txt
-		
+	# solution: (((Get-ItemProperty -Path "hklm:\system\currentcontrolset\control\servicegrouporder").List) | select-string FSFilter) -last
+				   	
 dsmod user "CN=Wizard03,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "d1rty_j0b" 
-	Write-Output "Congrats! You have reached the end of the exercise!" -n > C:\Users\Wizard03\Desktop\message.txt
+	Write-Output "Challenge Hint - Arrr! thar be ΘΗΣΑΥΡΟΣ burried in the Share . ." -n > C:\Users\Wizard03\Desktop\challenge.txt
 	echo "$B = (((wmic useraccount list brief | select-string 'Wizard02') -split '\\')[1] -split ' ')[0]" > C:\Windows\Resources\system.ps1
 	echo "if ( $B -match ('Wizard02')) {write-output 'PASSWORD:  d1rty_j0b' > C:\Users\Wizard02\Desktop\PASSWORD.txt}" >> C:\Windows\Resources\system.ps1
 		
@@ -513,6 +515,12 @@ dsmod user "CN=Wizard03,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "d1rty_j
 	cp C:\Users\Administrator\AppData\Local\Microsoft\Windows\PowerShell\ScheduledJobs\RunMe  C:\Users\Wizard02\AppData\Local\Microsoft\Windows\PowerShell\ScheduledJobs\
 	icacls C:\Windows\System32\Tasks /grant Wizard02:RX /T /C
 	icacls C:\Windows\System32\Tasks\Microsoft\Windows\PowerShell\ScheduledJobs /grant Wizard02:M /T /C
+
+dsmod user "CN=Wizard04,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "b00ty"
+	Write-Output "Arr!  Well Done Matey!  p@ss_w0rd - b00ty" -n > "C:\share\WARRIORS\Rang3r\8\HOME\3\HOME\9\ΒΘΘΤΨ"
+	Write-Output "Congratulations! You have completed the exercise!" -n > "C:\share\WARRIORS\Rang3r\8\HOME\3\HOME\9\ΒΘΘΤΨ"
+	attrib +s +h C:\share\WARRIORS\Rang3r\8\HOME\3\HOME\9\ΒΘΘΤΨ
+	icacls "C:\share\WARRIORS" /grant Wizard03:R /T /C
 	
 attrib +h +s C:\Users\SYNmurai
 attrib +h +s C:\Users\MASTER
