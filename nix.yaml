@@ -185,7 +185,7 @@ resources:
           params:
             lastname: { get_param: last_name }
       image: Windows 7
-      flavor: cy.medium
+      flavor: cy.large
       networks: 
         - port: { get_resource: host2-port }
       user_data: 
