@@ -123,11 +123,9 @@ resources:
             echo 127.0.0.1 $(hostname) >> /etc/hosts
             export DEBIAN_FRONTEND=noninteractive
             apt-get update
-            apt-get -y install locate dnsutils lsof aptitude ftp auditd telnet samba
+            apt-get -y install locate dnsutils lsof aptitude ftp auditd telnet samba git zip unzip figlet hexedit tree
             updatedb
             mandb
-            apt-get -y install figlet hexedit tree
-            apt-get -y install figlet hexedit tree
             wget goo.gl/eGEfnd -O /usr/share/misc/banner.sh
             chmod +x /usr/share/misc/banner.sh
             wget goo.gl/pZN4ED -O /usr/share/misc/check.pyc
