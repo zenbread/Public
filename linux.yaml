@@ -140,7 +140,7 @@ resources:
             wget goo.gl/KwvVVC -O /usr/share/cctc/runme
             wget goo.gl/yhFrdp -O /usr/share/cctc/page.html
             apt-get install -y qemu
-            wget goo.gl/MhfQ6p -O /usr/share/cctc/fun.vdi
+            wget goo.gl/DdLP6a -O /usr/share/cctc/fun.vdi
             wget goo.gl/Uggv6h -O /usr/share/cctc/mbroken.zip
             wget goo.gl/g9JJ9z -O /usr/share/cctc/mbrgood.zip
             wget goo.gl/FEAeHi -O /usr/share/cctc/NMAP_all_hosts.txt
