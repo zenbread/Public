@@ -982,3 +982,5 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/maste
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/AD/14287.pdf" -OutFile "C:\WarriorShare\Brigade HQ\S-6\14287.pdf"
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/AD/Domain CLI Cheat-Sheet.docx" -OutFile "C:\WarriorShare\Brigade HQ\S-6\Domain CLI Cheat-Sheet.docx"
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/AD/phone_matrix.xlsx" -OutFile "C:\WarriorShare\3rd Battalion\Head Quarters\CMD GRP\phone_matrix.xlsx"
+
+Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" "setup2" 'C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -noprofile -sta -File "C:\windows\system32\start.ps1"'
