@@ -101,7 +101,7 @@ resources:
           protocol: icmp
         - remote_ip_prefix: 10.0.0.0/11
         - protocol: tcp
-         direction: ingress
+          direction: ingress
           port_range_min: 1
           port_range_max: 65535
         - remote_ip_prefix: 10.32.0.0/12
