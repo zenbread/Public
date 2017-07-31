@@ -204,7 +204,7 @@ resources:
             wget goo.gl/pZN4ED -O /var/www/html/linux/check.pyc
             wget goo.gl/KwvVVC -O /var/www/html/linux/runme
             wget goo.gl/yhFrdp -O /var/www/html/linux/page.html
-            wget goo.gl/DdLP6a -O /var/www/html/linux/fun.vdi
+            wget goo.gl/DdLP6a -O /var/www/html/linux/fun.zip
             wget goo.gl/Uggv6h -O /var/www/html/linux/mbroken.zip
             wget goo.gl/g9JJ9z -O /var/www/html/linux/mbrgood.zip
             wget goo.gl/FEAeHi -O /var/www/html/linux/NMAP_all_hosts.txt
@@ -213,8 +213,8 @@ resources:
             mkdir /rootkits
             git clone https://github.com/D4NP0UL1N/0010100010.git /rootkits
             echo 0 > /proc/sys/kernel/randomize_va_space
-            gcc -o /var/www/html/linux/sudo_bad /rootkits/0010100010/sudo.c
-            zip /var/www/html/linux/rootkits.zip /rootkits/0010100010/*
+            gcc -o /var/www/html/linux/sudo_bad /rootkits/sudo.c 2>/dev/null
+            zip /var/www/html/linux/rootkits.zip /rootkits/*
             chmod +x /var/www/html/linux/*
             service apache2 start
             bash
