@@ -139,6 +139,7 @@ resources:
             New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\winlogon" -Name "DefaultPassword" -PropertyType String -Value 'ReallyStrongPassword!!'
             Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/AD/setup1.ps1" -OutFile "C:\windows\system32\setup1.ps1"
             Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/AD/setup2.ps1" -OutFile "C:\windows\system32\setup2.ps1"
+            Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/AD/start.ps1" -OutFile "C:\windows\system32\start.ps1"
             Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" "setup1" 'C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -noprofile -sta -File "C:\windows\system32\setup1.ps1"'
             exit 1001
           params:
