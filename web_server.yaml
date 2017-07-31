@@ -173,7 +173,7 @@ resources:
                 serverID: { get_param: server_id }
       port_security_enabled: false
 
-  host1:
+    host1:
     type: OS::Nova::Server
     properties:
       name:
