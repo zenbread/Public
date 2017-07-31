@@ -95,7 +95,7 @@ resources:
     type: OS::Neutron::SecurityGroup
     properties:
     description: Security group web_server rules
-      name: server_sec_group
+      name:
       rules:
         - remote_ip_prefix: 0.0.0.0/0
           protocol: icmp
