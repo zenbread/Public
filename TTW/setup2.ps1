@@ -182,7 +182,7 @@ dsmod user "CN=Apprentice01,OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors" -pwd 
 #Password Generation for Apprentice02
 	$PSVersionTable > C:\windows\system32\1.txt
 
-dsmod user "CN=Apprentice02,OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(((gc C:\windows\system32\1.txt | Select-String BuildVersion) -split " ")[19])"
+dsmod user "CN=Apprentice02,OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(((gc C:\windows\system32\1.txt | Select-String BuildVersion) -split ' ')[19])"
 	Write-Output "The password for the next level is the short name of the domain in which this server is a part of." -n > C:\Users\Apprentice02\Desktop\challenge.txt
 	
 dsmod user "CN=Apprentice03,OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors" -pwd "army"
