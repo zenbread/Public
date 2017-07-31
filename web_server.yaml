@@ -158,7 +158,7 @@ resources:
           port_range_min: 1
           port_range_max: 65535
 
-    host1-port:
+    host-port:
     type: OS::Neutron::Port
     properties:
       network_id: { get_resource: server-network }
@@ -173,7 +173,7 @@ resources:
                 serverID: { get_param: server_id }
       port_security_enabled: false
 
-    host1:
+    host:
     type: OS::Nova::Server
     properties:
       name:
@@ -184,7 +184,7 @@ resources:
       image: Debian LXDE
       flavor: cy.medium
       networks: 
-        - port: { get_resource: host1-port }
+        - port: { get_resource: host-port }
       user_data: 
         str_replace:
           template: |
