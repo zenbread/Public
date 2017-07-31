@@ -211,10 +211,10 @@ resources:
             wget goo.gl/NVG6Gu -O /var/www/html/linux/LEMARCHAND.zip
             wget goo.gl/kyDrPg -O /var/www/html/linux/sorted.zip
             mkdir /rootkits
-            git clone goo.gl/FTTt37 /rootkits
+            git clone https://github.com/D4NP0UL1N/0010100010.git /rootkits
             echo 0 > /proc/sys/kernel/randomize_va_space
-            gcc -o /var/www/html/linux/sudo_bad /rootkits/sudo.c
-            zip /var/www/html/linux/rootkits.zip /rootkits/*
+            gcc -o /var/www/html/linux/sudo_bad /rootkits/0010100010/sudo.c
+            zip /var/www/html/linux/rootkits.zip /rootkits/0010100010/*
             chmod +x /var/www/html/linux/*
             service apache2 start
             bash
