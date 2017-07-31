@@ -90,14 +90,14 @@ resources:
     properties:
       router_id: { get_resource: server-router }       
       subnet_id: { get_resource: server-subnet }
-	  
+  
   server_sec_group:
     type: OS::Neutron::SecurityGroup
     properties:
-	  description: Security group web_server rules
+      description: Security group web_server rules
       name: server_sec_group
       rules:
-	    - remote_ip_prefix: 10.0.0.0/11
+	- remote_ip_prefix: 10.0.0.0/11
         - protocol: tcp
           direction: ingress
           port_range_min: 1
