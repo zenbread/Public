@@ -1,0 +1,211 @@
+heat_template_version: 2016-10-14
+
+description: Heat Template for Instructor Linux Web_Server 
+
+parameters:
+
+  server_id:
+    type: string
+    label: Instructor ID
+    description: Instructor ID Number with No Leading Zeros
+
+  alias_name:
+    type: string
+    label: Alias Name
+    description: Alias Name
+    default:
+    constraints:
+      -  length: { min: 1, max: 15 }
+         description: Alias name must be no longer than 15 characters
+      -  allowed_pattern: "[a-zA-Z]*"
+         description: Alias name may only contain letters
+
+  password:
+    type: string
+    label: Password
+    description: Set root/admin password for instances
+    hidden: true
+    default: password
+    constraints:
+      -  length: { min: 8, max: 20 }
+         description: Password must be between 8 and 20 characters
+      -  allowed_pattern: "[a-zA-Z0-9]*"
+         description: Password may not contain special characters
+
+resources:
+
+  server-network:
+    type: OS::Neutron::Net
+    properties:
+      name:
+        str_replace:
+          template: aliasName_Network
+          params:
+            aliasName: { get_param: alias_name }
+
+  server-subnet:
+    type: OS::Neutron::Subnet
+    properties:
+      allocation_pools:
+        - start:
+            str_replace:
+              template: 10.serverID.0.200
+              params:
+                serverID: { get_param: server_id }
+          end:
+            str_replace:
+              template: 10.serverID.0.250
+              params:
+                serverID: { get_param: server_id }
+      cidr:
+        str_replace:
+          template: 10.serverID.0.0/24
+          params:
+            serverID: { get_param: server_id }
+      gateway_ip:
+        str_replace:
+          template: 10.serverID.0.254
+          params:
+            serverID: { get_param: server_id }
+      network: { get_resource: server-network }
+      dns_nameservers: [10.50.255.254]
+      name:
+        str_replace:
+          template: aliasname_subnet
+          params:
+            aliasname: { get_param: alias_name }
+
+  server-router:
+    type: OS::Neutron::Router    
+    properties:
+      name:
+        str_replace:
+          template: aliasname_router
+          params:
+            aliasname: { get_param: alias_name }
+      external_gateway_info: {"network": public}
+
+  server-router-interface:
+    type:  OS::Neutron::RouterInterface
+    properties:
+      router_id: { get_resource: server-router }       
+      subnet_id: { get_resource: server-subnet }
+	  
+  server_sec_group:
+    type: OS::Neutron::SecurityGroup
+    properties:
+	  description: Security group web_server rules
+      name: server_sec_group
+      rules:
+	    - remote_ip_prefix: 10.0.0.0/11
+        - protocol: tcp
+          direction: ingress
+          port_range_min: 1
+          port_range_max: 65535
+        - remote_ip_prefix: 10.32.0.0/12
+        - protocol: tcp
+          direction: ingress
+          port_range_min: 1
+          port_range_max: 65535
+        - remote_ip_prefix: 10.48.0.0/15
+        - protocol: tcp
+          direction: ingress
+          port_range_min: 1
+          port_range_max: 65535
+        - remote_ip_prefix: 10.50.0.0/20
+        - protocol: tcp
+          direction: ingress
+          port_range_min: 1
+          port_range_max: 65535
+        - remote_ip_prefix: 10.50.16.0/22
+        - protocol: tcp
+          direction: ingress
+          port_range_min: 1
+          port_range_max: 65535
+        - remote_ip_prefix: 192.168.0.0/13
+        - protocol: tcp
+          direction: ingress
+          port_range_min: 1
+          port_range_max: 65535
+        - remote_ip_prefix: 192.176.0.0/12
+        - protocol: tcp
+          direction: ingress
+          port_range_min: 1
+          port_range_max: 65535
+        - remote_ip_prefix: 192.192.0.0/14
+        - protocol: tcp
+          direction: ingress
+          port_range_min: 1
+          port_range_max: 65535
+        - remote_ip_prefix: 192.196.0.0/17
+        - protocol: tcp
+          direction: ingress
+          port_range_min: 1
+          port_range_max: 65535
+        - remote_ip_prefix: 192.196.128.0/18
+        - protocol: tcp
+          direction: ingress
+          port_range_min: 1
+          port_range_max: 65535
+        - remote_ip_prefix: 192.196.192.0/19
+        - protocol: tcp
+          direction: ingress
+          port_range_min: 1
+          port_range_max: 65535
+        - remote_ip_prefix: 192.196.224.0/20
+        - protocol: tcp
+          direction: ingress
+          port_range_min: 1
+          port_range_max: 65535
+		  
+    host1-port:
+    type: OS::Neutron::Port
+    properties:
+      network_id: { get_resource: server-network }
+	  security_groups:
+		- { get_resource: server_sec_group }
+      fixed_ips:
+        - subnet_id: { get_resource: server-subnet }
+          ip_address:
+            str_replace:
+              template: 10.serverID.0.1
+              params:
+                serverID: { get_param: server_id }
+      port_security_enabled: false
+
+  host1:
+    type: OS::Nova::Server
+    properties:
+      name:
+        str_replace:
+          template: instructor-Web-Server
+          params:
+            instructor: { get_param: alias_name }
+      image: Debian LXDE
+      flavor: cy.medium
+      networks: 
+        - port: { get_resource: host1-port }
+      user_data: 
+        str_replace:
+          template: |
+            #!/bin/bash
+            echo 127.0.0.1 $(hostname) >> /etc/hosts
+            echo 173.230.138.130 git.cybbh.space >> /etc/host
+            export DEBIAN_FRONTEND=noninteractive
+            apt-get update
+            apt-get upgrade
+            updatedb
+            mandb
+            bash
+            #User accounts
+            useradd $user -m -U -s /bin/bash
+            usermod -aG sudo $user
+            sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+            echo "root:$password" | chpasswd
+            echo "$user:$password" | chpasswd
+            reboot
+          params:
+            $user: { get_param: alias_name }
+            $password: { get_param: password }
+            $serverID: { get_param: server_id }
+      user_data_format: RAW
