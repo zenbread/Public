@@ -178,8 +178,11 @@ foreach ($user in $users6) {
 
 dsmod user "CN=Apprentice01,OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors" -pwd "password"
 	Write-Output "The password for the next level is the Powershell build version. Note - Please be sure to include all periods" -n > C:\Users\Apprentice01\Desktop\challenge.txt
-		
-dsmod user "CN=Apprentice02,OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(Write-Host $PSVersionTable.BuildVersion)"
+
+#Password Generation for Apprentice02
+	$PSVersionTable > C:\windows\system32\1.txt
+
+dsmod user "CN=Apprentice02,OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(((gc C:\windows\system32\1.txt | Select-String BuildVersion) -split " ")[19])"
 	Write-Output "The password for the next level is the short name of the domain in which this server is a part of." -n > C:\Users\Apprentice02\Desktop\challenge.txt
 	
 dsmod user "CN=Apprentice03,OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors" -pwd "army"
