@@ -97,65 +97,63 @@ resources:
       description: Security group web_server rules
       name: server_sec_group
       rules:
-        - remote_ip_prefix: 0.0.0.0/0
-        - protocol: icmp
         - remote_ip_prefix: 10.0.0.0/11
-        - protocol: tcp
+          protocol: tcp
           direction: ingress
           port_range_min: 1
           port_range_max: 65535
         - remote_ip_prefix: 10.32.0.0/12
-        - protocol: tcp
+          protocol: tcp
           direction: ingress
           port_range_min: 1
           port_range_max: 65535
         - remote_ip_prefix: 10.48.0.0/15
-        - protocol: tcp
+          protocol: tcp
           direction: ingress
           port_range_min: 1
           port_range_max: 65535
         - remote_ip_prefix: 10.50.0.0/20
-        - protocol: tcp
+          protocol: tcp
           direction: ingress
           port_range_min: 1
           port_range_max: 65535
         - remote_ip_prefix: 10.50.16.0/22
-        - protocol: tcp
+          protocol: tcp
           direction: ingress
           port_range_min: 1
           port_range_max: 65535
         - remote_ip_prefix: 192.168.0.0/13
-        - protocol: tcp
+          protocol: tcp
           direction: ingress
           port_range_min: 1
           port_range_max: 65535
         - remote_ip_prefix: 192.176.0.0/12
-        - protocol: tcp
+          protocol: tcp
           direction: ingress
           port_range_min: 1
           port_range_max: 65535
         - remote_ip_prefix: 192.192.0.0/14
-        - protocol: tcp
+          protocol: tcp
           direction: ingress
           port_range_min: 1
           port_range_max: 65535
         - remote_ip_prefix: 192.196.0.0/17
-        - protocol: tcp
+          protocol: tcp
           direction: ingress
           port_range_min: 1
           port_range_max: 65535
         - remote_ip_prefix: 192.196.128.0/18
-        - protocol: tcp
+          protocol: tcp
           direction: ingress
           port_range_min: 1
           port_range_max: 65535
         - remote_ip_prefix: 192.196.192.0/19
-        - protocol: tcp
+          protocol: tcp
           direction: ingress
           port_range_min: 1
           port_range_max: 65535
         - remote_ip_prefix: 192.196.224.0/20
-        - protocol: tcp
+          protocol: tcp
           direction: ingress
           port_range_min: 1
           port_range_max: 65535
