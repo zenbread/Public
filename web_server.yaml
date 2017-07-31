@@ -97,8 +97,6 @@ resources:
       description: Security group web_server rules
       name: server_sec_group
       rules:
-        - remote_ip_prefix: 0.0.0.0/0
-          protocol: icmp
         - remote_ip_prefix: 10.0.0.0/11
         - protocol: tcp
           direction: ingress
