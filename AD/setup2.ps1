@@ -298,10 +298,10 @@ dsadd user "CN=Raegan Lee,OU=S-6,OU=HQ,OU=3RDBN,OU=WARRIORS,DC=army,DC=warriors"
 #----- File Share Files -----
 # CMD GRP Military Humor & email & phone roster & CLI cheat sheet
 
-(new-object System.Net.WebClient).DownloadFile( 'http://10.50.20.28/scripts/lulz.pdf','C:\WarriorShare\Brigade HQ\CMD GRP\lulz.pdf' )
-(new-object System.Net.WebClient).DownloadFile( 'http://10.50.20.28/scripts/14287.pdf','C:\WarriorShare\Brigade HQ\S-6\14287.pdf' )
-(new-object System.Net.WebClient).DownloadFile( 'http://10.50.20.28/scripts/Domain CLI Cheat-Sheet.docx','C:\WarriorShare\Brigade HQ\S-6\Domain CLI Cheat-Sheet.docx' )
-(new-object System.Net.WebClient).DownloadFile( 'http://10.50.20.28/scripts/phone_matrix.xlsx','C:\WarriorShare\3rd Battalion\Head Quarters\CMD GRP\phone_matrix.xlsx' )
+#(new-object System.Net.WebClient).DownloadFile( 'https://raw.githubusercontent.com/D4NP0UL1N/Public/master/AD/lulz.pdf','C:\WarriorShare\Brigade HQ\CMD GRP\lulz.pdf' )
+#(new-object System.Net.WebClient).DownloadFile( 'https://raw.githubusercontent.com/D4NP0UL1N/Public/master/AD/14287.pdf','C:\WarriorShare\Brigade HQ\S-6\14287.pdf' )
+#(new-object System.Net.WebClient).DownloadFile( 'https://raw.githubusercontent.com/D4NP0UL1N/Public/master/AD/Domain CLI Cheat-Sheet.docx','C:\WarriorShare\Brigade HQ\S-6\Domain CLI Cheat-Sheet.docx' )
+#(new-object System.Net.WebClient).DownloadFile( 'https://raw.githubusercontent.com/D4NP0UL1N/Public/master/AD/phone_matrix.xlsx','C:\WarriorShare\3rd Battalion\Head Quarters\CMD GRP\phone_matrix.xlsx' )
 
 #----- 1st BN A Co Users -----
 dsadd user "CN=Elisabeth Carrillo,OU=CMD GRP,OU=ACO,OU=1STBN,OU=WARRIORS,DC=army,DC=warriors" -desc "Company CDR" -email "Elisabeth.Carrillo.mil@mail.mil" -tel 706-130-8367 -memberof "CN=Staff,CN=Users,DC=army,DC=warriors" "CN=CMD GRP,CN=Users,DC=army,DC=warriors" -pwd "SchrodingersCat!!" -mustchpwd no -canchpwd yes -pwdneverexpires no -acctexpires "180" -disabled no -reversiblepwd no 
