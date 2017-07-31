@@ -173,7 +173,7 @@ resources:
               template: 10.serverID.0.1
               params:
                 serverID: { get_param: server_id }
-      port_security_enabled: false
+      port_security_enabled: true
 
   host:
     type: OS::Nova::Server
