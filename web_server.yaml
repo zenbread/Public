@@ -157,13 +157,13 @@ resources:
           direction: ingress
           port_range_min: 1
           port_range_max: 65535
-		  
+
     host1-port:
     type: OS::Neutron::Port
     properties:
       network_id: { get_resource: server-network }
-	  security_groups:
-		- { get_resource: server_sec_group }
+      security_groups:
+        - { get_resource: server_sec_group }
       fixed_ips:
         - subnet_id: { get_resource: server-subnet }
           ip_address:
