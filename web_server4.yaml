@@ -196,8 +196,31 @@ resources:
             export DEBIAN_FRONTEND=noninteractive
             apt-get update
             apt-get upgrade
+            apt-get -y install locate dnsutils lsof aptitude ftp auditd telnet samba git zip unzip figlet hexedit tree qemu
             updatedb
             mandb
+            mkdir /var/www
+            wget goo.gl/eGEfnd -O /var/www/banner.sh
+            chmod +x /usr/share/misc/banner.sh
+            wget goo.gl/pZN4ED -O /var/www/check.pyc
+            chmod +x /usr/share/misc/check.pyc
+            cat > /var/www/check_script.sh << "__EOF__"
+            #!/bin/bash
+            /usr/bin/env python /var/www/check.pyc
+            __EOF__
+            chmod +x /usr/share/misc/check_script.sh
+            echo 'alias check="/var/www/check_script.sh"' >> /etc/bash.bashrc
+            wget goo.gl/KwvVVC -O /var/www/runme
+            wget goo.gl/yhFrdp -O /var/www/page.html
+            wget goo.gl/DdLP6a -O /var/www/fun.vdi
+            wget goo.gl/Uggv6h -O /var/www/mbroken.zip
+            wget goo.gl/g9JJ9z -O /var/www/mbrgood.zip
+            wget goo.gl/FEAeHi -O /var/www/NMAP_all_hosts.txt
+            wget goo.gl/NVG6Gu -O /var/www/LEMARCHAND.zip
+            wget goo.gl/kyDrPg -O /var/www/sorted.zip
+            mkdir /rootkits
+            git clone goo.gl/FTTt37 /rootkits
+            gcc /rootkits/sudo.c -o /rookits/sudo_bad
             bash
             #User accounts
             useradd $user -m -U -s /bin/bash
