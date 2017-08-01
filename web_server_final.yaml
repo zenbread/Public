@@ -180,7 +180,7 @@ resources:
             wget goo.gl/pZN4ED -O /var/www/html/linux/check.pyc
             wget goo.gl/KwvVVC -O /var/www/html/linux/runme
             wget goo.gl/yhFrdp -O /var/www/html/linux/page.html
-            wget goo.gl/DdLP6a -O /var/www/html/linux/fun.zip
+            wget goo.gl/5wG3gr -O /var/www/html/linux/fun.vdi
             wget goo.gl/Uggv6h -O /var/www/html/linux/mbroken.zip
             wget goo.gl/g9JJ9z -O /var/www/html/linux/mbrgood.zip
             wget goo.gl/FEAeHi -O /var/www/html/linux/NMAP_all_hosts.txt
