@@ -1,25 +1,24 @@
 heat_template_version: 2016-10-14
 
-description: Heat Template for Instructor Linux Web_Server 
+description: Linux Web_Server
+ 
 parameters:
+
   password:
     type: string
-    label: Password
-    description: Set root/admin password for instances
+    label: Root Password
+    description: root/admin password
+    default: Passw0rd
     hidden: true
-    default: password
-    constraints:
-      -  length: { min: 8, max: 20 }
-         description: Password must be between 8 and 20 characters
-      -  allowed_pattern: "[a-zA-Z0-9]*"
-         description: Password may not contain special characters
 
 resources:
+
   network0:
     type: OS::Neutron::Net
     properties:
       name: network0
       admin_state_up: true
+      
   subnet0:
     type: OS::Neutron::Subnet
     properties:
@@ -29,21 +28,24 @@ resources:
       cidr: 10.50.20.0/24
       gateway_ip: 10.50.20.1
       dns_nameservers: [10.50.255.254]
-      enable_dhcp: true
+      enable_dhcp: false
       name: subnet0
       network_id:
         get_resource: network0
+        
   external-router:
     type: OS::Neutron::Router    
     properties:
       name: external-router
       external_gateway_info: 
         network: public
+        
   external-router-interface:
     type:  OS::Neutron::RouterInterface
     properties:
       router_id: { get_resource: external-router }       
       subnet_id: { get_resource: subnet0 }
+      
   floatingIP-port:
     type: OS::Neutron::Port
     properties:
@@ -54,15 +56,18 @@ resources:
       fixed_ips:
         - subnet_id: { get_resource: subnet0 }
           ip_address: 10.50.20.25
+          
   floating_ip:
     type: OS::Neutron::FloatingIP
     properties:
       floating_network: public
+      
   floating_ip_association:
     type: OS::Neutron::FloatingIPAssociation
     properties:
       floatingip_id: { get_resource: floating_ip }
-      port_id: { get_resource: floatingIP-port }    
+      port_id: { get_resource: floatingIP-port }
+      
   Security_Group:
     type: OS::Neutron::SecurityGroup
     properties:
@@ -135,6 +140,7 @@ resources:
           direction: ingress
           port_range_min: 1
           port_range_max: 65535
+          
   host1:
     type: OS::Nova::Server
     properties:
