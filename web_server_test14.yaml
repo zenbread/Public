@@ -19,19 +19,19 @@ resources:
       name: network0
       admin_state_up: true
       
-  subnet0:
-    type: OS::Neutron::Subnet
-    properties:
-      allocation_pools:
-        - end: 10.50.20.25
-          start: 10.50.20.25
+  #subnet0:
+    #type: OS::Neutron::Subnet
+    #properties:
+      #allocation_pools:
+        #- end: 10.50.20.25
+          #start: 10.50.20.25
       #cidr: 10.50.20.25/32
       #gateway_ip: 10.50.255.250
-      dns_nameservers: [10.50.255.254]
-      enable_dhcp: false
-      name: subnet0
-      network_id:
-        get_resource: network0
+      #dns_nameservers: [10.50.255.254]
+      #enable_dhcp: false
+      #name: subnet0
+      #network_id:
+        #get_resource: network0
         
   external-router:
     type: OS::Neutron::Router    
