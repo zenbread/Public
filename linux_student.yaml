@@ -123,12 +123,12 @@ resources:
             echo 127.0.0.1 $(hostname) >> /etc/hosts
             export DEBIAN_FRONTEND=noninteractive
             apt-get update
-            apt-get -y install locate dnsutils lsof aptitude ftp auditd telnet samba git zip unzip figlet hexedit tree apache2 qemu
+            apt-get -y install locate dnsutils lsof aptitude ftp auditd telnet samba git zip unzip figlet hexedit tree apache2 qemu gcc tcc
             updatedb
             mandb
-            wget 10.50.21.49/linux/banner.sh -O /usr/share/misc/banner.sh
+            wget 10.50.22.26/linux/banner.sh -O /usr/share/misc/banner.sh
             chmod +x /usr/share/misc/banner.sh
-            wget 10.50.21.49/linux/check.pyc -O /usr/share/misc/check.pyc
+            wget 10.50.22.26/linux/check.pyc -O /usr/share/misc/check.pyc
             chmod +x /usr/share/misc/check.pyc
             cat > /usr/share/misc/check_script.sh << "__EOF__"
             #!/bin/bash
@@ -137,16 +137,16 @@ resources:
             chmod +x /usr/share/misc/check_script.sh
             echo 'alias check="/usr/share/misc/check_script.sh"' >> /etc/bash.bashrc
             mkdir /usr/share/cctc
-            wget 10.50.21.49/linux/runme -O /usr/share/cctc/runme
-            wget 10.50.21.49/linux/page.html -O /usr/share/cctc/page.html
-            wget 10.50.21.49/linux/fun.zip -O /usr/share/cctc/fun.zip
-            wget 10.50.21.49/linux/mbroken.zip -O /usr/share/cctc/mbroken.zip
-            wget 10.50.21.49/linux/mbrgood.zip -O /usr/share/cctc/mbrgood.zip
-            wget 10.50.21.49/linux/NMAP_all_hosts.txt -O /usr/share/cctc/NMAP_all_hosts.txt
-            wget 10.50.21.49/linux/LEMARCHAND.zip -O /usr/share/cctc/LEMARCHAND.zip
-            wget 10.50.21.49/linux/sorted.zip -O /usr/share/cctc/sorted.zip
-            wget 10.50.21.49/linux/rootkits.zip -O /usr/share/cctc/rootkits.zip
-            wget 10.50.21.49/linux/sudo_bad -O /usr/share/cctc/sudo_bad
+            wget 10.50.22.26/linux/runme -O /usr/share/cctc/runme
+            wget 10.50.22.26/linux/page.html -O /usr/share/cctc/page.html
+            wget 10.50.22.26/linux/fun.zip -O /usr/share/cctc/fun.zip
+            wget 10.50.22.26/linux/mbroken.zip -O /usr/share/cctc/mbroken.zip
+            wget 10.50.22.26/linux/mbrgood.zip -O /usr/share/cctc/mbrgood.zip
+            wget 10.50.22.26/linux/NMAP_all_hosts.txt -O /usr/share/cctc/NMAP_all_hosts.txt
+            wget 10.50.22.26/linux/LEMARCHAND.zip -O /usr/share/cctc/LEMARCHAND.zip
+            wget 10.50.22.26/linux/sorted.zip -O /usr/share/cctc/sorted.zip
+            wget 10.50.22.26/linux/rootkits.zip -O /usr/share/cctc/rootkits.zip
+            wget 10.50.22.26/linux/sudo_bad -O /usr/share/cctc/sudo_bad
             chmod +x /usr/share/cctc/*
             useradd $user -m -U -s /bin/bash
             usermod -aG sudo $user
