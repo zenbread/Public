@@ -56,7 +56,7 @@ resources:
         - get_resource: Security_Group
       fixed_ips:
         - subnet_id: { get_resource: subnet0 }
-          ip_address: 10.50.20.25
+          ip_address: 10.0.1.205
           
   floating_ip:
     type: OS::Neutron::FloatingIP
