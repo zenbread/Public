@@ -27,7 +27,7 @@ resources:
         - end: 10.0.1.253
           start: 10.0.1.200
       cidr: 10.0.1.0/24
-      gateway_ip: 10.0.1.201
+      gateway_ip: 10.0.1.254
       dns_nameservers: [10.50.255.254]
       enable_dhcp: false
       name: subnet0
