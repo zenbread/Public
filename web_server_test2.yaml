@@ -175,7 +175,7 @@ resources:
       fixed_ips:
         - subnet_id: { get_resource: server-subnet }
           ip_address: 10.50.20.25
-      serverID: { get_param: server_id }
+          serverID: { get_param: server_id }
       port_security_enabled: true
       
   host1:
