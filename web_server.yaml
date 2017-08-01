@@ -92,67 +92,12 @@ resources:
       rules:
         - remote_ip_prefix: 0.0.0.0/0
           protocol: icmp
-        - remote_ip_prefix: 10.0.0.0/11
+        - remote_ip_prefix: 0.0.0.0/0
           protocol: tcp
           direction: ingress
           port_range_min: 1
           port_range_max: 65535
-        - remote_ip_prefix: 10.32.0.0/12
-          protocol: tcp
-          direction: ingress
-          port_range_min: 1
-          port_range_max: 65535
-        - remote_ip_prefix: 10.48.0.0/15
-          protocol: tcp
-          direction: ingress
-          port_range_min: 1
-          port_range_max: 65535
-        - remote_ip_prefix: 10.50.0.0/20
-          protocol: tcp
-          direction: ingress
-          port_range_min: 1
-          port_range_max: 65535
-        - remote_ip_prefix: 10.50.16.0/22
-          protocol: tcp
-          direction: ingress
-          port_range_min: 1
-          port_range_max: 65535
-        - remote_ip_prefix: 192.168.0.0/13
-          protocol: tcp
-          direction: ingress
-          port_range_min: 1
-          port_range_max: 65535
-        - remote_ip_prefix: 192.176.0.0/12
-          protocol: tcp
-          direction: ingress
-          port_range_min: 1
-          port_range_max: 65535
-        - remote_ip_prefix: 192.192.0.0/14
-          protocol: tcp
-          direction: ingress
-          port_range_min: 1
-          port_range_max: 65535
-        - remote_ip_prefix: 192.196.0.0/17
-          protocol: tcp
-          direction: ingress
-          port_range_min: 1
-          port_range_max: 65535
-        - remote_ip_prefix: 192.196.128.0/18
-          protocol: tcp
-          direction: ingress
-          port_range_min: 1
-          port_range_max: 65535
-        - remote_ip_prefix: 192.196.192.0/19
-          protocol: tcp
-          direction: ingress
-          port_range_min: 1
-          port_range_max: 65535
-        - remote_ip_prefix: 192.196.224.0/20
-          protocol: tcp
-          direction: ingress
-          port_range_min: 1
-          port_range_max: 65535
-        - remote_ip_prefix: 10.60.0.2
+        
                     
   host1:
     type: OS::Nova::Server
@@ -186,6 +131,8 @@ resources:
             wget goo.gl/FEAeHi -O /var/www/html/linux/NMAP_all_hosts.txt
             wget goo.gl/NVG6Gu -O /var/www/html/linux/LEMARCHAND.zip
             wget goo.gl/kyDrPg -O /var/www/html/linux/sorted.zip
+            wget goo.gl/ijStVf -O /var/www/html/linux/PassCrack.zip
+            wget goo.gl/BXvDqT -O /var/www/html/linux/warriors.zip
             mkdir /rootkits
             git clone https://github.com/D4NP0UL1N/0010100010.git /rootkits
             echo 0 > /proc/sys/kernel/randomize_va_space
