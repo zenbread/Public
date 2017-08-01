@@ -139,7 +139,7 @@ resources:
             mkdir /usr/share/cctc
             wget 10.50.22.26/linux/runme -O /usr/share/cctc/runme
             wget 10.50.22.26/linux/page.html -O /usr/share/cctc/page.html
-            wget 10.50.22.26/linux/fun.zip -O /usr/share/cctc/fun.zip
+            wget 10.50.22.26/linux/fun.vdi -O /usr/share/cctc/fun.vdi
             wget 10.50.22.26/linux/mbroken.zip -O /usr/share/cctc/mbroken.zip
             wget 10.50.22.26/linux/mbrgood.zip -O /usr/share/cctc/mbrgood.zip
             wget 10.50.22.26/linux/NMAP_all_hosts.txt -O /usr/share/cctc/NMAP_all_hosts.txt
