@@ -4,12 +4,28 @@ description: Linux Web_Server
  
 parameters:
 
-  password:
+  server_name:
+    type: string
+    label: Server Name
+    description: Server Name
+    default:
+    constraints:
+      -  length: { min: 1, max: 15 }
+         description: Server name must be no longer than 15 characters
+      -  allowed_pattern: "[a-zA-Z]*"
+         description: Server name may only contain letters
+  
+  AdminPassword:
     type: string
     label: Root Password
-    description: root/admin password
-    default: Passw0rd
+    description: root and admin password
     hidden: true
+    default: password
+    constraints:
+      -  length: { min: 8, max: 20 }
+         description: Password must be between 8 and 20 characters
+      -  allowed_pattern: "[a-zA-Z0-9]*"
+         description: Password may not contain special characters
 
 resources:
 
@@ -24,10 +40,10 @@ resources:
     type: OS::Neutron::Subnet
     properties:
       allocation_pools:
-        - end: 10.0.1.253
-          start: 10.0.1.200
-      cidr: 10.0.1.0/24
-      gateway_ip: 10.0.1.254
+        - end: 10.60.0.253
+          start: 10.60.0.1
+      cidr: 10.60.0.0/24
+      gateway_ip: 10.60.0.252
       dns_nameservers: [10.50.255.254]
       enable_dhcp: false
       name: subnet0
@@ -56,7 +72,7 @@ resources:
         - get_resource: Security_Group
       fixed_ips:
         - subnet_id: { get_resource: subnet0 }
-          ip_address: 10.0.1.205
+          ip_address: 10.60.0.2
           
   floating_ip:
     type: OS::Neutron::FloatingIP
@@ -137,8 +153,8 @@ resources:
           port_range_min: 1
           port_range_max: 65535
         - remote_ip_prefix: 10.0.1.205
-          #port_range_min: 1
-          #port_range_max: 65535
+          port_range_min: 1
+          port_range_max: 65535
           
   host1:
     type: OS::Nova::Server
@@ -182,9 +198,12 @@ resources:
             bash
             #User accounts
             sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+            useradd $user -m -U -s /bin/bash
+            usermod -aG sudo $user
             echo "zeus:$password" | chpasswd
             echo "root:$password" | chpasswd
             reboot
           params:
-            $password: { get_param: password }
+            $user: { get_param: server_name }
+            $password: { get_param: AdminPassword }
       user_data_format: RAW
