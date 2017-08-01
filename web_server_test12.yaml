@@ -25,8 +25,8 @@ resources:
       allocation_pools:
         - end: 10.50.20.25
           start: 10.50.20.25
-      cidr: 10.50.0.0/16
-      gateway_ip: 10.50.255.250
+      cidr: 10.50.20.25/32
+      #gateway_ip: 10.50.255.250
       dns_nameservers: [10.50.255.254]
       enable_dhcp: false
       name: subnet0
