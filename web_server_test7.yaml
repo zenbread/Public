@@ -23,8 +23,8 @@ resources:
     type: OS::Neutron::Subnet
     properties:
       allocation_pools:
-        - end: 10.50.255.255
-          start: 10.50.0.0
+        - end: 10.50.255.253
+          start: 10.50.0.2
       cidr: 10.50.0.0/16
       gateway_ip: 10.50.20.1
       dns_nameservers: [10.50.255.254]
