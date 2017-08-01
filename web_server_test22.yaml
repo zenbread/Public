@@ -43,7 +43,7 @@ resources:
         - end: 10.60.0.253
           start: 10.60.0.1
       cidr: 10.60.0.0/24
-      gateway_ip: 10.60.0.252
+      gateway_ip: 10.60.0.254
       dns_nameservers: [10.50.255.254]
       enable_dhcp: false
       name: subnet0
