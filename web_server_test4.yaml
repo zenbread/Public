@@ -29,7 +29,7 @@ resources:
       cidr: 10.50.20.0/24
       gateway_ip: 10.50.20.1
       dns_nameservers: [10.50.255.254]
-      enable_dhcp: false
+      enable_dhcp: true
       name: subnet0
       network_id:
         get_resource: network0
