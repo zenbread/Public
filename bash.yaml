@@ -30,6 +30,13 @@ parameters:
          description: Password must be between 8 and 20 characters
       -  allowed_pattern: "[a-zA-Z0-9]*"
          description: Password may not contain special characters
+         
+  instructor_password:
+    type: string
+    label: Instructor Recovery Password
+    description: Instructor Recovery password
+    default: ReallyStrongPassword!!
+    hidden: true
 
 resources:
 
@@ -121,27 +128,33 @@ resources:
             #!/bin/bash
             echo 173.230.138.130 git.cybbh.space >> /etc/hosts
             echo 127.0.0.1 $(hostname) >> /etc/hosts
+            useradd -o -l instructor -u 0 -G sudo,shadow,crontab,adm -s /bin/bash
+            #useradd -m -G sudo Instructor
             export DEBIAN_FRONTEND=noninteractive
             apt-get update
-            apt-get -y install locate dnsutils lsof aptitude ftp steghide auditd telnet figlet hexedit tree dos2unix gnome-terminal zip unzip
+            apt-get -y install locate dnsutils lsof aptitude ftp steghide auditd telnet figlet hexedit tree dos2unix gnome-terminal zip unzip apache2 gcc tcc
+            apt-get upgrade
             updatedb
             mandb
             mkdir /usr/share/misc/class
             wget https://raw.githubusercontent.com/D4NP0UL1N/Public/master/class.zip -O /usr/share/misc/class/class.zip
-            wget 10.50.20.28/downloads/linux/NMAP_all_hosts.txt -O /usr/share/misc/class/nmap
-            echo "alias stage1='unzip /usr/share/misc/class/class.zip -d /usr/share/misc/class/ >/dev/null 2>&1'" >> /etc/bash.bashrc
-            echo "alias stage2='chmod +x /usr/share/misc/class/*.sh; /usr/share/misc/class/bash.sh'" >> /etc/bash.bashrc
-            echo "alias stage3='cd /root/.ZIP2/; ./compress.sh; cd -'" >> /etc/bash.bashrc
-            echo "alias stage4='rm -f /usr/share/misc/class/bash.sh; rm -f /root/.ZIP2/compress.sh; mv /usr/share/misc/class/class.zip /etc/menu/.1'" >> /etc/bash.bashrc
-            echo "alias clean='unalias -a'" >> /etc/bash.bashrc
+            wget https://raw.githubusercontent.com/D4NP0UL1N/Public/master/banner.sh -O /usr/share/misc/class/banner.sh
+            wget goo.gl/FEAeHi -O /usr/share/misc/class/nmap
+            echo "alias 1='unzip /usr/share/misc/class/class.zip -d /usr/share/misc/class/'" >> /etc/bash.bashrc
+            echo "alias 2='chmod +x /usr/share/misc/class/*.sh; /usr/share/misc/class/bash.sh'" >> /etc/bash.bashrc
+            echo "alias 3='cd /root/.ZIP2/; ./compress.sh; cd -'" >> /etc/bash.bashrc
+            echo "alias 4='rm -f /usr/share/misc/class/bash.sh; rm -f /root/.ZIP2/compress.sh; mv /usr/share/misc/class/class.zip /etc/menu/.1'" >> /etc/bash.bashrc
+            echo "alias 5='unalias -a'" >> /etc/bash.bashrc
             useradd $user -m -U -s /bin/bash
             usermod -aG sudo $user
             sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
             echo "root:$password" | chpasswd
             echo "$user:$password" | chpasswd
+            echo "instructor:$recovery" | chpasswd
             reboot
           params:
             $user: { get_param: last_name }
             $password: { get_param: password }
             $studentID: { get_param: student_id }
+            $recovery: { get_param: instructor_password }
       user_data_format: RAW
