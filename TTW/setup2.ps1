@@ -258,7 +258,6 @@ dsmod user "CN=Apprentice10,OU=Apprentice,OU=WARRIORS,DC=army,DC=warriors" -pwd 
 
 dsmod user "CN=Fighter01,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "5254"
 	Write-Output "The password for the next level is the last five digits of the MD5 hash of the hosts file." -n > C:\Users\Fighter01\Desktop\challenge.txt
-	new-item -ItemType Directory -Path "C:\Users\Apprentice10\Desktop" -Force
 	new-item -ItemType File -Path "C:\Users\Apprentice10\Desktop\words.txt" -Force
 	function global:GET-8LetterWord() {
 	[int32[]]$ArrayofAscii=26,97,26,65,10,48,15,33
