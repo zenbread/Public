@@ -124,11 +124,14 @@ resources:
             export DEBIAN_FRONTEND=noninteractive
             apt-get update
             apt-get -y install locate dnsutils lsof aptitude ftp auditd telnet samba git zip unzip figlet hexedit tree apache2 qemu gcc tcc
+            apt-get -y install build-essential libreadline-dev libssl-dev libpq5 libpq-dev libreadline5 libsqlite3-dev libpcap-dev git-core
+            apt-get -y install autoconf postgresql pgadmin3 curl zlib1g-dev libxml2-dev libxslt1-dev vncviewer libyaml-dev curl zlib1g-dev
+            apt-get -y install curl nmap wine python-setuptools python-dev build-essential hydra hydra-gtk john
             updatedb
             mandb
-            wget 10.50.22.26/linux/banner.sh -O /usr/share/misc/banner.sh
+            wget 10.50.21.22/linux/banner.sh -O /usr/share/misc/banner.sh
             chmod +x /usr/share/misc/banner.sh
-            wget 10.50.22.26/linux/check.pyc -O /usr/share/misc/check.pyc
+            wget 10.50.21.22/linux/check.pyc -O /usr/share/misc/check.pyc
             chmod +x /usr/share/misc/check.pyc
             cat > /usr/share/misc/check_script.sh << "__EOF__"
             #!/bin/bash
@@ -137,22 +140,114 @@ resources:
             chmod +x /usr/share/misc/check_script.sh
             echo 'alias check="/usr/share/misc/check_script.sh"' >> /etc/bash.bashrc
             mkdir /usr/share/cctc
-            wget 10.50.22.26/linux/runme -O /usr/share/cctc/runme
-            wget 10.50.22.26/linux/page.html -O /usr/share/cctc/page.html
-            wget 10.50.22.26/linux/fun.vdi -O /usr/share/cctc/fun.vdi
-            wget 10.50.22.26/linux/mbroken.zip -O /usr/share/cctc/mbroken.zip
-            wget 10.50.22.26/linux/mbrgood.zip -O /usr/share/cctc/mbrgood.zip
-            wget 10.50.22.26/linux/NMAP_all_hosts.txt -O /usr/share/cctc/NMAP_all_hosts.txt
-            wget 10.50.22.26/linux/LEMARCHAND.zip -O /usr/share/cctc/LEMARCHAND.zip
-            wget 10.50.22.26/linux/sorted.zip -O /usr/share/cctc/sorted.zip
-            wget 10.50.22.26/linux/rootkits.zip -O /usr/share/cctc/rootkits.zip
-            wget 10.50.22.26/linux/sudo_bad -O /usr/share/cctc/sudo_bad
+            wget 10.50.21.22/linux/runme -O /usr/share/cctc/runme
+            wget 10.50.21.22/linux/page.html -O /usr/share/cctc/page.html
+            wget 10.50.21.22/linux/fun.vdi -O /usr/share/cctc/fun.vdi
+            wget 10.50.21.22/linux/mbroken.zip -O /usr/share/cctc/mbroken.zip
+            wget 10.50.21.22/linux/mbrgood.zip -O /usr/share/cctc/mbrgood.zip
+            wget 10.50.21.22/linux/NMAP_all_hosts.txt -O /usr/share/cctc/NMAP_all_hosts.txt
+            wget 10.50.21.22/linux/LEMARCHAND.zip -O /usr/share/cctc/LEMARCHAND.zip
+            wget 10.50.21.22/linux/sorted.zip -O /usr/share/cctc/sorted.zip
+            wget 10.50.21.22/linux/rootkits.zip -O /usr/share/cctc/rootkits.zip
+            wget 10.50.21.22/linux/sudo_bad -O /usr/share/cctc/sudo_bad
+            wget 10.50.21.22/linux/PassCrack.zip -O /usr/share/cctc/PassCrack.zip
+            wget 10.50.21.22/linux/warriors.zip -O /usr/share/cctc/warriors.zip
             chmod +x /usr/share/cctc/*
             useradd $user -m -U -s /bin/bash
             usermod -aG sudo $user
             sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
             echo "root:$password" | chpasswd
             echo "$user:$password" | chpasswd
+            
+            #EXPLOITATION SETUP
+            
+            cat > /usr/share/misc/msf_install.sh << "__EOF__"
+            #!/bin/bash
+            cd /root/
+            git clone git://github.com/sstephenson/rbenv.git .rbenv
+            echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> /root/.bashrc
+            echo 'eval "$(rbenv init -)"' >> /root/.bashrc
+            exec $SHELL
+            git clone git://github.com/sstephenson/ruby-build.git /root/.rbenv/plugins/ruby-build
+            echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> /root/.bashrc
+            git clone git://github.com/dcarley/rbenv-sudo.git ~/.rbenv/plugins/rbenv-sudo
+            exec $SHELL
+            RUBYVERSION=$(wget https://raw.githubusercontent.com/rapid7/metasploit-framework/master/.ruby-version -q -O - )
+            rbenv install $RUBYVERSION
+            rbenv global $RUBYVERSION
+            cd /usr/share
+            sudo -s
+            su postgres
+            createuser temp -S -R -D
+            createdb -O temp temp
+            exit
+            cd /opt
+            sudo git clone https://github.com/rapid7/metasploit-framework.git
+            sudo chown -R $(whoami) /opt/metasploit-framework
+            cd metasploit-framework
+            gem install bundler
+            bundle install
+            sudo bash -c 'for MSF in $(ls msf*); do ln -s /opt/metasploit-framework/$MSF /usr/local/bin/$MSF;done'
+            touch /opt/metasploit-framework/config/database.yml
+            echo "production:">/opt/metasploit-framework/config/database.yml
+            echo " adapter: postgresql " >> /opt/metasploit-framework/config/database.yml
+            echo " database: temp " >> /opt/metasploit-framework/config/database.yml
+            echo " username: temp " >> /opt/metasploit-framework/config/database.yml
+            echo " password: password " >> /opt/metasploit-framework/config/database.yml
+            echo " host: 127.0.0.1 " >> /opt/metasploit-framework/config/database.yml
+            echo " port: 5432 " >> /opt/metasploit-framework/config/database.yml
+            echo " pool: 75 " >> /opt/metasploit-framework/config/database.yml
+            echo " timeout: 5 " >> /opt/metasploit-framework/config/database.yml
+            sudo sh -c "echo export MSF_DATABASE_CONFIG=/opt/metasploit-framework/config/database.yml >> /etc/profile"
+            source /etc/profile
+            service postgresql start
+            update-rc.d postgresql enable
+            bash
+            __EOF__
+            chmod +x /usr/share/misc/msf_install.sh
+            echo 'alias msf="/usr/share/misc/msf_install.sh"' >> /etc/bash.bashrc
+            
+            cat > /usr/share/misc/msf_patch.sh << "__EOF__"
+            # MSF SQL DATABASE PATCH
+            # Patch must be pasted manually into shell interface
+            cd /usr/share
+            sudo -s
+            su postgres
+            createuser msf -P -S -R -D
+
+            #paste code above this line FIRST (enter required password: Passw0rd)
+
+            createdb -O msf msf 
+            exit
+
+            echo "production:" > /opt/metasploit-framework/config/database.yml
+            echo " adapter: postgresql" >> /opt/metasploit-framework/config/database.yml
+            echo " database: msf " >> /opt/metasploit-framework/config/database.yml
+            echo " username: msf " >> /opt/metasploit-framework/config/database.yml
+            echo " password: Passw0rd" >> /opt/metasploit-framework/config/database.yml
+            echo " host: 127.0.0.1" >> /opt/metasploit-framework/config/database.yml
+            echo " port: 5432" >> /opt/metasploit-framework/config/database.yml
+            echo " pool: 75" >> /opt/metasploit-framework/config/database.yml
+            echo " timeout: 5" >> /opt/metasploit-framework/config/database.yml
+
+            sudo sh -c "echo export MSF_DATABASE_CONFIG=/opt/metasploit-framework/config/database.yml >> /etc/profile"
+            source /etc/profile
+            service postgresql start
+            update-rc.d postgresql enable
+            bash
+            __EOF__
+            
+            chmod +x /usr/share/misc/msf_patch.sh
+            echo 'alias patch="/usr/share/misc/msf_patch.sh"' >> /etc/bash.bashrc
+            source /etc/bash.bashrc
+            easy_install pip
+            pip install pefile capstone
+            git clone https://github.com/g0tmi1k/exe2hex.git /usr/share/exe2hex
+            git clone https://github.com/1aN0rmus/TekDefense-Automater.git /usr/share/automater
+            git clone https://github.com/secretsquirrel/the-backdoor-factory.git /usr/share/backdoor
+            git clone https://github.com/Veil-Framework/Veil.git /usr/share/veil
+            /usr/share/Veil/setup/setup.sh -c
+            git clone https://github.com/danielmiessler/SecLists.git /usr/share/seclists
             reboot
           params:
             $user: { get_param: last_name }
@@ -219,7 +314,7 @@ resources:
     properties:
       name:
         str_replace:
-          template: lastname-Debian-Backdoor-Target
+          template: lastname-Debian-Headless
           params:
             lastname: { get_param: last_name }
       image: Debian Stretch
