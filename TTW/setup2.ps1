@@ -374,8 +374,8 @@ dsmod user "CN=Fighter07,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "45697
 
 dsmod user "CN=Fighter08,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "popeye"
 	Write-Output "The password for the next level is the name of the built-in cmdlet that performs the wget like function on a Windows system." -n > C:\Users\Fighter08\Desktop\challenge.txt
-	Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/new.txt" -OutFile "C:\Users\Fighter07\Desktop\new.txt"
-	Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/old.txt" -OutFile "C:\Users\Fighter07\Desktop\old.txt"
+	Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/new.txt" -OutFile "C:\Users\Fighter07\Downloads\new.txt"
+	Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/old.txt" -OutFile "C:\Users\Fighter07\Downloads\old.txt"
 	icacls C:\Users\Fighter07 /grant Fighter07:F /T /C
 	
 dsmod user "CN=Fighter09,OU=Fighter,OU=WARRIORS,DC=army,DC=warriors" -pwd "invoke-webrequest"
