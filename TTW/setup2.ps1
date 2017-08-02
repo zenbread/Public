@@ -413,7 +413,7 @@ dsmod user "CN=Paladin03,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(((w
 	# no prep necessary
   
 dsmod user "CN=Paladin04,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "502"
-	Write-Output "The password for the next level is the SID of the only legitimate service. Example  S-1-5-80-159957745-2084983471-2137709666-960844832-[1182961511]" -n > C:\Users\Paladin04\Desktop\challenge.txt
+	Write-Output "The password for the next level is the SID of the only Totally-Legit service. Example  S-1-5-80-159957745-2084983471-2137709666-960844832-[1182961511]" -n > C:\Users\Paladin04\Desktop\challenge.txt
 	# no prep necessary
 	
 dsmod user "CN=Paladin05,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(((cmd.exe /c "sc showsid Legit") -split "-")[10])"
