@@ -54,17 +54,17 @@ resources:
             str_replace:
               template: 10.serverID.0.250
               params:
-                studentID: { get_param: server_id }
+                serverID: { get_param: server_id }
       cidr:
         str_replace:
           template: 10.serverID.0.0/24
           params:
-            studentID: { get_param: server_id }
+            serverID: { get_param: server_id }
       gateway_ip:
         str_replace:
           template: 10.serverID.0.254
           params:
-            studentID: { get_param: server_id }
+            serverID: { get_param: server_id }
       network: { get_resource: network0 }
       dns_nameservers: [10.50.255.254]
       name:
