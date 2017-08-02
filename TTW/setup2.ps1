@@ -516,7 +516,13 @@ dsmod user "CN=Wizard03,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "d1rty_j
 	icacls C:\Windows\System32\Tasks\Microsoft\Windows\PowerShell\ScheduledJobs /grant Wizard02:M /T /C
 
 dsmod user "CN=Wizard04,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "b00ty"
-	Write-Output "Arr!  Well Done Matey!  p@ss_w0rd - b00ty" -n > "C:\share\WARRIORS\Rang3r\8\HOME\3\HOME\9\ΒΘΘΤΨ"
+	Write-Output "Arrgh!  fools gold!  Blast!  " -n > "C:\share\WARRIORS\OSsassin\2\HOME\1\HOME\8\B00ty"
+	attrib +s +h C:\share\WARRIORS\OSsassin\2\HOME\1\HOME\8\B00ty
+	Write-Output "Arrgh!  just some old boot!  " -n > "C:\share\WARRIORS\SYNmurai\8\HOME\3\HOME\7\booty"
+	attrib +s +h C:\share\WARRIORS\SYNmurai\8\HOME\3\HOME\7\booty
+	Write-Output "Arrgh!  just some old boot!  " -n > "C:\share\WARRIORS\CodeSlinger\3\HOME\4\HOME\5\BOOTY"
+	attrib +s +h C:\share\WARRIORS\CodeSlinger\3\HOME\4\HOME\5\BOOTY
+	Write-Output "Arr!  Well Done Matey!  p@ss_w0rd - Gawld" -n > "C:\share\WARRIORS\Rang3r\8\HOME\3\HOME\9\ΒΘΘΤΨ"
 	Write-Output "Congratulations! You have completed the exercise!" -n > "C:\share\WARRIORS\Rang3r\8\HOME\3\HOME\9\ΒΘΘΤΨ"
 	attrib +s +h C:\share\WARRIORS\Rang3r\8\HOME\3\HOME\9\ΒΘΘΤΨ
 	icacls "C:\share\WARRIORS" /grant Wizard03:R /T /C
@@ -525,6 +531,15 @@ attrib +h +s C:\Users\SYNmurai
 attrib +h +s C:\Users\MASTER
 attrib +h +s C:\Users\CodeSlinger
 attrib +h +s C:\Users\Ranger
+attrib +h +s C:\Users\OSsassin
+attrib +h +s C:\Users\MASTER
+
+attrib +h +s C:\share\WARRIORS\SYNmurai
+attrib +h +s C:\share\WARRIORS\MASTER
+attrib +h +s C:\share\WARRIORS\CodeSlinger
+attrib +h +s C:\share\WARRIORS\Ranger
+attrib +h +s C:\share\WARRIORS\OSsassin
+attrib +h +s C:\share\WARRIORS\MASTER
 
 Remove-Item C:\windows\system32\setup1.ps1 -Force
 Remove-Item C:\windows\system32\reg.ps1 -Force
