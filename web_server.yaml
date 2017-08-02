@@ -4,6 +4,11 @@ description: Linux Web_Server
  
 parameters:
 
+  server_id:
+    type: string
+    label: Server ID
+    description: Server ID Number with No Leading Zeros
+
   server_name:
     type: string
     label: Server Name
@@ -20,7 +25,7 @@ parameters:
     label: Root Password
     description: root and admin password
     hidden: true
-    default: password
+    default: Passw0rd
     constraints:
       -  length: { min: 8, max: 20 }
          description: Password must be between 8 and 20 characters
@@ -40,73 +45,75 @@ resources:
     type: OS::Neutron::Subnet
     properties:
       allocation_pools:
-        - end: 10.60.0.253
-          start: 10.60.0.1
-      cidr: 10.60.0.0/24
-      gateway_ip: 10.60.0.254
+        - start:
+            str_replace:
+              template: 10.serverID.0.200
+              params:
+                serverID: { get_param: server_id }
+          end:
+            str_replace:
+              template: 10.serverID.0.250
+              params:
+                studentID: { get_param: server_id }
+      cidr:
+        str_replace:
+          template: 10.serverID.0.0/24
+          params:
+            studentID: { get_param: server_id }
+      gateway_ip:
+        str_replace:
+          template: 10.serverID.0.254
+          params:
+            studentID: { get_param: server_id }
+      network: { get_resource: network0 }
       dns_nameservers: [10.50.255.254]
-      enable_dhcp: true
-      name: subnet0
-      network_id:
-        get_resource: network0
+      name:
+        str_replace:
+          template: servername_subnet
+          params:
+            servername: { get_param: server_name }
         
-  external-router:
+  server-router:
     type: OS::Neutron::Router    
     properties:
-      name: external-router
-      external_gateway_info: 
-        network: public
+      name:
+        str_replace:
+          template: servername_router
+          params:
+            servername: { get_param: server_name }
+      external_gateway_info: {"network": public}
         
-  external-router-interface:
+  server-router-interface:
     type:  OS::Neutron::RouterInterface
     properties:
-      router_id: { get_resource: external-router }       
+      router_id: { get_resource: server-router }       
       subnet_id: { get_resource: subnet0 }
       
-  floatingIP-port:
+  host1-port:
     type: OS::Neutron::Port
     properties:
-      name: floatingIP-port
       network_id: { get_resource: network0 }
-      security_groups:
-        - get_resource: Security_Group
       fixed_ips:
         - subnet_id: { get_resource: subnet0 }
-          ip_address: 10.60.0.2
-          
-  floating_ip:
-    type: OS::Neutron::FloatingIP
-    properties:
-      floating_network: public
-      
-  floating_ip_association:
-    type: OS::Neutron::FloatingIPAssociation
-    properties:
-      floatingip_id: { get_resource: floating_ip }
-      port_id: { get_resource: floatingIP-port }
-      
-  Security_Group:
-    type: OS::Neutron::SecurityGroup
-    properties:
-      name: Security_Group
-      rules:
-        - remote_ip_prefix: 0.0.0.0/0
-          protocol: icmp
-        - remote_ip_prefix: 0.0.0.0/0
-          protocol: tcp
-          direction: ingress
-          port_range_min: 1
-          port_range_max: 65535
-        
-                    
+          ip_address:
+            str_replace:
+              template: 10.serverID.0.1
+              params:
+                serverID: { get_param: server_id }
+      port_security_enabled: false
+                     
   host1:
     type: OS::Nova::Server
     properties:
-      name: Linux Web Server
+      name:
+        str_replace:
+          template: servername_All_The_Things
+          params:
+            lastname: { get_param: server_name }
       image: Debian LXDE
       flavor: cy.medium
       networks: 
-        - port: { get_resource: floatingIP-port }
+        - port: { get_resource: host1-port }
       user_data: 
         str_replace:
           template: |
@@ -145,6 +152,7 @@ resources:
             sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
             useradd $user -m -U -s /bin/bash
             usermod -aG sudo $user
+            echo "$user:$password" | chpasswd
             echo "zeus:$password" | chpasswd
             echo "root:$password" | chpasswd
             reboot
