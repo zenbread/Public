@@ -134,8 +134,8 @@ resources:
             Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\winlogon" -Name "AutoAdminLogon" -PropertyType DWord -Value 1
             Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\winlogon" -Name "DefaultUserName" -PropertyType String -Value "Administrator"
             Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\winlogon" -Name "DefaultPassword" -PropertyType String -Value 'PassWord12345!!'
-            Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/setup1.ps1" -OutFile "C:\windows\system32\setup1.ps1"
-            Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/setup2.ps1" -OutFile "C:\windows\system32\setup2.ps1"
+            Invoke-WebRequest -Uri "https://raw.githubusercontent.com/zenbread/Public/master/TTW/setup1.ps1" -OutFile "C:\windows\system32\setup1.ps1"
+            Invoke-WebRequest -Uri "https://raw.githubusercontent.com/zenbread/Public/master/TTW/setup2.ps1" -OutFile "C:\windows\system32\setup2.ps1"
             Invoke-WebRequest -Uri "https://github.com/D4NP0UL1N/Public/blob/master/TTW/PsExec.exe?raw=true" -OutFile "C:\windows\system32\PsExec.exe"
             Invoke-WebRequest -Uri "https://raw.githubusercontent.com/D4NP0UL1N/Public/master/TTW/start.ps1" -OutFile "C:\windows\system32\WindowsPowerShell\V1.0\start.ps1"
             Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" -name "setup1" 'C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -noprofile -sta -File "C:\windows\system32\setup1.ps1"'
