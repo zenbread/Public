@@ -49,7 +49,7 @@ dsmod user "CN=Paladin05,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "$(((c
 	
 dsmod user "CN=Paladin06,OU=Paladin,OU=WARRIORS,DC=army,DC=warriors" -pwd "yes"
 	Write-Output "The password for the next level is in the zip file." -n > C:\Users\Paladin06\Desktop\challenge.txt
-	echo "$A = (((wmic useraccount list brief | slect-string 'Paladin05') -split "\\")[1] -split " ")[0]" > C:\windows\system32\schd.ps1
+	echo "$A = (((wmic useraccount list brief | select-string 'Paladin05') -split "\\")[1] -split " ")[0]" > C:\windows\system32\schd.ps1
 	echo "if ( $A -match ('Paladin05') ) { New-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run" -Name yes -Value "C:\Users\Paladin05\Desktop\no.exe" -PropertyType String | Out-Null}" >> C:\windows\system32\schd.ps1
 	$tr = New-JobTrigger -AtLogon -User army\Paladin05
 	$opts = New-ScheduledJobOption -HideInTaskScheduler -RunElevated -StartIfOnBattery -ContinueIfGoingOnBattery
@@ -179,7 +179,7 @@ Restart-Computer
 
 New-Item $PROFILE.AllUsersAllHosts -ItemType File -Force
 echo "$ProfileRoot = (Split-Path -Parent $MyInvocation.MyCommand.Path)" > "C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1"
-echo '$env:path += "$ProfileRoot"' >> "C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1"
+echo "$env:path += '$ProfileRoot'" >> "C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1"
 icacls C:\WINDOWS\system32\WindowsPowerShell\v1.0\start.ps1 /grant Everyone:F /T /C
 icacls C:\Windows\System32\setup2.ps1 /grant Everyone:F /T /C
 icacls C:\Windows\System32\PsExec.exe /grant Everyone:F /T /C
