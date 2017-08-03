@@ -524,7 +524,7 @@ dsmod user "CN=Wizard04,OU=Wizard,OU=WARRIORS,DC=army,DC=warriors" -pwd "b00ty"
 	attrib +s +h C:\share\WARRIORS\CodeSlinger\3\HOME\4\HOME\5\BOOTY
 	Write-Output "Arr!  Well Done Matey!  p@ss_w0rd - Gawld" -n > "C:\share\WARRIORS\Rang3r\8\HOME\3\HOME\9\ΒΘΘΤΨ"
 	Write-Output "Congratulations! You have completed the exercise!" -n > "C:\share\WARRIORS\Rang3r\8\HOME\3\HOME\9\ΒΘΘΤΨ"
-	attrib +s +h C:\share\WARRIORS\Rang3r\8\HOME\3\HOME\9\ΒΘΘΤΨ
+	attrib +s +h "C:\share\WARRIORS\Rang3r\8\HOME\3\HOME\9\ΒΘΘΤΨ"
 	icacls "C:\share\WARRIORS" /grant Wizard03:R /T /C
 	
 attrib +h +s C:\Users\SYNmurai
