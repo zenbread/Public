@@ -173,10 +173,6 @@ Remove-Item C:\windows\system32\reg.ps1 -Force
 Remove-Item C:\windows\system32\schd.ps1 -Force
 UnRegister-ScheduledJob -Name Paladin05
 
-
-Restart-Computer
-
-
 New-Item $PROFILE.AllUsersAllHosts -ItemType File -Force
 echo "$ProfileRoot = (Split-Path -Parent $MyInvocation.MyCommand.Path)" > "C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1"
 echo "$env:path += '$ProfileRoot'" >> C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1
